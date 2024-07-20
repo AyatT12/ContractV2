@@ -1113,8 +1113,8 @@ input[type=checkbox] {
 
     #discount-percentage,
     #addational-kilos,
-    #ddational-hours {
-        width: 100px;
+    #addational-hours {
+        width: 100%;
     }
 
 }
