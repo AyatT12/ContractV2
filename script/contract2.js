@@ -176,7 +176,7 @@ function TimerFunction(buttonId){
     }
     lastClickedButtonId = buttonId; 
     var display = document.querySelector('#timerDiv');
-    var timer = 90 , minutes, seconds;
+    var timer = 300 , minutes, seconds;
     interval =  setInterval(function () {
       minutes = parseInt(timer / 60, 10);
       seconds = parseInt(timer % 60, 10);
