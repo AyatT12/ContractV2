@@ -31,7 +31,15 @@ body {
 
 
 }
-
+.inputs:focus,
+.textarea-inputs:focus,
+.form-select-driver:focus,
+.form-control2:focus,
+.form-control1:focus,
+.form-select-last:focus {
+    box-shadow: none !important;
+    border: 2px solid #facd9c !important;
+}
 .inputs {
     resize: none;
     width: 100%;
@@ -1590,31 +1598,19 @@ fieldset:disabled .btn {
     border: 1px solid FF9626 !important;
 }
 
-.inputs-style {
+.inputs-style ,.select-style{
     border: 2px solid #faa64d;
     border-radius: 8px;
-}
+    font-size: .875rem;
 
-.inputs-style:focus {
-    box-shadow: none !important;
-    border: 2px solid #facd9c !important;
 
 }
 
-.select-style {
-    border: 2px solid #faa64d;
-    border-radius: 8px;
-}
-
-.select-style:focus {
+.inputs-style:focus ,.select-style:focus ,.version2-select:focus{
     box-shadow: none !important;
     border: 2px solid #facd9c !important;
 }
 
-.version2-select:focus {
-    box-shadow: none !important;
-    border: 2px solid #facd9c !important;
-}
 
 #country-code:focus {
     border: none !important;
