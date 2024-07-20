@@ -122,8 +122,8 @@ textarea {
 }
 
 input[type="date"] {
-    padding:5px 10px;
-  position: relative;
+    padding: 5px 10px;
+    position: relative;
     text-align: start;
 }
 
@@ -138,6 +138,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-bottom: var(--bs-modal-header-border-width) solid #ffffff;
     direction: ltr;
 }
+
 @media (max-width:767px) {
     .otc-row {
         margin-right: 0rem;
@@ -154,8 +155,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 
     .payment-dropdown-content {
-        right: 180px;
-        transform: translateX(90%);
+        top: 22px;
     }
 }
 
