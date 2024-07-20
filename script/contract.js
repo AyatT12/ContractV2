@@ -104,51 +104,43 @@ $(".previous").click(function () {
 //////////////////////////// tenant details ///////////////////////////////////////////////////////
 const image = document.getElementById("tenant-details");
 const dropdown = document.getElementById("dropdown-content");
-
+dropdown.style.display == "block"
 image.addEventListener("click", function(event) {
-  event.stopPropagation();
+if ( dropdown.style.display == "none"){
   dropdown.style.display = "block";
-});
-
-document.addEventListener("click", function() {
+}else{
   dropdown.style.display = "none";
-});
 
-dropdown.addEventListener("click", function(event) {
-  event.stopPropagation();
+}
 });
 //////////////////////////// driver details ///////////////////////////////////////////////////////
 const image2 = document.getElementById("driver-details");
 const dropdown2 = document.getElementById("driver-details-dropdown");
 
 image2.addEventListener("click", function(event) {
-  event.stopPropagation();
-  dropdown2.style.display = "block";
+  if ( dropdown2.style.display == "block"){
+    dropdown2.style.display = "none";
+  }else{
+    dropdown2.style.display = "block";
+  
+  }
 });
 
-document.addEventListener("click", function() {
-  dropdown2.style.display = "none";
-});
 
-dropdown2.addEventListener("click", function(event) {
-  event.stopPropagation();
-});
 //////////////////////////// aad driver details ///////////////////////////////////////////////////////
 const image3 = document.getElementById("add-driver-details");
 const dropdown3 = document.getElementById("add-Driver-dropdown");
 
 image3.addEventListener("click", function(event) {
-  event.stopPropagation();
-  dropdown3.style.display = "block";
+  if ( dropdown3.style.display == "none"){
+    dropdown3.style.display = "block";
+  }else{
+    dropdown3.style.display = "none";
+  
+  }
 });
 
-document.addEventListener("click", function() {
-  dropdown3.style.display = "none";
-});
 
-dropdown3.addEventListener("click", function(event) {
-  event.stopPropagation();
-});
 
 ///////////////////////////////////////////////the-Modal-6-digit-vaildation/////////////////////
 document.addEventListener("DOMContentLoaded", function () {
@@ -448,7 +440,6 @@ WriteSignature.addEventListener("click", function () {
   function handleTouchEnd() {
     drawing = false;
   }
-  // Clear the canvas
   function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
@@ -458,7 +449,6 @@ WriteSignature.addEventListener("click", function () {
   });
  
 });
- // Save the written signature as an image
  function SaveWrittenSignature() {
 	var canvas = document.getElementById("canvas");
     var dataURL = canvas.toDataURL();
