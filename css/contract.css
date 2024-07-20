@@ -1813,7 +1813,6 @@ fieldset:disabled .btn {
 
 @media (max-width: 991px) {
     .tenant-last-row-content {
-        flex-direction: column !important;
         align-items: start;
     }
 
