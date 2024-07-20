@@ -31,6 +31,7 @@ body {
 
 
 }
+
 .inputs:focus,
 .textarea-inputs:focus,
 .form-select-driver:focus,
@@ -40,6 +41,7 @@ body {
     box-shadow: none !important;
     border: 2px solid #facd9c !important;
 }
+
 .inputs {
     resize: none;
     width: 100%;
@@ -480,9 +482,11 @@ input[type="number"]:nth-child(n+4) {
     background-color: white;
     font-size: 0.75rem;
 }
-.dropdown-content p{
+
+.dropdown-content p {
     margin-bottom: .5rem;
 }
+
 .dropdown-content-row {
     flex-direction: row-reverse;
     padding: 0px 10px 0px 10px;
@@ -733,7 +737,7 @@ input[type=checkbox] {
 .scrollable-content {
     overflow-y: scroll;
     scrollbar-gutter: stable both-edges;
-    height:55vh;
+    height: 55vh;
     min-height: 450px;
 }
 
@@ -783,7 +787,7 @@ input[type=checkbox] {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #ff9626;
     --bs-gradient: none;
-    width:200px;
+    width: 200px;
     font-size: 16px;
     border-radius: 10px;
 }
@@ -1068,19 +1072,23 @@ input[type=checkbox] {
     margin: 5px;
     border-radius: 8px;
 }
+
 #tenant-details {
     cursor: pointer;
 }
+
 #driver-details {
     cursor: pointer;
 }
-#add-driver-details{
+
+#add-driver-details {
     cursor: pointer;
 
 }
+
 /* /////////////////////media for the seacrh icon list on mobiles///////////////////////// */
 @media (max-width:575px) {
- 
+
 
     .payment-dropdown-content {
         left: 180px;
@@ -1091,9 +1099,7 @@ input[type=checkbox] {
         padding: 5px;
     }
 
-    #payment-extra-details {
-        padding: 5px;
-    }
+
 }
 
 /* ****************media****************** */
@@ -1103,6 +1109,12 @@ input[type=checkbox] {
 
     .extra-small-mobile {
         display: none;
+    }
+
+    #discount-percentage,
+    #addational-kilos,
+    #ddational-hours {
+        width: 100px;
     }
 
 }
@@ -1301,7 +1313,7 @@ input[type=checkbox] {
     /* .car-catogeries {
         height: 500px;
     } */
-/* 
+    /* 
     .scrollable-content {
         height: 500px;
     } */
@@ -1600,7 +1612,8 @@ fieldset:disabled .btn {
     border: 1px solid FF9626 !important;
 }
 
-.inputs-style ,.select-style{
+.inputs-style,
+.select-style {
     border: 2px solid #faa64d;
     border-radius: 8px;
     font-size: .875rem;
@@ -1608,7 +1621,9 @@ fieldset:disabled .btn {
 
 }
 
-.inputs-style:focus ,.select-style:focus ,.version2-select:focus{
+.inputs-style:focus,
+.select-style:focus,
+.version2-select:focus {
     box-shadow: none !important;
     border: 2px solid #facd9c !important;
 }
@@ -1741,9 +1756,15 @@ fieldset:disabled .btn {
 .otc-row {
     margin-left: 3rem;
 }
-.carImg{
+
+.carImg {
     width: 90%;
 }
+
+.contract-value {
+    justify-content: end;
+}
+
 /****************** الفحص الفني ***************** */
 .car-container {
     position: relative;
@@ -1776,6 +1797,7 @@ fieldset:disabled .btn {
     background-color: #FF992E !important;
     color: white !important;
 }
+
 /* **************************************** */
 
 @media (max-width:540px) {
@@ -1792,12 +1814,21 @@ fieldset:disabled .btn {
     .otc-row {
         margin-left: 0rem;
     }
+
     .dropdown-content {
-        
+
         width: 245px;
         left: auto;
-        right: 50%;
+        right: 0%;
         transform: translateX(0%);
+    }
+
+    #payment-extra-details {
+        margin-bottom: 15px;
+    }
+
+    .payment-dropdown-content {
+        width: 205px;
     }
 }
 
@@ -1843,14 +1874,16 @@ fieldset:disabled .btn {
     text-align: right;
     min-width: 30%;
 }
+
 input[type="date"] {
-    padding:5px 10px;
+    padding: 5px 10px;
     position: relative;
     text-align: end;
-  }
-   input[type="date"]::-webkit-calendar-picker-indicator {
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
     display: block;
     left: 10px;
     position: absolute;
 
-  }
+}
