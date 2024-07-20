@@ -47,7 +47,14 @@ body{
 textarea{
     direction: ltr;
 }
-
+.CurrentReadingg_row{
+    text-align: end;
+}
+.DaysNoFixPaddin{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  version 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  */
 .AR-select {
     background-position: right .75rem center !important;
