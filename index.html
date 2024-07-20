@@ -15,8 +15,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Cairo:500,400,700" rel="stylesheet">
     <link href="css/contract.css" rel="styleSheet">
-<!--     <link href="css/english-style.css" rel="styleSheet">
-</head> -->
+    <!-- <link href="css/english-style.css" rel="styleSheet"> -->
+</head>
 
 <body id="page-top" style="background-color:rgba(254, 248, 232, 1);">
 
@@ -246,10 +246,10 @@
                                                                 <div class="col-auto seacrh-icon-col">
                                                                     <img src="img/seacrh-icon.png" alt="seacrh-icon Image"
                                                                         id="tenant-details">
-                                                                    <div class="dropdown-content" id="dropdown-content">
+                                                                    <div class="dropdown-content" id="dropdown-content" style="display: none;">
                                                                         <div class="row dropdown-content-row pt-2">
                                                                             <div class="col-7 ">
-                                                                                <p>اخر زيارة </p>
+                                                                                <p> اول زيارة </p>
                                                                             </div>
                                                                             <div class="col personal-data-dropdown">
                                                                                 <p>3/10/2020</p>
@@ -267,7 +267,7 @@
                                                                         </div>
                                                                         <div class="row dropdown-content-row">
                                                                             <div class="col-7 ">
-                                                                                <p> عدد العقود </p>
+                                                                                <p> العقود القائمة </p>
                                                                             </div>
                                                                             <div class="col personal-data-dropdown">
                                                                                 <p>5</p>
@@ -276,7 +276,16 @@
                                                                         </div>
                                                                         <div class="row dropdown-content-row">
                                                                             <div class="col-7 ">
-                                                                                <p> عدد ايام التأجير </p>
+                                                                                <p> العقود المغلقة </p>
+                                                                            </div>
+                                                                            <div class="col personal-data-dropdown">
+                                                                                <p>5</p>
+                                                                            </div>
+        
+                                                                        </div>
+                                                                        <div class="row dropdown-content-row">
+                                                                            <div class="col-7 ">
+                                                                                <p>  ايام التأجير </p>
                                                                             </div>
                                                                             <div class="col personal-data-dropdown">
                                                                                 <p>100</p>
@@ -285,7 +294,7 @@
                                                                         </div>
                                                                         <div class="row dropdown-content-row">
                                                                             <div class="col-7 ">
-                                                                                <p> الكبلات المقطوعة </p>
+                                                                                <p> الكيلوات المقطوعة </p>
                                                                             </div>
                                                                             <div class="col personal-data-dropdown">
                                                                                 <p>7.200</p>
@@ -297,7 +306,7 @@
                                                                                 <p> المبالغ المتداولة</p>
                                                                             </div>
                                                                             <div class="col personal-data-dropdown">
-                                                                                <p>92.500</p>
+                                                                                <p>9,517.81</p>
                                                                             </div>
         
                                                                         </div>
@@ -306,7 +315,25 @@
                                                                                 <p> الرصيد </p>
                                                                             </div>
                                                                             <div class="col personal-data-dropdown">
-                                                                                <p>-1.250</p>
+                                                                                <p>1.250</p>
+                                                                            </div>
+        
+                                                                        </div>
+                                                                        <div class="row dropdown-content-row">
+                                                                            <div class="col-7 ">
+                                                                                <p>  الرصيد المتاح</p>
+                                                                            </div>
+                                                                            <div class="col personal-data-dropdown">
+                                                                                <p>0.00</p>
+                                                                            </div>
+        
+                                                                        </div>
+                                                                        <div class="row dropdown-content-row">
+                                                                            <div class="col-7 ">
+                                                                                <p> الرصيد المحجوز</p>
+                                                                            </div>
+                                                                            <div class="col personal-data-dropdown">
+                                                                                <p>0.00</p>
                                                                             </div>
         
                                                                         </div>
@@ -321,19 +348,10 @@
                                                                         </div>
                                                                         <div class="row dropdown-content-row">
                                                                             <div class="col-7 ">
-                                                                                <p> آالية التعامل</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>جيد</p>
-                                                                            </div>
-        
-                                                                        </div>
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
                                                                                 <p> العوضية</p>
                                                                             </div>
                                                                             <div class="col personal-data-dropdown">
-                                                                                <p>ماسية</p>
+                                                                                <p>مشترك</p>
                                                                             </div>
         
                                                                         </div>
@@ -394,7 +412,7 @@
                                                                     <label for="EN-name-tenant" class="form-label">
                                                                         الاسم (انجليزي) </label>
                                                                     <input type="text" id="EN-name-tenant"
-                                                                        class="form-control inputs-style" name="EN-name-tenant">
+                                                                        class="form-control text-start inputs-style" name="EN-name-tenant">
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
                                                                     </div>
@@ -407,7 +425,7 @@
                                                                     <label for="nationality-tenant"
                                                                         class="form-label">الجنسية</label>
                                                                     <input type="text" id="nationality-tenant"
-                                                                        class="form-control text-end inputs-style" name="nationality-tenant">
+                                                                        class="form-control  inputs-style" name="nationality-tenant">
                                                                         <div id="autocomplete-Nationalities1" class="autocomplete-items "></div>
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
@@ -464,7 +482,7 @@
                                                                     <label for="tenant-workplace" class="form-label">
                                                                         جهة العمل</label>
                                                                     <input type="text" id="tenant-workplace"
-                                                                        class="form-control text-end inputs-style" name="tenant-workplace">
+                                                                        class="form-control  inputs-style" name="tenant-workplace">
                                                                         <div id="autocomplete-workplace1" class="autocomplete-items"></div>
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
@@ -477,7 +495,7 @@
                                                                         class="form-label">المنطقة
                                                                         / المدينة </label>
                                                                     <input type="text" id="Region-city-tenant"
-                                                                        class="form-control text-end inputs-style" name="Region-city-tenant">
+                                                                        class="form-control  inputs-style" name="Region-city-tenant">
                                                                     <div id="autocomplete-Cities1" class="autocomplete-items autocomplete-Cities"></div>
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
@@ -498,7 +516,7 @@
                                                                     <label for="EN-adress-tenant" class="form-label">
                                                                         العنوان (انجليزي) </label>
                                                                     <input type="text" id="EN-adress-tenant"
-                                                                        class="form-control inputs-style" name="EN-adress-tenant">
+                                                                        class="form-control inputs-style text-start" name="EN-adress-tenant">
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
                                                                     </div>
@@ -650,7 +668,7 @@
                                                                                             <div
                                                                                                 class="d-flex justify-content-center align-items-center h-100">
                                                                                                 <img src="img/cars/2020000006.png"
-                                                                                                    class="carImg w-100">
+                                                                                                    class="carImg ">
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-md-8">
@@ -1047,7 +1065,7 @@
                                                                                             <div
                                                                                                 class="d-flex justify-content-center align-items-center h-100">
                                                                                                 <img src="img/cars/2020000006.png"
-                                                                                                    class="carImg w-100">
+                                                                                                    class="carImg ">
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-md-8">
@@ -1444,7 +1462,404 @@
                                                                                             <div
                                                                                                 class="d-flex justify-content-center align-items-center h-100">
                                                                                                 <img src="img/cars/2020000006.png"
-                                                                                                    class="carImg w-100">
+                                                                                                    class="carImg ">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-8">
+                                                                                            <div class="row w-100">
+                                                                                                <div class="col">
+                                                                                                    <div
+                                                                                                        class="row car-data-row ">
+
+                                                                                                        <div
+                                                                                                            class="col-lg-6 car-data">
+                                                                                                            <p>1579634852
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto car-data">
+                                                                                                            <p>القراءة
+                                                                                                                الحالية:
+                                                                                                                ۱۰۱٥۰
+                                                                                                            </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div class="row">
+                                                                                                        <div
+                                                                                                            class="col car-data">
+                                                                                                            <P>فورد -
+                                                                                                                تورس -
+                                                                                                                ۲۰۱۹ -
+                                                                                                                سيدان
+                                                                                                                متوسطة -
+                                                                                                                أزرق -
+                                                                                                                9714
+                                                                                                                ق د ف
+                                                                                                            </P>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-data-row">
+                                                                                                        <div
+                                                                                                            class="col-lg-11 car-data">
+                                                                                                            <div
+                                                                                                                class="row ">
+                                                                                                                <div
+                                                                                                                    class="col">
+                                                                                                                    <div
+                                                                                                                        class="row justify-content-center align-items-center flex-nowrap ">
+                                                                                                                        <div
+                                                                                                                            class="col-auto">
+                                                                                                                            <img src="img/carDataIcons/Rectangle 93.svg"
+                                                                                                                                class="iconss">
+
+                                                                                                                        </div>
+
+                                                                                                                    </div>
+
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="col">
+                                                                                                                    <div
+                                                                                                                        class="row justify-content-center align-items-centerflex-nowrap ">
+                                                                                                                        <div
+                                                                                                                            class="col-auto">
+                                                                                                                            <img src="img/carDataIcons/Rectangle 143.svg"
+                                                                                                                                class="iconss">
+
+                                                                                                                        </div>
+
+                                                                                                                    </div>
+
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="col">
+                                                                                                                    <div
+                                                                                                                        class="row justify-content-center align-items-centerflex-nowrap ">
+                                                                                                                        <div
+                                                                                                                            class="col-auto">
+                                                                                                                            <img src="img/carDataIcons/Rectangle 95.svg"
+                                                                                                                                class="iconss">
+
+                                                                                                                        </div>
+                                                                                                                        <div
+                                                                                                                            class="col-auto p-0">
+                                                                                                                            <p>4
+                                                                                                                            </p>
+                                                                                                                        </div>
+                                                                                                                    </div>
+
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="col">
+                                                                                                                    <div
+                                                                                                                        class="row justify-content-center align-items-centerflex-nowrap ">
+                                                                                                                        <div
+                                                                                                                            class="col-auto">
+                                                                                                                            <img src="img/carDataIcons/Rectangle 96.svg"
+                                                                                                                                class="iconss">
+
+                                                                                                                        </div>
+                                                                                                                        <div
+                                                                                                                            class="col-auto p-0">
+                                                                                                                            <p>5
+                                                                                                                            </p>
+                                                                                                                        </div>
+                                                                                                                    </div>
+
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="col">
+                                                                                                                    <div
+                                                                                                                        class="row justify-content-center align-items-centerflex-nowrap ">
+                                                                                                                        <div
+                                                                                                                            class="col-auto">
+                                                                                                                            <img src="img/carDataIcons/Rectangle 97.svg"
+                                                                                                                                class="iconss">
+
+                                                                                                                        </div>
+                                                                                                                        <div
+                                                                                                                            class="col-auto p-0">
+                                                                                                                            <p>2
+                                                                                                                            </p>
+                                                                                                                        </div>
+                                                                                                                    </div>
+
+                                                                                                                </div>
+                                                                                                                <div
+                                                                                                                    class="col">
+                                                                                                                    <div
+                                                                                                                        class="row justify-content-center align-items-centerflex-nowrap ">
+                                                                                                                        <div
+                                                                                                                            class="col-auto">
+                                                                                                                            <img src="img/carDataIcons/Rectangle 98.svg"
+                                                                                                                                class="iconss">
+
+                                                                                                                        </div>
+                                                                                                                        <div
+                                                                                                                            class="col-auto p-0">
+                                                                                                                            <p>1
+                                                                                                                            </p>
+                                                                                                                        </div>
+                                                                                                                    </div>
+
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="col-xl-4">
+                                                                                    <div class="row flex-nowrap">
+
+                                                                                        <div
+                                                                                            class="col-auto text-center">
+                                                                                            <p>الشهري</p>
+                                                                                            <p>720</p>
+                                                                                            <div class="p-2 extra-details"
+                                                                                                title=" صيانة ">
+                                                                                                <img src="img/carDataIcons/Group (1).svg"
+                                                                                                    class="Avaliable-car-icondata">
+                                                                                                <div class="car-dropdown-content"
+                                                                                                    id="dropdown-content">
+
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col-12 titles ">
+                                                                                                            <p>  صيانة الإطارات 
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p>
+                                                                                                                قائم - (09/ 12 / 2026)
+
+                                                                                                            </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col-12 titles ">
+                                                                                                            <p> صيانة الفرامل الخلفية 
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p> 
+                                                                                                                قائم - (09/ 12 / 2026)
+
+                                                                                                            </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col-12 titles ">
+                                                                                                            <p> صيانة الفرامل الامامية
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p>                                                                                                           
+                                                                                                             قائم - (09/ 12 / 2026)
+                                                                                                            </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="col-auto text-center">
+                                                                                            <p>الأسبوعي</p>
+                                                                                            <p>168</p>
+                                                                                            <div class="p-2 extra-details"
+                                                                                                title=" وثائق ">
+                                                                                                <img src="img/carDataIcons/Group.svg"
+                                                                                                    class="Avaliable-car-icondata">
+                                                                                                <div
+                                                                                                    class="car-dropdown-content docs">
+
+
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col-12 titles ">
+                                                                                                            <p> رخصة
+                                                                                                                السير
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p>
+                                                                                                                قائم - (09/ 12 / 2026)
+                                                                                                            </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col-12 titles ">
+                                                                                                            <p> وثيقة
+                                                                                                                تأمين
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p>                                                                                                               
+                                                                                                                  قائم - (17/ 12 / 2026)
+                                                                                                            </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col-12 titles ">
+                                                                                                            <p> بطاقة
+                                                                                                                تشغيل
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p>  
+                                                                                                                قائم - (26/ 12 / 2026)
+                                                                                                            </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col-12 titles ">
+                                                                                                            <p> الفحص الدوري
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p>  
+                                                                                                                قائم - (09/ 12 / 2026)
+                                                                                                            </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                        <div
+                                                                                            class="col-auto text-center">
+                                                                                            <p>اليومي</p>
+                                                                                            <p>24</p>
+                                                                                            <div class="p-2 extra-details"
+                                                                                                title="بنود التأجير">
+                                                                                                <img src="img/carDataIcons/icon.svg"
+                                                                                                    class="Avaliable-car-icondata">
+                                                                                                <div
+                                                                                                    class="car-dropdown-content car-rent-data">
+
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col titles ">
+                                                                                                            <p> كليوات مجانية اليومية
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p> 200 </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col titles ">
+                                                                                                            <p> الساعات المجانية
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p> 2 </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col titles ">
+                                                                                                            <p> قيمة الكيلو الاضافي
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p> 0.42</p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="row car-dropdown-content-row pt-2">
+                                                                                                        <div
+                                                                                                            class="col titles ">
+                                                                                                            <p>قيمة الساعة الاضافية 
+                                                                                                            </p>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                            class="col-auto personal-data-dropdown">
+                                                                                                            <p> 25.00 </p>
+                                                                                                        </div>
+
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                    class="row car-dropdown-content-row pt-2">
+                                                                                                    <div
+                                                                                                        class="col titles ">
+                                                                                                        <p> العمر</p>
+                                                                                                        
+                                                                                                    </div>
+                                                                                                    <div
+                                                                                                        class="col-auto personal-data-dropdown">
+                                                                                                        <p>65 - 20 </p>
+                                                                                                    </div>
+
+                                                                                                </div>
+                                                                                                </div>
+                                                                                            </div>
+
+
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                    <tr >
+                                                                        <td>
+                                                                            <div class="row flex-row-reverse ">
+
+                                                                                <div class="col-xl-8 next" >
+                                                                                    <div
+                                                                                        class="row flex-row-reverse car-img-data">
+                                                                                        <div class="col-md-4">
+                                                                                            <div
+                                                                                                class="d-flex justify-content-center align-items-center h-100">
+                                                                                                <img src="img/cars/2020000006.png"
+                                                                                                    class="carImg ">
                                                                                             </div>
                                                                                         </div>
                                                                                         <div class="col-md-8">
@@ -1866,7 +2281,7 @@
                                                                 <div class="col-auto seacrh-icon-col">
                                                                     <img src="img/seacrh-icon.png" alt="seacrh-icon Image"
                                                                         id="driver-details">
-                                                                    <div class="dropdown-content" id="driver-details-dropdown">
+                                                                    <div class="dropdown-content" id="driver-details-dropdown" style="display: none;">
                                                                         <div class="row dropdown-content-row pt-2">
                                                                             <div class="col-7 ">
                                                                                 <p>اخر زيارة </p>
@@ -2014,7 +2429,7 @@
                                                                     <label for="EN-name-driver" class="form-label">
                                                                         الاسم (انجليزي) </label>
                                                                     <input type="text" id="EN-name-driver"
-                                                                        class="form-control inputs-style" name="EN-name-driver">
+                                                                        class="form-control inputs-style text-start" name="EN-name-driver">
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
                                                                     </div>
@@ -2027,7 +2442,7 @@
                                                                     <label for="nationality-driver"
                                                                         class="form-label">الجنسية</label>
                                                                     <input type="text" id="nationality-driver"
-                                                                        class="form-control text-end inputs-style" name="nationality-driver">
+                                                                        class="form-control inputs-style" name="nationality-driver">
                                                                         <div id="autocomplete-Nationalities2" class="autocomplete-items"></div>
 
                                                                     <div class="row requird-field-row">
@@ -2084,7 +2499,7 @@
                                                                     <label for="driver-workPlace" class="form-label">
                                                                         جهة العمل </label>
                                                                     <input type="text" id="driver-workPlace" name="driver-workPlace"
-                                                                        class="form-control text-end inputs-style">
+                                                                        class="form-control  inputs-style">
                                                                         <div id="autocomplete-workplace2" class="autocomplete-items"></div>
 
                                                                     <div class="row requird-field-row">
@@ -2097,7 +2512,7 @@
                                                                     <label for="Region-city-driver"
                                                                         class="form-label">المنطقة / المدينة </label>
                                                                     <input type="text" id="Region-city-driver" name="Region-city-driver"
-                                                                        class="form-control text-end inputs-style">
+                                                                        class="form-control  inputs-style">
                                                                         <div id="autocomplete-Cities2" class="autocomplete-items autocomplete-Cities"></div>
 
                                                                     <div class="row requird-field-row">
@@ -2119,7 +2534,7 @@
                                                                     <label for="EN-adress-driver" class="form-label">
                                                                         العنوان (انجليزي) </label>
                                                                     <input type="text" id="EN-adress-driver"  name="EN-adress-driver"
-                                                                        class="form-control inputs-style">
+                                                                        class="form-control inputs-style text-start">
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
                                                                     </div>
@@ -2245,7 +2660,7 @@
                                                                 <div class="col-auto seacrh-icon-col">
                                                                     <img src="img/seacrh-icon.png" alt="seacrh-icon Image"
                                                                         id="add-driver-details">
-                                                                    <div class="dropdown-content" id="add-Driver-dropdown">
+                                                                    <div class="dropdown-content" id="add-Driver-dropdown" style="display: none;">
                                                                         <div class="row dropdown-content-row pt-2">
                                                                             <div class="col-7 ">
                                                                                 <p>اخر زيارة </p>
@@ -2395,7 +2810,7 @@
                                                                     <label for="EN-name-AddDriver" class="form-label">
                                                                         الاسم (انجليزي) </label>
                                                                     <input type="text" id="EN-name-AddDriver" name="EN-name-AddDriver"
-                                                                        class="form-control inputs-style">
+                                                                        class="form-control inputs-style text-start">
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
                                                                     </div>
@@ -2409,7 +2824,7 @@
                                                                     <label for="nationality-Add-driver"
                                                                         class="form-label">الجنسية</label>
                                                                     <input type="text" id="nationality-Add-driver" name="nationality-Add-driver"
-                                                                        class="form-control text-end inputs-style">
+                                                                        class="form-control inputs-style">
                                                                         <div id="autocomplete-Nationalities3" class="autocomplete-items "></div>
 
                                                                     <div class="row requird-field-row">
@@ -2468,7 +2883,7 @@
                                                                     <label for="Add-driver-workPlace"
                                                                         class="form-label"> جهة العمل </label>
                                                                     <input type="text" id="Add-driver-workPlace"  name="Add-driver-workPlace"
-                                                                        class="form-control text-end inputs-style">
+                                                                        class="form-control  inputs-style">
                                                                         <div id="autocomplete-workplace3" class="autocomplete-items"></div>
 
                                                                     <div class="row requird-field-row">
@@ -2481,7 +2896,7 @@
                                                                     <label for="Region-city-Add-driver"
                                                                         class="form-label">المنطقة / المدينة </label>
                                                                     <input type="text" id="Region-city-Add-driver" name="Region-city-Add-driver"
-                                                                        class="form-control text-end inputs-style">
+                                                                        class="form-control  inputs-style">
                                                                         <div id="autocomplete-Cities3" class="autocomplete-items autocomplete-Cities"></div>
 
                                                                     <div class="row requird-field-row">
@@ -2504,7 +2919,7 @@
                                                                     <label for="EN-adress-Add-driver"
                                                                         class="form-label">
                                                                         العنوان (انجليزي) </label>
-                                                                    <input type="text" id="EN-adress-Add-driver" name="EN-adress-Add-driver"
+                                                                    <input type="text" id="EN-adress-Add-driver text-start" name="EN-adress-Add-driver"
                                                                         class="form-control inputs-style">
                                                                     <div class="row requird-field-row">
                                                                         <p class="requird-field">هذا الحقل مطلوب</p>
@@ -3372,7 +3787,7 @@
                                                                     alt="icon button to display more data"
                                                                     id="payment-extra-details">
                                                                 <div class="dropdown-content payment-dropdown-content"
-                                                                    id="dropdown-content-payment">
+                                                                    id="dropdown-content-payment" style="display: none;">
                                                                     <div class="data-container">
                                                                         <div class="row car-dropdown-content-row">
                                                                             <div class="col-auto ">
@@ -3448,7 +3863,7 @@
 
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse align-items-baseline">
+                                                    <div class="row flex-row-reverse align-items-baseline g-2">
                                                         <div
                                                             class="col-md-6 col-lg-4 d-flex payment-col align-items-baseline">
 
@@ -3548,7 +3963,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse">
+                                                    <div class="row flex-row-reverse g-2">
                                                         <div class="col-md-6 col-lg-4 d-flex payment-col">
                                                             <div class="col-auto">
                                                                 <label id="amount-paid" for="amount-paid-input">
@@ -3756,8 +4171,8 @@
                                                         maxlength="1" value="" inputtype="numeric" id="otc-6"
                                                         name="otc-6" required>
                                                 </div>
-                                                <p class="modal-title w-100 my-2" style="font-size: .7rem;">رمز التحقق
-                                                    تنتهي صلاحيته بعد <span id="timerDiv">01:30</span>
+                                                <p class="modal-title w-100 my-2" style="font-size: .7rem;">
+                                                    تنتهي صلاحيته بعد <span id="timerDiv">05:00</span>
                                                 </p>
                                                </div>
 
