@@ -28,16 +28,10 @@ body {
     border: 2px solid #faa64d;
     height: 32px;
     font-size: .875rem;
+
+
 }
-.inputs:focus,
-.textarea-inputs:focus,
-.form-select-driver:focus,
-.form-control2:focus,
-.form-control1:focus,
-.form-select-last:focus {
-    border: 2px solid #facd9c !important;
-    box-shadow: none !important;
-}
+
 .inputs {
     resize: none;
     width: 100%;
@@ -49,9 +43,12 @@ body {
     /* min-height: calc(3em + 0.75rem + calc(var(--bs-border-width)* 2)) !important; */
 }
 
-
+.form-select-driver {
+    /* border-top: none; */
+}
 
 .form-select-last {
+    /* border-top: none; */
     width: 100%;
 }
 
@@ -62,7 +59,6 @@ body {
     text-align: center;
     padding: 1px;
 }
-
 
 .form-control2 {
     width: 92px;
@@ -729,6 +725,7 @@ input[type=checkbox] {
 .scrollable-content {
     overflow-y: scroll;
     scrollbar-gutter: stable both-edges;
+    height:55vh;
     min-height: 450px;
 }
 
@@ -1207,9 +1204,9 @@ input[type=checkbox] {
         height: 420px;
     } */
 
-    .scrollable-content {
+    /* .scrollable-content {
         height: 420px;
-    }
+    } */
 }
 
 @media (min-height: 810px) {
@@ -1230,9 +1227,9 @@ input[type=checkbox] {
         height: 430px;
     } */
 
-    .scrollable-content {
+    /* .scrollable-content {
         height: 430px;
-    }
+    } */
 }
 
 @media (min-height: 890px) {
@@ -1596,8 +1593,6 @@ fieldset:disabled .btn {
 .inputs-style {
     border: 2px solid #faa64d;
     border-radius: 8px;
-    font-size: .875rem;
-
 }
 
 .inputs-style:focus {
@@ -1609,8 +1604,6 @@ fieldset:disabled .btn {
 .select-style {
     border: 2px solid #faa64d;
     border-radius: 8px;
-    font-size: .875rem;
-
 }
 
 .select-style:focus {
@@ -1625,8 +1618,6 @@ fieldset:disabled .btn {
 
 #country-code:focus {
     border: none !important;
-    font-size: .875rem;
-
 }
 
 .table-select-style {
@@ -1634,14 +1625,12 @@ fieldset:disabled .btn {
     border-radius: 8px;
     direction: rtl;
     font-size: .875rem;
-
 }
 
 .table-select-style:focus {
     box-shadow: none !important;
     border: 2px solid #facd9c !important;
 }
-
 
 .tenant-last-row-content {
     align-items: center;
@@ -1813,6 +1802,7 @@ fieldset:disabled .btn {
 
 @media (max-width: 991px) {
     .tenant-last-row-content {
+        flex-direction: column !important;
         align-items: start;
     }
 
