@@ -45,7 +45,6 @@ $(".next").click(function () {
             next_fs = $(this).closest("fieldset").next().next();
         }
     }
-    // if condition to handel open car data when we are in the car fieldset
     if ($("#progressbar li").eq($("fieldset").index(next_fs))[0].id == "car") {
       var dropdownContent;
       var currentExtraDetails;
@@ -100,48 +99,6 @@ $(".previous").click(function () {
 
     setFocusToFirstInput(previous_fs);
 });
-
-//////////////////////////// tenant details ///////////////////////////////////////////////////////
-const image = document.getElementById("tenant-details");
-const dropdown = document.getElementById("dropdown-content");
-dropdown.style.display == "block"
-image.addEventListener("click", function(event) {
-if ( dropdown.style.display == "none"){
-  dropdown.style.display = "block";
-}else{
-  dropdown.style.display = "none";
-
-}
-});
-//////////////////////////// driver details ///////////////////////////////////////////////////////
-const image2 = document.getElementById("driver-details");
-const dropdown2 = document.getElementById("driver-details-dropdown");
-
-image2.addEventListener("click", function(event) {
-  if ( dropdown2.style.display == "block"){
-    dropdown2.style.display = "none";
-  }else{
-    dropdown2.style.display = "block";
-  
-  }
-});
-
-
-//////////////////////////// aad driver details ///////////////////////////////////////////////////////
-const image3 = document.getElementById("add-driver-details");
-const dropdown3 = document.getElementById("add-Driver-dropdown");
-
-image3.addEventListener("click", function(event) {
-  if ( dropdown3.style.display == "none"){
-    dropdown3.style.display = "block";
-  }else{
-    dropdown3.style.display = "none";
-  
-  }
-});
-
-
-
 ///////////////////////////////////////////////the-Modal-6-digit-vaildation/////////////////////
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#otc").addEventListener("submit", function (event) {
@@ -231,7 +188,167 @@ ins.forEach(function (input) {
   const B = document.querySelector(".check-btn.check");
 });
 in1.addEventListener("input", splitNumber);
+//  //////////////////// check modal phone number input confirmation  /////////////////////////////////
 
+const checkButtons = document.querySelectorAll('.Driver-checkModal-open-button');
+
+checkButtons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    const inputField = document.getElementById('CheckModal-PhoneInput');
+    if (inputField) {
+      setTimeout(function() {
+        inputField.focus();
+      }, 1000);
+
+      const submitButton = document.getElementById('DriverCheckButton');
+
+      inputField.addEventListener('input', function() {
+        if (inputField.value.length === 3) {
+          submitButton.disabled = false;
+        } else {
+          submitButton.disabled = true;
+        }
+      });
+
+      submitButton.addEventListener('click', function() {
+        console.log(inputField.value);
+        const selectedRadio = document.querySelector('input[name="SMS-or-WhatsApp"]:checked');
+        if (selectedRadio) {
+          console.log(selectedRadio.value);
+        } else {
+          console.log('No radio option selected');
+        }
+      });
+    }
+  });
+});
+
+  
+
+
+
+// ///////////////timer function in the otc modal /////////////////////
+var interval; 
+var lastClickedButtonId; 
+
+function TimerFunction(buttonId){
+  const SendButton = document.getElementById('DriverCheckButton');
+  const otcInputs = document.querySelectorAll('.OTP');
+
+  const originalContent = SendButton.innerHTML;
+
+  const spinner = document.createElement('div');
+  spinner.classList.add('spinner-border', 'spinner-border-sm', 'text-warning');
+  spinner.role = 'status';
+
+  const checkIcon = document.createElement('i');
+  checkIcon.classList.add('fa-solid', 'fa-check');
+
+  SendButton.innerHTML = '';
+  SendButton.appendChild(spinner);
+  SendButton.classList.add('send-check');
+
+  setTimeout(() => {
+      SendButton.innerHTML = originalContent;
+      SendButton.classList.remove('send-check');
+      SendButton.disabled = true;
+      otcInputs[0].focus();
+
+  }, 2000);
+
+  if (buttonId !== lastClickedButtonId || !interval) {
+    if (interval) {
+      clearInterval(interval); 
+    }
+    lastClickedButtonId = buttonId; 
+    var display = document.querySelector('#timerDiv');
+    var timer = 300 , minutes, seconds;
+    interval =  setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+
+      if (--timer < 0) {
+        timer = 0;
+        clearInterval(interval); 
+        $('#checkModalToggle').modal('hide');
+      }
+    }, 1000);
+  }
+
+}
+// /////////////otc confirm /////////////////
+
+const otcInputs = document.querySelectorAll('.OTP');
+const confirmButton = document.querySelector('#confirmButton');
+const ResendButton = document.querySelector('#ResendButton');
+
+otcInputs.forEach((input, index) => {
+  input.addEventListener('input', () => {
+    if (Array.from(otcInputs).every(input => input.value.trim() !== '')) {
+      confirmButton.disabled = false;
+    } else {
+      confirmButton.disabled = true;
+    }
+  });
+});
+
+confirmButton.addEventListener('click', function() {
+
+  const originalContent = confirmButton.innerHTML;
+  const spinner = document.createElement('div');
+  spinner.classList.add('spinner-border', 'spinner-border-sm', 'text-warning');
+  spinner.role = 'status';
+  
+  const checkIcon = document.createElement('i');
+  checkIcon.classList.add('fa-solid', 'fa-check');
+  
+  confirmButton.innerHTML = '';
+  confirmButton.appendChild(spinner);
+  confirmButton.classList.add('send-check');
+  
+  setTimeout(() => {
+      confirmButton.innerHTML = '';
+      confirmButton.innerHTML = originalContent;
+      confirmButton.classList.remove('send-check');
+      confirmButton.disabled = true;
+      ResendButton.disabled = false;
+  
+    }, 2000);
+  
+})
+
+// 
+ResendButton.addEventListener('click', function() {
+  const SendButton = document.getElementById('DriverCheckButton');
+  const otcInputs = document.querySelectorAll('.OTP');
+  SendButton.disabled = false;
+	document.getElementById('otc-1').value = '';
+		document.getElementById('otc-2').value = '';
+		document.getElementById('otc-3').value = '';
+		document.getElementById('otc-4').value = '';
+		document.getElementById('otc-5').value = '';
+		document.getElementById('otc-6').value = '';
+    otcInputs[0].focus();
+
+})
+
+//////////////////////////// tenant details ///////////////////////////////////////////////////////
+const image = document.getElementById("tenant-details");
+const dropdown = document.getElementById("dropdown-content");
+dropdown.style.display == "block"
+image.addEventListener("click", function(event) {
+if ( dropdown.style.display == "none"){
+  dropdown.style.display = "block";
+}else{
+  dropdown.style.display = "none";
+
+}
+});
 // // //////////////////////choose-adriver-display////////////////
 document.addEventListener("DOMContentLoaded", function () {
   var driverRadio1 = document.getElementById("driver1");
@@ -249,6 +366,44 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdownContainer.style.display = "none";
     }
   });
+});
+
+//////////////////////////// driver details ///////////////////////////////////////////////////////
+const image2 = document.getElementById("driver-details");
+const dropdown2 = document.getElementById("driver-details-dropdown");
+
+image2.addEventListener("click", function(event) {
+  if ( dropdown2.style.display == "block"){
+    dropdown2.style.display = "none";
+  }else{
+    dropdown2.style.display = "block";
+  
+  }
+});
+
+
+//////////////////////////// aad driver details ///////////////////////////////////////////////////////
+const image3 = document.getElementById("add-driver-details");
+const dropdown3 = document.getElementById("add-Driver-dropdown");
+
+image3.addEventListener("click", function(event) {
+  if ( dropdown3.style.display == "none"){
+    dropdown3.style.display = "block";
+  }else{
+    dropdown3.style.display = "none";
+  
+  }
+});
+/////////////////////////////////////////////////////////////////////////search-icon-payment///////////////////////////////////////////////////////////////////
+const imagePay = document.getElementById('payment-extra-details');
+const dropdownPay = document.getElementById('dropdown-content-payment');
+
+imagePay.addEventListener('click', function () {
+    if (dropdownPay.style.display === 'block') {
+        dropdownPay.style.display = 'none';
+    } else {
+        dropdownPay.style.display = 'block';
+    }
 });
 
 
@@ -285,6 +440,7 @@ scrollContainer.addEventListener("mousemove", (e) => {
   scrollContainer.scrollLeft = scrollLeft - walkX;
   scrollContainer.scrollTop = scrollTop - walkY;
 });
+// touch events
 
 scrollContainer.addEventListener("touchstart", (e) => {
   isScrolling = true;
@@ -308,175 +464,3 @@ scrollContainer.addEventListener("touchmove", (e) => {
 scrollContainer.addEventListener("touchend", () => {
   isScrolling = false;
 });
-
-// // //////////////////////////////////////////////// رفع صورة التوقيع ////////////////////////////////////////////////////////////////////////
-
-//variables//
-let saveSignatureBtn = null;
-
-document
-  .getElementById("UploadSigntaurePic")
-  .addEventListener("click", function () {
-    saveSignatureBtn = "UploadSigntaurePic";
-  });
-
-document
-  .getElementById("WriteSignature")
-  .addEventListener("click", function () {
-    saveSignatureBtn = "WriteSignature";
-  });
-const uploadContainer = document.querySelector(".upload-container");
-const mainContainer = document.querySelector(".main-container");
-const UploadSigntaurePic = document.getElementById("UploadSigntaurePic");
-const imageUpload = document.getElementById("imageUpload");
-var imgeURL;
-const uploadedImg = null;
-//
-
-UploadSigntaurePic.addEventListener("click", function () {
-  imageUpload.click();
-});
-
-imageUpload.addEventListener("change", function () {
-  const file = imageUpload.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      const imageURL = e.target.result;
-      const previewImage = document.createElement("img");
-      previewImage.classList.add("preview-image");
-      previewImage.src = imageURL;
-      previewImage.id = "signatureImage";
-      imgeURL = imageURL;
-      mainContainer.innerHTML =
-        '<i class="fa-regular fa-circle-xmark"  style="cursor: pointer;"></i>';
-      uploadContainer.innerHTML = "";
-      uploadContainer.appendChild(previewImage);
-      uploadContainer.classList.add("previewing");
-    };
-    reader.readAsDataURL(file);
-  }
-});
-
-removeSignatureImg.addEventListener("click", function (event) {
-  event.preventDefault();
-  if (uploadContainer.firstChild) {
-    uploadContainer.innerHTML = "";
-    mainContainer.innerHTML = "";
-    uploadContainer.classList.remove("previewing");
-    uploadContainer.innerHTML =
-      ' <img class="upload-icon" src="img/Rectangle 144.png" alt="Upload Icon"><p>ارفق صورة التوقيع</p>';
-  }
-});
-// // //////////////////////////////////////////////// كتابة التوقيع ////////////////////////////////////////////////////////////////////////
-const WriteSignature = document.getElementById("WriteSignature");
-WriteSignature.addEventListener("click", function () {
-  uploadContainer.innerHTML = "";
-  mainContainer.innerHTML = "";
-  uploadContainer.innerHTML =
-    '<canvas id="canvas" width="200" height="200" class="mb-2"></canvas>';
-  var canvas = document.getElementById("canvas");
-  var ctx = canvas.getContext("2d");
-  ctx.lineWidth = 4;
-
-  var drawing = false;
-  var prevX = 0;
-  var prevY = 0;
-  var currX = 0;
-  var currY = 0;
-
-  function drawLine(x0, y0, x1, y1) {
-    ctx.beginPath();
-    ctx.moveTo(x0, y0);
-    ctx.lineTo(x1, y1);
-    ctx.stroke();
-    ctx.closePath();
-  }
-
-  canvas.addEventListener("mousedown", handleMouseDown, false);
-  canvas.addEventListener("mousemove", handleMouseMove, false);
-  canvas.addEventListener("mouseup", handleMouseUp, false);
-
-  canvas.addEventListener("touchstart", handleTouchStart, false);
-  canvas.addEventListener("touchmove", handleTouchMove, false);
-  canvas.addEventListener("touchend", handleTouchEnd, false);
-
-  function handleMouseDown(e) {
-    drawing = true;
-    prevX = e.clientX - canvas.getBoundingClientRect().left;
-    prevY = e.clientY - canvas.getBoundingClientRect().top;
-  }
-
-  function handleMouseMove(e) {
-    if (!drawing) return;
-    currX = e.clientX - canvas.getBoundingClientRect().left;
-    currY = e.clientY - canvas.getBoundingClientRect().top;
-
-    drawLine(prevX, prevY, currX, currY);
-    prevX = currX;
-    prevY = currY;
-  }
-
-  function handleMouseUp() {
-    drawing = false;
-  }
-
-  function handleTouchStart(e) {
-    drawing = true;
-    prevX = e.touches[0].clientX - canvas.getBoundingClientRect().left;
-    prevY = e.touches[0].clientY - canvas.getBoundingClientRect().top;
-  }
-
-  function handleTouchMove(e) {
-    if (!drawing) return;
-    currX = e.touches[0].clientX - canvas.getBoundingClientRect().left;
-    currY = e.touches[0].clientY - canvas.getBoundingClientRect().top;
-
-    drawLine(prevX, prevY, currX, currY);
-    prevX = currX;
-    prevY = currY;
-  }
-
-  function handleTouchEnd() {
-    drawing = false;
-  }
-  function clearCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  document.getElementById("clear").addEventListener("click", function () {
-    clearCanvas();
-  });
- 
-});
- function SaveWrittenSignature() {
-	var canvas = document.getElementById("canvas");
-    var dataURL = canvas.toDataURL();
-    var link = document.createElement("a");
-    link.href = dataURL;
-    console.log(link.href);
-    $("#signature-modal").modal("hide");
-
-  }
- // Save the uploded signature image
- function SaveUplodedSignature() {
-    const img = document.getElementById("signatureImage");
-    const canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    const context = canvas.getContext("2d");
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
-    const base64 = canvas.toDataURL("image/jpeg");
-    console.log(base64);
-    $("#signature-modal").modal("hide");
-
-  }
-  document.getElementById("save").addEventListener("click", function () {
-    if (saveSignatureBtn === "UploadSigntaurePic") {
-      SaveUplodedSignature();
-    } else if (saveSignatureBtn === "WriteSignature") {
-      SaveWrittenSignature();
-    } else {
-      console.log("No button has been clicked yet");
-    }
-  });
