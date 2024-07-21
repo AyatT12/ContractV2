@@ -103,150 +103,178 @@ function ImgUpload() {
     $('#image-preview').modal('show');
   });
 }
-/////////////////////////////////////////////////////////////////////////search-icon-payment///////////////////////////////////////////////////////////////////
-const imagePay = document.getElementById('payment-extra-details');
-const dropdownPay = document.getElementById('dropdown-content-payment');
 
-imagePay.addEventListener('click', function () {
-    if (dropdownPay.style.display === 'block') {
-        dropdownPay.style.display = 'none';
-    } else {
-        dropdownPay.style.display = 'block';
-    }
-});
-//  //////////////////// check modal phone number input confirmation  /////////////////////////////////
 
-const checkButtons = document.querySelectorAll('.Driver-checkModal-open-button');
+// // //////////////////////////////////////////////// رفع صورة التوقيع ////////////////////////////////////////////////////////////////////////
 
-checkButtons.forEach(function(button) {
-  button.addEventListener('click', function() {
-    const inputField = document.getElementById('CheckModal-PhoneInput');
-    if (inputField) {
-      setTimeout(function() {
-        inputField.focus();
-      }, 1000);
+//variables//
+let saveSignatureBtn = null;
 
-      const submitButton = document.getElementById('DriverCheckButton');
-
-      inputField.addEventListener('input', function() {
-        if (inputField.value.length === 11) {
-          submitButton.disabled = false;
-        } else {
-          submitButton.disabled = true;
-        }
-      });
-    }
+document
+  .getElementById("UploadSigntaurePic")
+  .addEventListener("click", function () {
+    saveSignatureBtn = "UploadSigntaurePic";
   });
+
+document
+  .getElementById("WriteSignature")
+  .addEventListener("click", function () {
+    saveSignatureBtn = "WriteSignature";
+  });
+const uploadContainer = document.querySelector(".upload-container");
+const mainContainer = document.querySelector(".main-container");
+const UploadSigntaurePic = document.getElementById("UploadSigntaurePic");
+const imageUpload = document.getElementById("imageUpload");
+var imgeURL;
+const uploadedImg = null;
+//
+
+UploadSigntaurePic.addEventListener("click", function () {
+  imageUpload.click();
 });
 
+imageUpload.addEventListener("change", function () {
+  const file = imageUpload.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const imageURL = e.target.result;
+      const previewImage = document.createElement("img");
+      previewImage.classList.add("preview-image");
+      previewImage.src = imageURL;
+      previewImage.id = "signatureImage";
+      imgeURL = imageURL;
+      mainContainer.innerHTML =
+        '<i class="fa-regular fa-circle-xmark"  style="cursor: pointer;"></i>';
+      uploadContainer.innerHTML = "";
+      uploadContainer.appendChild(previewImage);
+      uploadContainer.classList.add("previewing");
+    };
+    reader.readAsDataURL(file);
+  }
+});
 
+removeSignatureImg.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (uploadContainer.firstChild) {
+    uploadContainer.innerHTML = "";
+    mainContainer.innerHTML = "";
+    uploadContainer.classList.remove("previewing");
+    uploadContainer.innerHTML =
+      ' <img class="upload-icon" src="img/Rectangle 144.png" alt="Upload Icon"><p>ارفق صورة التوقيع</p>';
+  }
+});
+// // //////////////////////////////////////////////// كتابة التوقيع ////////////////////////////////////////////////////////////////////////
+const WriteSignature = document.getElementById("WriteSignature");
+WriteSignature.addEventListener("click", function () {
+  document.body.classList.add('no-scroll');
+  uploadContainer.innerHTML = "";
+  mainContainer.innerHTML = "";
+  uploadContainer.innerHTML =
+    '<canvas id="canvas" width="200" height="200" class="mb-2"></canvas>';
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  ctx.lineWidth = 4;
 
-// ///////////////timer function in the otc modal /////////////////////
-var interval; 
-var lastClickedButtonId; 
+  var drawing = false;
+  var prevX = 0;
+  var prevY = 0;
+  var currX = 0;
+  var currY = 0;
 
-function TimerFunction(buttonId){
-  const SendButton = document.getElementById('DriverCheckButton');
-  const otcInputs = document.querySelectorAll('.OTP');
-
-  const originalContent = SendButton.innerHTML;
-
-  const spinner = document.createElement('div');
-  spinner.classList.add('spinner-border', 'spinner-border-sm', 'text-warning');
-  spinner.role = 'status';
-
-  const checkIcon = document.createElement('i');
-  checkIcon.classList.add('fa-solid', 'fa-check');
-
-  SendButton.innerHTML = '';
-  SendButton.appendChild(spinner);
-  SendButton.classList.add('send-check');
-
-  setTimeout(() => {
-      SendButton.innerHTML = originalContent;
-      SendButton.classList.remove('send-check');
-      SendButton.disabled = true;
-      otcInputs[0].focus();
-
-  }, 2000);
-
-  if (buttonId !== lastClickedButtonId || !interval) {
-    if (interval) {
-      clearInterval(interval); 
-    }
-    lastClickedButtonId = buttonId; 
-    var display = document.querySelector('#timerDiv');
-    var timer = 300 , minutes, seconds;
-    interval =  setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-
-      display.textContent = minutes + ":" + seconds;
-
-      if (--timer < 0) {
-        timer = 0;
-        clearInterval(interval); 
-        $('#checkModalToggle').modal('hide');
-      }
-    }, 1000);
+  function drawLine(x0, y0, x1, y1) {
+    ctx.beginPath();
+    ctx.moveTo(x0, y0);
+    ctx.lineTo(x1, y1);
+    ctx.stroke();
+    ctx.closePath();
   }
 
-}
-// /////////////otc confirm /////////////////
+  canvas.addEventListener("mousedown", handleMouseDown, false);
+  canvas.addEventListener("mousemove", handleMouseMove, false);
+  canvas.addEventListener("mouseup", handleMouseUp, false);
 
-const otcInputs = document.querySelectorAll('.OTP');
-const confirmButton = document.querySelector('#confirmButton');
-const ResendButton = document.querySelector('#ResendButton');
+  canvas.addEventListener("touchstart", handleTouchStart, false);
+  canvas.addEventListener("touchmove", handleTouchMove, false);
+  canvas.addEventListener("touchend", handleTouchEnd, false);
 
-otcInputs.forEach((input, index) => {
-  input.addEventListener('input', () => {
-    if (Array.from(otcInputs).every(input => input.value.trim() !== '')) {
-      confirmButton.disabled = false;
+  function handleMouseDown(e) {
+    drawing = true;
+    prevX = e.clientX - canvas.getBoundingClientRect().left;
+    prevY = e.clientY - canvas.getBoundingClientRect().top;
+  }
+
+  function handleMouseMove(e) {
+    if (!drawing) return;
+    currX = e.clientX - canvas.getBoundingClientRect().left;
+    currY = e.clientY - canvas.getBoundingClientRect().top;
+
+    drawLine(prevX, prevY, currX, currY);
+    prevX = currX;
+    prevY = currY;
+  }
+
+  function handleMouseUp() {
+    drawing = false;
+  }
+
+  function handleTouchStart(e) {
+    drawing = true;
+    prevX = e.touches[0].clientX - canvas.getBoundingClientRect().left;
+    prevY = e.touches[0].clientY - canvas.getBoundingClientRect().top;
+  }
+
+  function handleTouchMove(e) {
+    if (!drawing) return;
+    currX = e.touches[0].clientX - canvas.getBoundingClientRect().left;
+    currY = e.touches[0].clientY - canvas.getBoundingClientRect().top;
+
+    drawLine(prevX, prevY, currX, currY);
+    prevX = currX;
+    prevY = currY;
+  }
+
+  function handleTouchEnd() {
+    drawing = false;
+  }
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  document.getElementById("clear").addEventListener("click", function () {
+    clearCanvas();
+  });
+ 
+});
+ function SaveWrittenSignature() {
+  document.body.classList.remove('no-scroll');
+	var canvas = document.getElementById("canvas");
+    var dataURL = canvas.toDataURL();
+    var link = document.createElement("a");
+    link.href = dataURL;
+    console.log(link.href);
+    $("#signature-modal").modal("hide");
+
+  }
+ // Save the uploded signature image
+ function SaveUplodedSignature() {
+    const img = document.getElementById("signatureImage");
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const context = canvas.getContext("2d");
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    const base64 = canvas.toDataURL("image/jpeg");
+    console.log(base64);
+    $("#signature-modal").modal("hide");
+
+  }
+  document.getElementById("save").addEventListener("click", function () {
+    if (saveSignatureBtn === "UploadSigntaurePic") {
+      SaveUplodedSignature();
+    } else if (saveSignatureBtn === "WriteSignature") {
+      SaveWrittenSignature();
     } else {
-      confirmButton.disabled = true;
+      console.log("No button has been clicked yet");
     }
   });
-});
-
-confirmButton.addEventListener('click', function() {
-
-  const originalContent = confirmButton.innerHTML;
-  const spinner = document.createElement('div');
-  spinner.classList.add('spinner-border', 'spinner-border-sm', 'text-warning');
-  spinner.role = 'status';
-  
-  const checkIcon = document.createElement('i');
-  checkIcon.classList.add('fa-solid', 'fa-check');
-  
-  confirmButton.innerHTML = '';
-  confirmButton.appendChild(spinner);
-  confirmButton.classList.add('send-check');
-  
-  setTimeout(() => {
-      confirmButton.innerHTML = '';
-      confirmButton.innerHTML = originalContent;
-      confirmButton.classList.remove('send-check');
-      confirmButton.disabled = true;
-      ResendButton.disabled = false;
-  
-    }, 2000);
-  
-})
-
-// 
-ResendButton.addEventListener('click', function() {
-  const SendButton = document.getElementById('DriverCheckButton');
-  const otcInputs = document.querySelectorAll('.OTP');
-  SendButton.disabled = false;
-	document.getElementById('otc-1').value = '';
-		document.getElementById('otc-2').value = '';
-		document.getElementById('otc-3').value = '';
-		document.getElementById('otc-4').value = '';
-		document.getElementById('otc-5').value = '';
-		document.getElementById('otc-6').value = '';
-    otcInputs[0].focus();
-
-})
