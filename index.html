@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <title>إنشاء العقد</title>
     <link rel="icon" href="img/logo.png">
     <!-- ========================= CSS here ========================= -->
@@ -229,7 +230,7 @@
 
                                                 </ul>
                                             </div>
-                                            <fieldset id="">
+                                             <fieldset id="">
                                                 <div class="form-card form-card1 h-100">
                                                     <div class="row flex-row-reverse ">
                                                         <div class="col-lg-9">
@@ -4036,7 +4037,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse ">
+                                                    <div class="row flex-row-reverse g-2">
                                                         <div class="col-md-6 col-lg-4 d-flex payment-col  flex-wrap ">
                                                             <div
                                                                 class="col-12 col-md-auto d-flex gap-3 flex-wrap contract-value ">
@@ -4124,6 +4125,27 @@
                                                             </div>
 
                                                         </div>
+                                                        <div class="col-md-6 col-lg-4 d-flex  payment-col">
+                                                            <div class="col-auto">
+                                                                <p id="Receiving-branch"> فرع التسليم </p>
+
+                                                            </div>
+                                                            <div class="col-md-7 personal-data">
+                                                                <div class="offset">
+                                                                    <select class="form-select-last form-select"
+                                                                        id="Receiving-branch-dropdown"
+                                                                        name="Receiving-branch-dropdown">
+                                                                        <option selected disabled>
+                                                                        </option>
+                                                                        <option value="">  </option>
+                                                                        <option value=""> </option>
+                                                                        <option value=""> </option>
+                                                                    </select>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="row flex-row-reverse align-items-baseline g-2">
                                                         <div
@@ -4145,8 +4167,8 @@
                                                             class="col-md-6 col-lg-4 d-flex  payment-col align-items-center">
                                                             <div class="col-auto" id="addational-hours">
                                                                 <label 
-                                                                    for="addational-hours-input">الساعات
-                                                                    الإضافية</label>
+                                                                    for="addational-hours-input">
+                                                                    ساعات إضافيه </label>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <input type="tel" class="form-control1 form-control"
@@ -4160,7 +4182,7 @@
                                                             <div class="col-auto" id="addational-kilos">
                                                                 <label 
                                                                     for="addational-kilos-input">
-                                                                    الكيلات الإضافية</label>
+                                                                    كيلوات إضافيه</label>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <input type="tel" class="form-control1 form-control"
@@ -4300,8 +4322,11 @@
                                                     style="padding: 6px 7px 0px 20px;">
                                                     <div class="payment-button-card button-card   gap-2">
                                                         <button type="submit"
-                                                            class="btn check-btn payment-button">حفظ</button>
-
+                                                            class="btn check-btn payment-button">حفظ
+                                                        </button>
+                                                        <button type="button" class="btn check-btn " style="font-weight: 700;"
+                                                        data-bs-toggle="modal" href="#MandatePopupModal">تفويض
+                                                    </button>
                                                         <button type="button"
                                                             class="btn check-btn payment-button signature-button"
                                                             data-bs-toggle="modal" href="#signature-modal">
@@ -4483,8 +4508,41 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+                             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+                             <div class="modal fade" id="MandatePopupModal" tabindex="-1"
+                             aria-labelledby="payPopupModalLabel" aria-hidden="true">
+                             <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                                 <div class="modal-content authorization-modal-content">
+                                     <div class="modal-body authorization">
+                                         <form id="AuthorizationForm" class="h-100">
+                                             <div class="row h-100 flex-column justify-content-evenly">
 
+                                                <div class="col-12">
+                                                 <div class="row align-items-center">
+                                                   
+                                                    <div class="col">
+                                                        <input type="tel" name="days-number-of-authorization "
+                                                        class="form-control inputs-style text text-center" value="" id="days-number-of-authorization" required>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                       
+                                                        <label for="days-number-of-authorization" style="font-weight: 600;font-size: 15px;">عدد ايام التفويض</label>
+                                                        </div>
+                                                 </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button type="submit" class="check-btn check-btn2 " data-bs-toggle="modal" href="#checkModalToggle">إرسال رمز
+                                                        التحقق</button>
+                                                </div>
+                                             </div>
+                                           
+
+                                         </form>
+
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
                             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
                             <div class="modal fade" id="TechnicalCheckUp" aria-hidden="true"
                                 aria-labelledby="TechnicalCheckUpLabel" tabindex="-1">
