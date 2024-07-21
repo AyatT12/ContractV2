@@ -278,3 +278,21 @@ WriteSignature.addEventListener("click", function () {
       console.log("No button has been clicked yet");
     }
   });
+
+//  عدد ايام التفويض/////////////////
+document.querySelector('#AuthorizationForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+		$.ajax({
+			type: 'POST',
+			url: 'https://jsonplaceholder.typicode.com/posts', 
+			data: $(this).serialize(),
+			success: function (response) {
+				console.log('Form data submitted successfully:', response);
+
+			},
+			error: function (error) {
+				console.error('Error submitting form data:', error);
+			}
+		});
+})
