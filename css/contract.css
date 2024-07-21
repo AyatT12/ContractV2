@@ -17,11 +17,10 @@ body {
     position: relative;
 
 }
-
 body.no-scroll {
     overflow: hidden;
-}
-
+  }
+  
 .inputs,
 .textarea-inputs,
 .form-select-driver,
@@ -888,10 +887,7 @@ input[type=checkbox] {
 
 /* /////////////////////////payment-field///////////////////////////////// */
 .authorization {
-    display: flex;
-    height: 179px;
-    justify-content: center;
-    align-items: center;
+   padding: 1.5625rem;
 }
 
 .authorization-modal-content {
@@ -899,17 +895,6 @@ input[type=checkbox] {
     height: 240px;
 }
 
-
-
-
-
-
-/* canvas {
-    border: 1px solid rgba(255, 150, 38, 1);
-    background-color: rgba(255, 150, 38, 0.08);
-    padding-bottom: 20px;
-
-} */
 
 .handsignature-modal-content {
     width: 300px;
@@ -1112,13 +1097,6 @@ input[type=checkbox] {
     .extra-small-mobile {
         display: none;
     }
-
-    #discount-percentage,
-    #addational-kilos,
-    #addational-hours {
-        width: 100%;
-    }
-
 }
 
 @media (max-width: 425px) {
