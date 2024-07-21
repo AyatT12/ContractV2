@@ -18,6 +18,10 @@ body {
 
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 .inputs,
 .textarea-inputs,
 .form-select-driver,
