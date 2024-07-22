@@ -143,6 +143,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     direction: ltr;
 
 }
+#tableContainer {
+    direction: rtl;
+}
 @media (max-width:767px) {
     .otc-row {
         margin-right: 0rem;
