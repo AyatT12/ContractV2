@@ -138,7 +138,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-bottom: var(--bs-modal-header-border-width) solid #ffffff;
     direction: ltr;
 }
+.SMS-Whats-Col {
+  
+    direction: ltr;
 
+}
 @media (max-width:767px) {
     .otc-row {
         margin-right: 0rem;
