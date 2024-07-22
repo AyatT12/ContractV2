@@ -146,6 +146,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #tableContainer {
     direction: rtl;
 }
+.authDaysNum{
+        flex-direction: column-reverse;
+}
 @media (max-width:767px) {
     .otc-row {
         margin-right: 0rem;
