@@ -156,7 +156,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 @media (max-width:540px) {
     .car-rent-data {
-        left: 5%;
+             right: -150%;
     }
 
     .docs {
