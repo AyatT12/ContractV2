@@ -156,7 +156,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* /////////////////////media for the seacrh icon list on mobiles///////////////////////// */
-@media (max-width:774px) {
+@media (max-width:775px) {
 
     .dropdown-content {
         left: 50%;
