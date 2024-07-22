@@ -154,7 +154,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         margin-right: 0rem;
     }
 }
+@media (max-width:540px) {
+    .car-rent-data {
+        left: 5%;
+    }
 
+    .docs {
+        transform: translateX(40%);
+    }
+}
 /* /////////////////////media for the seacrh icon list on mobiles///////////////////////// */
 @media (max-width:775px) {
 
