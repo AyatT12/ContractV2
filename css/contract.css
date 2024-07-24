@@ -654,7 +654,7 @@ footer {
 
 .table {
 
-    --bs-table-hover-bg: #fff7de;
+    --bs-table-hover-bg: #bdbbbb1c;
     width: 100%;
 }
 
@@ -904,7 +904,7 @@ input[type=checkbox] {
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
 
-#removeSignatureImg {
+#removeSignatureImg  , #removeIDImg{
     position: absolute;
     top: 5px;
     left: 10px;
@@ -1361,7 +1361,7 @@ input[type=checkbox] {
 .spinner-payment-check {
     background-color: white;
     padding: 0px 70px !important;
-    border: 1px solid FF9626;
+    border: 1px solid #FF9626;
 }
 
 @media (max-width: 745px) {
@@ -1405,17 +1405,17 @@ input[type=checkbox] {
 }
 
 /* ////////////////////////////////////////Signature///////////////////////////////////////////////// */
-.signature-modal-content {
+.signature-modal-content  , .IDphoto-modal-content{
     width: 300px;
 }
 
-.Signature-modal-body {
+.Signature-modal-body , .IDphoto-modal-body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.SignatureCard {
+.SignatureCard ,.ID-Card{
     position: relative;
     width: 230px;
     height: 250px;
@@ -1429,13 +1429,13 @@ input[type=checkbox] {
     cursor: url(img/pen.jpg)
 }
 
-.sinature-Btn-Card {
+.sinature-Btn-Card , .Id-btn-card {
     cursor: pointer;
     box-shadow: 1px 0.5px 8px 0px #FF962633;
     border-radius: 8px;
 }
 
-.upload-container {
+.upload-container , .ID-upload-container{
     width: 100%;
     height: 100%;
     display: flex;
@@ -1693,7 +1693,7 @@ fieldset:disabled .btn {
 
 .car-dropdown-content {
     border: 1px solid orange;
-    background: #fdfbf6;
+    /* background: #fdfbf6; */
     display: none;
     border-radius: 8px;
     box-shadow: 0px 2px 4px 0px #39629C3D;
@@ -1701,7 +1701,7 @@ fieldset:disabled .btn {
     margin-top: 13px;
     position: absolute;
     z-index: 9999;
-    /* background-color: white; */
+    background-color: white;
     font-size: 0.75rem;
     padding: 2px;
 }
@@ -1750,6 +1750,12 @@ fieldset:disabled .btn {
     align-items: flex-start;
 }
 
+@media (min-width : 992px) {
+    .licence-col{
+        text-align: center;
+    }
+}
+
 /****************** الفحص الفني ***************** */
 .car-container {
     position: relative;
@@ -1782,7 +1788,14 @@ fieldset:disabled .btn {
     background-color: #FF992E !important;
     color: white !important;
 }
-
+/* ************************take camera ID photo */
+#videoElement{
+    width: 100%;
+    height: 100%;
+}
+#photo{
+    width: 100%;
+}
 /* **************************************** */
 
 @media (max-width:540px) {
