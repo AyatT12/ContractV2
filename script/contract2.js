@@ -296,3 +296,146 @@ document.querySelector('#AuthorizationForm').addEventListener('submit', function
 			}
 		});
 })
+
+
+// // //////////////////////////////////////////////// رفع صورة الهوية ////////////////////////////////////////////////////////////////////////
+
+//variables//
+let saveIDBtn = null;
+
+document
+  .getElementById("UploadIDPic")
+  .addEventListener("click", function () {
+    saveIDBtn = "UploadIDPic";
+    console.log(saveIDBtn)
+  });
+ 
+const IDuploadContainer = document.querySelector(".ID-upload-container");
+const IDmainContainer = document.querySelector(".ID-main-container");
+const UploadIDPic = document.getElementById("UploadIDPic");
+const IDimageUpload = document.getElementById("IDimageUpload");
+var imgeURL;
+const IDuploadedImg = null;
+//
+
+UploadIDPic.addEventListener("click", function () {
+  IDimageUpload.click();
+});
+
+IDimageUpload.addEventListener("change", function () {
+  const file = IDimageUpload.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const IDimageURL = e.target.result;
+      const IDpreviewImage = document.createElement("img");
+      IDpreviewImage.classList.add("preview-image");
+      IDpreviewImage.src = IDimageURL;
+      IDpreviewImage.id = "IDImage";
+      imgeURL = IDimageURL;
+      IDmainContainer.innerHTML =
+        '<i class="fa-regular fa-circle-xmark"  style="cursor: pointer;"></i>';
+      IDuploadContainer.innerHTML = "";
+      IDuploadContainer.appendChild(IDpreviewImage);
+      IDuploadContainer.classList.add("previewing");
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+removeIDImg.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (IDuploadContainer.firstChild) {
+    IDuploadContainer.innerHTML = "";
+    IDmainContainer.innerHTML = "";
+    IDuploadContainer.classList.remove("previewing");
+    IDuploadContainer.innerHTML =
+      ' <img class="upload-icon" src="img/Rectangle 144.png" alt="Upload Icon"><p>ارفق صورة الهوية </p>';
+  }
+});
+
+// // //////////////////////////////////////////////// التقاط صورة الهوية ////////////////////////////////////////////////////////////////////////
+const openCameraButton = document.getElementById('openCamera');
+document
+.getElementById("openCamera")
+.addEventListener("click", function () {
+  saveIDBtn = "CameraID";
+  console.log(saveIDBtn)
+});
+
+openCameraButton.addEventListener('click', async () => {
+    let videoElement = document.getElementById('videoElement');
+    let photo = document.getElementById('photo');
+
+    if (!videoElement) {
+        IDuploadContainer.innerHTML = `
+            <video id="videoElement" autoplay></video>
+            <img id="photo" alt="The screen capture will appear in this box." style="display:none;">
+        `;
+        videoElement = document.getElementById('videoElement');
+        photo = document.getElementById('photo');
+
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            videoElement.srcObject = stream;
+
+            await new Promise(resolve => {
+                videoElement.onloadedmetadata = () => {
+                    resolve();
+                };
+            });
+
+        } catch (error) {
+            console.error('Error accessing the camera:', error);
+        }
+    } else {
+        const canvasElement = document.createElement('canvas');
+        canvasElement.width = videoElement.videoWidth;
+        canvasElement.height = videoElement.videoHeight;
+        const context = canvasElement.getContext('2d');
+        context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+
+        const stream = videoElement.srcObject;
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop());
+
+        const dataUrl = canvasElement.toDataURL('image/png');
+        photo.src = dataUrl;
+        photo.style.display = 'block';
+        videoElement.remove();
+    }
+});
+
+// Save the uploded IDphoto image
+function SaveUplodedIDphoto() {
+  const img = document.getElementById("IDImage");
+  const canvas = document.createElement("canvas");
+  canvas.width = img.width;
+  canvas.height = img.height;
+  const context = canvas.getContext("2d");
+  context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  const base64 = canvas.toDataURL("image/jpeg");
+  console.log(base64);
+  $("#IDphoto-modal").modal("hide");
+
+}
+// Save the camera IDphoto image
+function SaveCameraIDphoto() {
+  const img = document.getElementById("photo");
+  const canvas = document.createElement("canvas");
+  canvas.width = img.width;
+  canvas.height = img.height;
+  const context = canvas.getContext("2d");
+  context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  const base64 = canvas.toDataURL("image/jpeg");
+  console.log(base64);
+  $("#IDphoto-modal").modal("hide");
+
+}
+document.getElementById("ID-photo-save").addEventListener("click", function () {
+  if (saveIDBtn === "UploadIDPic") {
+    SaveUplodedIDphoto();
+  } else if (saveIDBtn === "CameraID"){
+    SaveCameraIDphoto();
+  }
+});
