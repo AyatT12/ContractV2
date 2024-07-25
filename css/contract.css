@@ -1755,7 +1755,11 @@ fieldset:disabled .btn {
         text-align: center;
     }
 }
-
+@media (max-width : 991px) {
+    .licence-row-mobile{
+        flex-direction: column-reverse;
+    }
+}
 /****************** الفحص الفني ***************** */
 .car-container {
     position: relative;
