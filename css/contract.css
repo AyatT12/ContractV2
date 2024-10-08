@@ -17,6 +17,12 @@ body {
     position: relative;
 
 }
+  
+  .img-profile {
+    margin-right: 12px;
+    height: 53px;
+    width: 53px;
+  }
 body.no-scroll {
     overflow: hidden;
   }
