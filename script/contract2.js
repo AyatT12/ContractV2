@@ -279,23 +279,6 @@ WriteSignature.addEventListener("click", function () {
     }
   });
 
-//  عدد ايام التفويض/////////////////
-document.querySelector('#AuthorizationForm').addEventListener('submit', function (event) {
-  event.preventDefault();
-
-		$.ajax({
-			type: 'POST',
-			url: 'https://jsonplaceholder.typicode.com/posts', 
-			data: $(this).serialize(),
-			success: function (response) {
-				console.log('Form data submitted successfully:', response);
-
-			},
-			error: function (error) {
-				console.error('Error submitting form data:', error);
-			}
-		});
-})
 
 
 // // //////////////////////////////////////////////// رفع صورة الهوية ////////////////////////////////////////////////////////////////////////

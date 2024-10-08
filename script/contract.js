@@ -338,17 +338,17 @@ ResendButton.addEventListener('click', function() {
 })
 
 //////////////////////////// tenant details ///////////////////////////////////////////////////////
-const image = document.getElementById("tenant-details");
-const dropdown = document.getElementById("dropdown-content");
-dropdown.style.display == "block"
-image.addEventListener("click", function(event) {
-if ( dropdown.style.display == "none"){
-  dropdown.style.display = "block";
-}else{
-  dropdown.style.display = "none";
+// const image = document.getElementById("tenant-details");
+// const dropdown = document.getElementById("dropdown-content");
+// dropdown.style.display == "block"
+// image.addEventListener("click", function(event) {
+// if ( dropdown.style.display == "none"){
+//   dropdown.style.display = "block";
+// }else{
+//   dropdown.style.display = "none";
 
-}
-});
+// }
+// });
 // // //////////////////////choose-adriver-display////////////////
 document.addEventListener("DOMContentLoaded", function () {
   var driverRadio1 = document.getElementById("driver1");
