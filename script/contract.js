@@ -369,31 +369,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //////////////////////////// driver details ///////////////////////////////////////////////////////
-const image2 = document.getElementById("driver-details");
-const dropdown2 = document.getElementById("driver-details-dropdown");
+// const image2 = document.getElementById("driver-details");
+// const dropdown2 = document.getElementById("driver-details-dropdown");
 
-image2.addEventListener("click", function(event) {
-  if ( dropdown2.style.display == "block"){
-    dropdown2.style.display = "none";
-  }else{
-    dropdown2.style.display = "block";
+// image2.addEventListener("click", function(event) {
+//   if ( dropdown2.style.display == "block"){
+//     dropdown2.style.display = "none";
+//   }else{
+//     dropdown2.style.display = "block";
   
-  }
-});
+//   }
+// });
 
 
 //////////////////////////// aad driver details ///////////////////////////////////////////////////////
-const image3 = document.getElementById("add-driver-details");
-const dropdown3 = document.getElementById("add-Driver-dropdown");
+// const image3 = document.getElementById("add-driver-details");
+// const dropdown3 = document.getElementById("add-Driver-dropdown");
 
-image3.addEventListener("click", function(event) {
-  if ( dropdown3.style.display == "none"){
-    dropdown3.style.display = "block";
-  }else{
-    dropdown3.style.display = "none";
+// image3.addEventListener("click", function(event) {
+//   if ( dropdown3.style.display == "none"){
+//     dropdown3.style.display = "block";
+//   }else{
+//     dropdown3.style.display = "none";
   
-  }
-});
+//   }
+// });
 /////////////////////////////////////////////////////////////////////////search-icon-payment///////////////////////////////////////////////////////////////////
 const imagePay = document.getElementById('payment-extra-details');
 const dropdownPay = document.getElementById('dropdown-content-payment');
