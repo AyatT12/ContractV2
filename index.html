@@ -239,7 +239,7 @@
                         </ul>
                         <!-- logo -->
                         <div class=" d-flex align-items-center on-mobile" style="color:black;">
-                            <div class="pt-sm-0 pt-md-4  pt-lg-4 pt-xl-4 px-3 text-end">
+                            <div class="pt-sm-0 pt-md-4  pt-lg-4 pt-xl-4 px-3">
                                 <h1 class="hide-on-mobile" style="font-size: 1.2rem;font-weight: bold;">
                                     شركة كدي لتأجير السيارات </h1>
                                 <p class="extra-small-mobile">
@@ -3738,13 +3738,11 @@
                                                                                     <img class="upload-icon"
                                                                                         src="img/Group (1).png"
                                                                                         alt="Upload Icon">
-                                                                                    <input type="file" multiple
-                                                                                        accept="image/*"
-                                                                                        data-max_length="12"
-                                                                                        id="checking-img"
-                                                                                        capture="camera"
-                                                                                        class="upload__inputfile "
-                                                                                        onclick="HideFirstImg()">
+                                                                                        <input type="file" multiple
+                                                                                            accept=".heif, .heic, image/*"                                                                                  
+                                                                                             id="checking-img"
+                                                                                            class="upload__inputfile "
+                                                                                            onclick="HideFirstImg()">
                                                                                 </div>
                                                                             </label>
                                                                         </div>
@@ -3773,9 +3771,8 @@
                                                                                 </th>
                                                                                 <th scope="col">
                                                                                     الفحص</th>
-                                                                                <th scope="col">
-                                                                                    بنود الفحص</th>
-
+                                                                                    <th scope="col"> <div class="d-flex justify-content-center gap-3"> <div class="col"> بنود الفحص </div>
+                                                                                        <div class="col-auto p-0"> <input  type="checkbox"></div></div></th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
@@ -4871,7 +4868,7 @@
 
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
