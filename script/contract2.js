@@ -6,6 +6,7 @@ function HideFirstImg() {
   var firstImg = document.getElementById('upload-img1');
   firstImg.style.display = 'none';
 }
+
 var imgArray = [];
 
 function ImgUpload() {
@@ -19,52 +20,79 @@ function ImgUpload() {
       var filesArr = Array.prototype.slice.call(files);
       var uploadBtnBox = document.getElementById('checking-img');
       var uploadBtnBox1 = document.getElementById('upload__btn-box');
-
       var errorMessageDiv = document.getElementById('error-message');
 
       if (imgArray.length + filesArr.length > maxLength) {
         uploadBtnBox.disabled = true;
         errorMessageDiv.textContent = 'بحد أدنى صورة واحدة (۱) وحدأقصى اثني عشرة صورة (۱۲) ';
         errorMessageDiv.style.display = 'block';
-        uploadBtnBox1.style.display='none';
+        uploadBtnBox1.style.display = 'none';
       } else {
         uploadBtnBox.disabled = false;
         errorMessageDiv.style.display = 'none';
-        uploadBtnBox1.style.display='block';
-
+        uploadBtnBox1.style.display = 'block';
       }
 
       for (var i = 0; i < Math.min(filesArr.length, maxLength - imgArray.length); i++) {
-        (function(f) {
-          if (!f.type.match('image.*')) {
-            return;
-          }
+        (function (f) {
+          console.log("Selected file type:", f.type);
 
-          var reader = new FileReader();
-          reader.onload = function (e) {
-            var html =
-              "<div class='upload__img-box'><div style='background-image: url(" +
-              e.target.result +
-              ")' data-number='" +
-              $('.upload__img-close').length +
-              "' data-file='" +
-              f.name +
-              "' class='img-bg'><div class='upload__img-close'><img src='img/delete.png'></div></div></div>";
-            imgWrap.append(html);
-            imgArray.push({
-              f: f,
-              url: e.target.result
+          if (f.type === 'image/heic' || f.type === 'image/heif' || f.name.endsWith('.heic') || f.name.endsWith('.heif')) {
+            console.log("Processing HEIC/HEIF file:", f.name); 
+
+            heic2any({
+              blob: f,
+              toType: "image/jpeg"
+            }).then(function (convertedBlob) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var html =
+                  "<div class='upload__img-box'><div style='background-image: url(" +
+                  e.target.result +
+                  ")' data-number='" +
+                  $('.upload__img-close').length +
+                  "' data-file='" +
+                  f.name +
+                  "' class='img-bg'><div class='upload__img-close'><img src='img/delete.png'></div></div></div>";
+
+                imgWrap.append(html);
+                imgArray.push({
+                  f: f,
+                  url: e.target.result
+                });
+                console.log(imgArray);
+              };
+              reader.readAsDataURL(convertedBlob); 
+            }).catch(function (err) {
+              console.error("Error converting HEIC/HEIF image:", err);
             });
-            console.log(imgArray);
-          };
-          reader.readAsDataURL(f);
+          } else {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              var html =
+                "<div class='upload__img-box'><div style='background-image: url(" +
+                e.target.result +
+                ")' data-number='" +
+                $('.upload__img-close').length +
+                "' data-file='" +
+                f.name +
+                "' class='img-bg'><div class='upload__img-close'><img src='img/delete.png'></div></div></div>";
+              imgWrap.append(html);
+              imgArray.push({
+                f: f,
+                url: e.target.result
+              });
+              console.log(imgArray);
+            };
+            reader.readAsDataURL(f); 
+          }
         })(filesArr[i]);
       }
     });
   });
 
   $('body').on('click', '.upload__img-close', function (e) {
-    e.stopPropagation(); 
+    e.stopPropagation();
     var file = $(this).parent().data('file');
 
     for (var i = 0; i < imgArray.length; i++) {
@@ -86,23 +114,22 @@ function ImgUpload() {
       uploadBtnBox.disabled = true;
       errorMessageDiv.textContent = 'بحد أدنى صورة واحدة (۱) وحدأقصى اثني عشرة صورة (۱۲) ';
       errorMessageDiv.style.display = 'block';
-      uploadBtnBox1.style.display='none';
-
+      uploadBtnBox1.style.display = 'none';
     } else {
       uploadBtnBox.disabled = false;
       errorMessageDiv.style.display = 'none';
-      uploadBtnBox1.style.display='block';
-
+      uploadBtnBox1.style.display = 'block';
     }
   });
 
   $('body').on('click', '.img-bg', function (e) {
-    
     var imageUrl = $(this).css('background-image');
+    imageUrl = imageUrl.replace(/url\(["']?/, '').replace(/["']?\)/, '');
     $('#preview-image').attr('src', imageUrl);
     $('#image-preview').modal('show');
   });
 }
+
 
 
 // // //////////////////////////////////////////////// رفع صورة التوقيع ////////////////////////////////////////////////////////////////////////
@@ -264,7 +291,7 @@ WriteSignature.addEventListener("click", function () {
     canvas.height = img.height;
     const context = canvas.getContext("2d");
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
-    const base64 = canvas.toDataURL("image/jpeg");
+    const base64 = canvas.toDataURL("image/png");
     console.log(base64);
     $("#signature-modal").modal("hide");
 
@@ -278,7 +305,6 @@ WriteSignature.addEventListener("click", function () {
       console.log("No button has been clicked yet");
     }
   });
-
 
 
 // // //////////////////////////////////////////////// رفع صورة الهوية ////////////////////////////////////////////////////////////////////////
