@@ -17,16 +17,17 @@ body {
     position: relative;
 
 }
-  
-  .img-profile {
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.img-profile {
     margin-right: 12px;
     height: 53px;
     width: 53px;
-  }
-body.no-scroll {
-    overflow: hidden;
-  }
-  
+}
+
 .inputs,
 .textarea-inputs,
 .form-select-driver,
@@ -448,8 +449,7 @@ select.list-dt:focus {
     color: #FF9626;
     background-color: #F7F7F7;
     border-radius: 6px;
-    border-bottom-color: #A1FF9C;
-    border-bottom: 2px solid #A1FF9C;
+    border-bottom: 2px solid #39629C;
 }
 
 input::-webkit-outer-spin-button,
@@ -552,7 +552,7 @@ input[type="number"]:nth-child(n+4) {
 }
 
 .check-btn:hover {
-    background-color: white;
+    background-color: white !important;
     color: #FF9626;
     border-color: #FF9626;
 }
@@ -608,7 +608,8 @@ textarea {
 
 
 .cancle-icon {
-    margin-left: 8px;
+
+    margin-left: 25px;
 }
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
@@ -891,7 +892,7 @@ input[type=checkbox] {
 
 /* /////////////////////////payment-field///////////////////////////////// */
 .authorization {
-   padding: 1.5625rem;
+    padding: 1.5625rem;
 }
 
 .authorization-modal-content {
@@ -908,7 +909,8 @@ input[type=checkbox] {
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
 
-#removeSignatureImg  , #removeIDImg{
+#removeSignatureImg,
+#removeIDImg {
     position: absolute;
     top: 5px;
     left: 10px;
@@ -1096,7 +1098,7 @@ input[type=checkbox] {
 /* ****************media****************** */
 
 
-@media (max-width: 500px) {
+@media (max-width: 375px) {
 
     .extra-small-mobile {
         display: none;
@@ -1111,7 +1113,7 @@ input[type=checkbox] {
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 646px) {
 
     .hide-on-mobile {
         display: none;
@@ -1409,17 +1411,20 @@ input[type=checkbox] {
 }
 
 /* ////////////////////////////////////////Signature///////////////////////////////////////////////// */
-.signature-modal-content  , .IDphoto-modal-content{
+.signature-modal-content,
+.IDphoto-modal-content {
     width: 300px;
 }
 
-.Signature-modal-body , .IDphoto-modal-body {
+.Signature-modal-body,
+.IDphoto-modal-body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.SignatureCard ,.ID-Card{
+.SignatureCard,
+.ID-Card {
     position: relative;
     width: 230px;
     height: 250px;
@@ -1433,13 +1438,15 @@ input[type=checkbox] {
     cursor: url(img/pen.jpg)
 }
 
-.sinature-Btn-Card , .Id-btn-card {
+.sinature-Btn-Card,
+.Id-btn-card {
     cursor: pointer;
     box-shadow: 1px 0.5px 8px 0px #FF962633;
     border-radius: 8px;
 }
 
-.upload-container , .ID-upload-container{
+.upload-container,
+.ID-upload-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -1747,7 +1754,8 @@ fieldset:disabled .btn {
 .contract-value {
     justify-content: end;
 }
-.SMS-Whats-Col{
+
+.SMS-Whats-Col {
     display: flex;
     flex-direction: column;
     direction: rtl;
@@ -1755,15 +1763,17 @@ fieldset:disabled .btn {
 }
 
 @media (min-width : 992px) {
-    .licence-col{
+    .licence-col {
         text-align: center;
     }
 }
+
 @media (max-width : 991px) {
-    .licence-row-mobile{
+    .licence-row-mobile {
         flex-direction: column-reverse;
     }
 }
+
 /****************** الفحص الفني ***************** */
 .car-container {
     position: relative;
@@ -1796,14 +1806,17 @@ fieldset:disabled .btn {
     background-color: #FF992E !important;
     color: white !important;
 }
+
 /* ************************take camera ID photo */
-#videoElement{
+#videoElement {
     width: 100%;
     height: 100%;
 }
-#photo{
+
+#photo {
     width: 100%;
 }
+
 /* **************************************** */
 
 @media (max-width:540px) {
@@ -1892,4 +1905,90 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     left: 10px;
     position: absolute;
 
+}
+
+/* new style  */
+.UnifiedContract-header{
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    border: none;
+}
+.UnifiedContract-close{
+  background:transparent url(../img/CloseModal.svg) center/1.7em auto no-repeat;
+  opacity: 1;
+
+}
+.custom-img-button{
+    min-width: 95px;
+    height: 100%;
+    border-radius: 8px;
+    padding: 15px;
+    gap: 10px;
+    box-shadow: 0px 1px 4px 0px rgb(255,150,38,25%);
+    border: none;
+    background-color:transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.custom-img-button:hover{
+    box-shadow: 0px 3px 4px 0px rgb(255,150,38,40%);
+    background-color:rgb(255, 150, 38 , 30%);
+
+}
+.loader {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+  }
+  .loader::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FF9626;
+    animation: prixClipFix 2s linear infinite ;
+  }
+.small-loader{
+    width: 29px;
+    height: 29px;
+}
+  @keyframes rotate {
+    100%   {transform: rotate(360deg)}
+  }
+
+  @keyframes prixClipFix {
+      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+  }
+  .UnifiedContract-btn{
+    gap: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .loader-active{
+    background-color: white;
+    border-color: #FF9626;
+  }
+/* edited style  */
+.OTP {
+    width: 0.8599999999999999em;
+    margin: 0.1em;
+    font-size: 2.0em;
+    text-align: center;
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    border: 0;
+    color: #FF9626;
+    background-color: #F7F7F7;
+    border-radius: 6px;
+    border-bottom: 2px solid #39629C;
 }
