@@ -1,4 +1,3 @@
-// Get references to the necessary elements
 const shapeCanvas = document.getElementById('shape-canvas');
 const BendInBodyBtn = document.getElementById('bend-in-body-btn');
 const veryDeepScratch = document.getElementById('very-deep-scratch-btn');
@@ -9,11 +8,13 @@ const undoBtn = document.getElementById('undo-btn');
 const redoBtn = document.getElementById('redo-btn');
 const saveBtn = document.getElementById('save-btn');
 
+shapeCanvas.width=893;
+shapeCanvas.height=429;
+
 window.addEventListener('load', function () {
-    // Get the canvas context
     const ctx = shapeCanvas.getContext('2d');
 
-    // Draw the car background
+    // إضافة صورة الفحص الفني كخلفية لل كانفاس
     const carBackground = new Image();
     carBackground.src = 'img/car shape.svg';
     carBackground.onload = function () {
@@ -21,7 +22,7 @@ window.addEventListener('load', function () {
     };
 });
 
-// Load the shape images
+// عرض صور انواع الخدوش 
 const BendInBody = new Image();
 BendInBody.src = 'img/bend-in-body.svg';
 
@@ -34,16 +35,16 @@ DeepScratch.src = 'img/deep-scratch.svg';
 const SmallScratch = new Image();
 SmallScratch.src = 'img/small-scratch.svg';
 
-// Keep track of the currently selected shape
+// متغير لحفظ نوع الخدش الذي تم اختياره
 let selectedShape = null;
 let selectedShapeType = '';
 
-// Keep track of the shapes drawn on the canvas
+//قائمة بالخدوش الموجودة على صورة السيارة 
 let drawnShapes = [];
 let SketchRepresentation = [];
 let currentIndex = -1;
 
-// Add click event listeners to the buttons
+// إضافة حدث عند الضغط على الزر الذي يحتوي على كل نوع من انواع الخدوش
 BendInBodyBtn.addEventListener('click', () => {
     selectedShape = BendInBody;
     selectedShapeType = 'bend-in-body';
@@ -72,7 +73,7 @@ redoBtn.addEventListener('click', () => {
     redo();
 });
 
-// Add click event listener to the canvas
+// إضافة علامة الخدش عند كل ضغطه على الصورة 
 shapeCanvas.addEventListener('click', (event) => {
     if (selectedShape) {
         addShape(event);
@@ -80,34 +81,38 @@ shapeCanvas.addEventListener('click', (event) => {
 });
 
 function addShape(event) {
-    // Get the canvas context
     const ctx = shapeCanvas.getContext('2d');
 
-    // Get the click coordinates relative to the canvas
-    const x = event.clientX - shapeCanvas.getBoundingClientRect().left;
-    const y = event.clientY - shapeCanvas.getBoundingClientRect().top;
+    //   هذا السطر يعطينا الحجم المعروض للكانفس وموقعه في الصفحة مش الابعاد الاصلية
+    const rect = shapeCanvas.getBoundingClientRect();
+    
+    // نحسب مكان الضغطة داخل الكانفس و نطرح منه مكان الكانفس ف الصفحة نفسها
+    const clickX = event.clientX - rect.left;
+    const clickY = event.clientY - rect.top;
 
-    // Draw the selected shape on the canvas at the clicked location
-    ctx.drawImage(selectedShape, x - selectedShape.width / 2, y - selectedShape.height / 2, 20, 20);
+    //نحسب نسبة التحويل من الكانفس المعروض على الشاشة إلى الكانفس الأصلي لان احنا حددناه برقم ثابت ف الجاف سكريبت و لكن عرضناه بحجم مختلف ف الاستايل
+    const scaleX = shapeCanvas.width / rect.width;
+    const scaleY = shapeCanvas.height / rect.height;
 
-    // Increment the current index
+    const x = clickX * scaleX;
+    const y = clickY * scaleY;
+
+    // رسم الخدش بعد اعادة حساب احداثياته
+    ctx.drawImage(selectedShape, x - 10, y - 10, 20, 20);
+
     currentIndex++;
-
-    // Add the new shape to the drawnShapes array at the current index
     drawnShapes[currentIndex] = {
         shape: selectedShape,
-        x: x - selectedShape.width / 2,
-        y: y - selectedShape.height / 2,
+        x: x - 10,
+        y: y - 10,
         type: selectedShapeType
     };
-
-    // Remove any shapes beyond the current index (for redo functionality)
     drawnShapes = drawnShapes.slice(0, currentIndex + 1);
-
-    // Update the SketchRepresentation array
     updateSketchRepresentation();
-}
+    console.log(SketchRepresentation)
+    console.log(drawnShapes)
 
+}
 function undo() {
     if (currentIndex >= 0) {
         currentIndex--;
@@ -123,24 +128,19 @@ function redo() {
 }
 
 function redrawShapes() {
-    // Get the canvas context
     const ctx = shapeCanvas.getContext('2d');
 
-    // Clear the canvas
     ctx.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
 
-    // Draw the car background
     const carBackground = new Image();
     carBackground.src = 'img/car shape.svg';
     carBackground.onload = function () {
         ctx.drawImage(carBackground, 0, 0, shapeCanvas.width, shapeCanvas.height);
 
-        // Redraw all the shapes in the drawnShapes array up to the current index
         for (let i = 0; i <= currentIndex; i++) {
             ctx.drawImage(drawnShapes[i].shape, drawnShapes[i].x, drawnShapes[i].y, 20, 20);
         }
 
-        // Update the SketchRepresentation array
         updateSketchRepresentation();
     };
 }
@@ -155,17 +155,26 @@ function updateSketchRepresentation() {
 }
 
 saveBtn.addEventListener('click', () => {
-    console.log(SketchRepresentation); // This will log the current shapes' type and coordinates
+    console.log(SketchRepresentation);
     $('#TechnicalCheckUp').modal('hide');
-    
-    // const dataURL = shapeCanvas.toDataURL('image/png');
-    // const downloadLink = document.createElement('a');
-    // downloadLink.download = 'car-damage-image.png';
-    // downloadLink.href = dataURL;
-    // downloadLink.click();
+
+    const ctx = shapeCanvas.getContext('2d');
+
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = shapeCanvas.width;
+    tempCanvas.height = shapeCanvas.height;
+    const tempCtx = tempCanvas.getContext('2d');
+// إضافة خلفية بيضاء للصورة 
+    tempCtx.fillStyle = 'white';
+    tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+    tempCtx.drawImage(shapeCanvas, 0, 0);
+
+    const dataURL = tempCanvas.toDataURL('image/png');
+    console.log(dataURL);
 });
 
-// Add active class toggle functionality
+
 document.getElementById('TechnicalCheckUp-container').addEventListener('click', function(event) {
     if (event.target.classList.contains('TechnicalCheckUp-Btn')) {
         const buttons = document.querySelectorAll('.TechnicalCheckUp-Btn');
