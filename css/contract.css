@@ -121,6 +121,17 @@ nav {
 
 }
 
+/*######################################################## */
+.on-mobile {
+    text-align: end;
+}
+
+.img-profile {
+    margin-right: 12px;
+    height: 53px;
+    width: 53px;
+}
+
 /*form styles*/
 #msform {
     text-align: right;
@@ -621,11 +632,7 @@ textarea {
 }
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
-.col-7 {
-    justify-content: flex-end;
-    display: flex;
-    padding-right: 20px;
-}
+
 
 .personal-data-dropdown {
     color: #39629C;
@@ -1113,7 +1120,7 @@ input[type=checkbox] {
 
 }
 
-@media (max-width: 646px) {
+@media (max-width: 767px) {
 
     .hide-on-mobile {
         display: none;
@@ -1368,6 +1375,7 @@ input[type=checkbox] {
     background-color: white;
     padding: 0px 70px !important;
     border: 1px solid #FF9626;
+    color: #FF9626;
 }
 
 @media (max-width: 745px) {
@@ -1704,17 +1712,35 @@ fieldset:disabled .btn {
 
 .car-dropdown-content {
     border: 1px solid orange;
-    /* background: #fdfbf6; */
     display: none;
     border-radius: 8px;
     box-shadow: 0px 2px 4px 0px #39629C3D;
-    width: 200px;
-    margin-top: 13px;
+    width: 300px;
+    margin-top: 16px;
     position: absolute;
     z-index: 9999;
     background-color: white;
     font-size: 0.75rem;
-    padding: 2px;
+    padding: 8px;
+}
+.Status{
+    height: 10px; 
+    width: 10px;
+    border-radius: 50%;
+}
+.Status.About_To_End{
+    background-color: #FF9626;
+}
+.Status.Active{
+    background-color: green;
+}
+.Status.End{
+    background-color: #C32222;
+}
+@media(max-width:768px) {
+    .car-dropdown-content {
+        width: 220px !important;
+    }
 }
 
 .car-dropdown-content p {
@@ -1736,7 +1762,7 @@ fieldset:disabled .btn {
 }
 
 .iconss {
-    width: 100%;
+    width: 18px;
 }
 
 .car-data-row {
@@ -1777,17 +1803,12 @@ fieldset:disabled .btn {
 /****************** الفحص الفني ***************** */
 .car-container {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: auto;
 }
 
 #shape-canvas {
     border: none;
     background-color: rgba(255, 255, 255, 0);
-    width: 100%;
-    height: 100%;
-
 }
 
 .TechnicalCheckUp-Btn {
@@ -1821,9 +1842,8 @@ fieldset:disabled .btn {
 
 @media (max-width:540px) {
     .car-rent-data {
-        right: 5%;
+        right: 1%;
     }
-
     .docs {
         transform: translateX(-40%);
     }
@@ -1847,7 +1867,7 @@ fieldset:disabled .btn {
     }
 
     .payment-dropdown-content {
-        width: 205px;
+        width: 245px;
     }
 }
 
@@ -1908,76 +1928,102 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* new style  */
-.UnifiedContract-header{
+.UnifiedContract-header {
     flex-direction: column-reverse;
     align-items: flex-start;
     border: none;
 }
-.UnifiedContract-close{
-  background:transparent url(../img/CloseModal.svg) center/1.7em auto no-repeat;
-  opacity: 1;
+
+.UnifiedContract-close {
+    background: transparent url(../img/CloseModal.svg) center/1.7em auto no-repeat;
+    opacity: 1;
 
 }
-.custom-img-button{
+
+.custom-img-button {
     min-width: 95px;
     height: 100%;
     border-radius: 8px;
     padding: 15px;
     gap: 10px;
-    box-shadow: 0px 1px 4px 0px rgb(255,150,38,25%);
+    box-shadow: 0px 1px 4px 0px rgb(255, 150, 38, 25%);
     border: none;
-    background-color:transparent;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
-.custom-img-button:hover{
-    box-shadow: 0px 3px 4px 0px rgb(255,150,38,40%);
-    background-color:rgb(255, 150, 38 , 30%);
+
+.custom-img-button:hover {
+    box-shadow: 0px 3px 4px 0px rgb(255, 150, 38, 40%);
+    background-color: rgb(255, 150, 38, 30%);
 
 }
+
 .loader {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     position: relative;
     animation: rotate 1s linear infinite
-  }
-  .loader::before {
+}
+
+.loader::before {
     content: "";
     box-sizing: border-box;
     position: absolute;
     inset: 0px;
     border-radius: 50%;
     border: 5px solid #FF9626;
-    animation: prixClipFix 2s linear infinite ;
-  }
-.small-loader{
+    animation: prixClipFix 2s linear infinite;
+}
+
+.small-loader {
     width: 29px;
     height: 29px;
 }
-  @keyframes rotate {
-    100%   {transform: rotate(360deg)}
-  }
 
-  @keyframes prixClipFix {
-      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
-      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
-  }
-  .UnifiedContract-btn{
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
+.UnifiedContract-btn {
     gap: 10px;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-  }
-  .loader-active{
+}
+
+.loader-active {
     background-color: white;
     border-color: #FF9626;
-  }
+}
+
 /* edited style  */
 .OTP {
     width: 0.8599999999999999em;
@@ -1991,4 +2037,59 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #F7F7F7;
     border-radius: 6px;
     border-bottom: 2px solid #39629C;
+}
+
+/*  */
+.CarFuel {
+    width: 25px;
+}
+
+.carImg {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .car-catogeries-div {
+        flex-direction: row;
+        gap: 4px;
+        flex-wrap: nowrap;
+    }
+
+    .car-catogeries {
+        height: fit-content;
+        min-height: fit-content;
+    }
+}
+
+
+
+.tel-input {
+    border-radius: 0px 8px 8px 0px !important;
+}
+
+#phone2 {
+    height: 37px;
+}
+
+.counterCode {
+    border-radius: 8px 0px 0px 8px !important;
+    border-right: none;
+    background-color: white;
+    color: var(--primary-color);
+    direction: ltr;
+    height: 37px;
+}
+
+.hidden-input-row .requird-field-row .requird-field {
+    text-align: start;
+}
+
+@media (max-width: 991px) {
+    .table-scroll2 {
+        height: auto !important;
+        max-height: 450px !important;
+        min-height: auto;
+        overflow-y: auto;
+    }
+
 }
