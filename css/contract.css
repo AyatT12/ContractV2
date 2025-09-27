@@ -1543,6 +1543,7 @@ input[type=checkbox] {
 
 .hidden-input-row {
     height: 38vh;
+    min-height:310px
     overflow-y: auto;
     justify-content: flex-end;
 
