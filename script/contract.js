@@ -46,29 +46,7 @@ $(".next").click(function () {
         }
     }
     if ($("#progressbar li").eq($("fieldset").index(next_fs))[0].id == "car") {
-      var dropdownContent;
-      var currentExtraDetails;
-      var allExtraDetails = $('.extra-details');
-
-      $('.table-hover').on('click', '.extra-details', function() {
-        $('.car-dropdown-content').hide();
-
-        dropdownContent = $(this).find('.car-dropdown-content');
-        currentExtraDetails = $(this);
-        allExtraDetails.not(currentExtraDetails).css("box-shadow", "0px 2px 4px 0px #39629C3D");
-        dropdownContent.css("display", "block");
-        currentExtraDetails.css("box-shadow", "none");
-      });
-
-      $(document).on('click', function(event) {
-        if (dropdownContent && dropdownContent.css('display') === 'block') {
-          if (!$(event.target).closest('.car-dropdown-content').length && !$(event.target).closest('.extra-details').length) {
-            dropdownContent.css("display", "none");
-            currentExtraDetails.css("box-shadow", "0px 2px 4px 0px #39629C3D");
-            currentExtraDetails = null;
-          }
-        }
-      });
+    
     }
     $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
@@ -223,10 +201,6 @@ checkButtons.forEach(function(button) {
   });
 });
 
-  
-
-
-
 // ///////////////timer function in the otc modal /////////////////////
 var interval; 
 var lastClickedButtonId; 
@@ -369,31 +343,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //////////////////////////// driver details ///////////////////////////////////////////////////////
-// const image2 = document.getElementById("driver-details");
-// const dropdown2 = document.getElementById("driver-details-dropdown");
+const image2 = document.getElementById("driver-details");
+const dropdown2 = document.getElementById("driver-details-dropdown");
 
-// image2.addEventListener("click", function(event) {
-//   if ( dropdown2.style.display == "block"){
-//     dropdown2.style.display = "none";
-//   }else{
-//     dropdown2.style.display = "block";
+image2.addEventListener("click", function(event) {
+  if ( dropdown2.style.display == "block"){
+    dropdown2.style.display = "none";
+  }else{
+    dropdown2.style.display = "block";
   
-//   }
-// });
+  }
+});
 
 
 //////////////////////////// aad driver details ///////////////////////////////////////////////////////
-// const image3 = document.getElementById("add-driver-details");
-// const dropdown3 = document.getElementById("add-Driver-dropdown");
+const image3 = document.getElementById("add-driver-details");
+const dropdown3 = document.getElementById("add-Driver-dropdown");
 
-// image3.addEventListener("click", function(event) {
-//   if ( dropdown3.style.display == "none"){
-//     dropdown3.style.display = "block";
-//   }else{
-//     dropdown3.style.display = "none";
+image3.addEventListener("click", function(event) {
+  if ( dropdown3.style.display == "none"){
+    dropdown3.style.display = "block";
+  }else{
+    dropdown3.style.display = "none";
   
-//   }
-// });
+  }
+});
 /////////////////////////////////////////////////////////////////////////search-icon-payment///////////////////////////////////////////////////////////////////
 const imagePay = document.getElementById('payment-extra-details');
 const dropdownPay = document.getElementById('dropdown-content-payment');
@@ -407,60 +381,3 @@ imagePay.addEventListener('click', function () {
 });
 
 
-// // /////////// script for scrolling through car category buttons  //////////////////////////////
-let isScrolling = false;
-let startX, startY, scrollLeft, scrollTop;
-
-const scrollContainer = document.getElementById("scrollContainer");
-
-// Mouse events
-scrollContainer.addEventListener("mousedown", (e) => {
-  isScrolling = true;
-  startX = e.pageX - scrollContainer.offsetLeft;
-  startY = e.pageY - scrollContainer.offsetTop;
-  scrollLeft = scrollContainer.scrollLeft;
-  scrollTop = scrollContainer.scrollTop;
-});
-
-scrollContainer.addEventListener("mouseleave", () => {
-  isScrolling = false;
-});
-
-scrollContainer.addEventListener("mouseup", () => {
-  isScrolling = false;
-});
-
-scrollContainer.addEventListener("mousemove", (e) => {
-  if (!isScrolling) return;
-  e.preventDefault();
-  const x = e.pageX - scrollContainer.offsetLeft;
-  const y = e.pageY - scrollContainer.offsetTop;
-  const walkX = (x - startX) * 2;
-  const walkY = (y - startY) * 2;
-  scrollContainer.scrollLeft = scrollLeft - walkX;
-  scrollContainer.scrollTop = scrollTop - walkY;
-});
-// touch events
-
-scrollContainer.addEventListener("touchstart", (e) => {
-  isScrolling = true;
-  startX = e.touches[0].pageX - scrollContainer.offsetLeft;
-  startY = e.touches[0].pageY - scrollContainer.offsetTop;
-  scrollLeft = scrollContainer.scrollLeft;
-  scrollTop = scrollContainer.scrollTop;
-});
-
-scrollContainer.addEventListener("touchmove", (e) => {
-  if (!isScrolling) return;
-  e.preventDefault();
-  const x = e.touches[0].pageX - scrollContainer.offsetLeft;
-  const y = e.touches[0].pageY - scrollContainer.offsetTop;
-  const walkX = (x - startX) * 2;
-  const walkY = (y - startY) * 2;
-  scrollContainer.scrollLeft = scrollLeft - walkX;
-  scrollContainer.scrollTop = scrollTop - walkY;
-});
-
-scrollContainer.addEventListener("touchend", () => {
-  isScrolling = false;
-});
