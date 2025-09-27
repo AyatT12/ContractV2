@@ -1353,6 +1353,7 @@ input[type=checkbox] {
 .payment-button-card {
     display: flex;
     justify-content: center;
+    margin: 10px 5px;
 }
 
 .spinner-payment-check {
