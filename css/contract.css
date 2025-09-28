@@ -60,15 +60,10 @@ body.no-scroll {
 
 .textarea-inputs {
     resize: none;
-    /* min-height: calc(3em + 0.75rem + calc(var(--bs-border-width)* 2)) !important; */
 }
 
-.form-select-driver {
-    /* border-top: none; */
-}
 
 .form-select-last {
-    /* border-top: none; */
     text-align: end;
     width: 100%;
 }
@@ -137,7 +132,6 @@ nav {
     text-align: right;
     position: relative;
     /* margin-top: 10px; */
-    height: 97%;
 }
 
 .form-card {
@@ -147,16 +141,20 @@ nav {
     box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
     padding: 18px;
     box-sizing: border-box;
-    width: 94%;
-    /* margin: 0 3% 20px 3%; */
-
+    width: 100%;
     /*stacking fieldsets above each other*/
     position: relative;
-    height:63vh;
+    height:62vh;
     overflow-y: auto;
+    overflow-x: hidden;
     justify-content: space-between;
 }
-
+@media (max-width:767px) {
+    .form-card{
+        width: 94%;
+    }
+    
+}
 fieldset {
     display: flex;
     flex-direction: column;
@@ -166,6 +164,7 @@ fieldset {
 .main-card {
     box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important;
     height: 100%;
+    justify-content: space-between;
 }
 
 #progressbar {
@@ -181,7 +180,6 @@ fieldset {
     width: 100%;
     margin: 0;
     position: relative;
-    height: 90%;
 }
 
 
@@ -604,9 +602,6 @@ textarea {
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 .section-mainCard {
     height: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
 }
 
 #content-wrapper {
@@ -617,10 +612,6 @@ textarea {
     height: 100%;
 }
 
-
-.cancle-icon {
-    margin-left: 5px;
-}
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 .radio-style {
@@ -1143,17 +1134,12 @@ input[type=checkbox] {
 
 
 /***************************************************cards-media**************************************************/
-@media (max-height:550px) {
+@media (max-height:600px) {
     .form-card {
-        height: fit-content;
+        height:400px;
     }
-
-    fieldset {
-        height: fit-content;
-    }
-
-    #msform {
-        height: fit-content;
+    .table-scroll{
+        min-height: 350px;
     }
 }
 
@@ -1164,28 +1150,6 @@ input[type=checkbox] {
     }
 }
 
-@media (min-height: 700px) {
-
-    .form-card3,
-    .form-card4,
-    .form-card7 {
-        gap: 2px;
-
-    }
-
-}
-
-@media (min-height: 740px) {
-
-    .form-card3,
-    .form-card4,
-    .form-card7 {
-        gap: 6px;
-
-    }
-
-}
-
 @media (max-width: 740px) {
     .table-field-row {
         padding-left: 0px;
@@ -1194,119 +1158,6 @@ input[type=checkbox] {
     }
 
 }
-
-@media (min-height: 780px) {
-
-    .form-card3,
-    .form-card4,
-    .form-card7 {
-        gap: 10px;
-
-    }
-
-
-
-    /* .car-catogeries {
-        height: 420px;
-    } */
-
-    /* .scrollable-content {
-        height: 420px;
-    } */
-}
-
-@media (min-height: 810px) {
-
-
-    .form-card3,
-    .form-card4,
-    .form-card7 {
-        gap: 12px;
-
-    }
-
-
-
-    /* .car-catogeries {
-        height: 430px;
-    } */
-
-    /* .scrollable-content {
-        height: 430px;
-    } */
-}
-
-@media (min-height: 890px) {
-
-
-    footer {
-        /* padding-bottom: 300px; */
-    }
-
-    .form-card3,
-    .form-card4,
-    .form-card7 {
-        gap: 15px
-    }
-
-
-
-    /* .car-catogeries {
-        height: 450px;
-    } */
-
-    /* .scrollable-content {
-        height: 450px;
-    } */
-
-    .content-row {
-        padding-top: 15px;
-    }
-
-    .title-row {
-        padding-top: 10px;
-    }
-}
-
-@media (max-width: 991px) {
-    .space-row {
-        height: 0px;
-    }
-
-}
-
-@media (min-height: 950px) {
-
-
-
-    .form-card3,
-    .form-card4,
-    .form-card7 {
-        gap: 20px
-    }
-
-
-
-    /* .car-catogeries {
-        height: 500px;
-    } */
-    /* 
-    .scrollable-content {
-        height: 500px;
-    } */
-
-    .content-row {
-        padding-top: 20px;
-    }
-
-    .title-row {
-        padding-top: 10px;
-    }
-
-
-}
-
-
 @media (min-width:1544px) {
     .upload__img-box {
         width: 98px;
@@ -1330,6 +1181,10 @@ input[type=checkbox] {
 /* ///////////////////// */
 .options-col {
     text-align: end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap: 5px;
 }
 
 @media (max-width: 425px) {
@@ -1368,7 +1223,6 @@ input[type=checkbox] {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 10px 5px;
     }
 
 
@@ -1388,8 +1242,7 @@ input[type=checkbox] {
 
 .rate-col:hover {
     box-shadow: inset 0px 1px 6px 1px #ff962638;
-    /* color: #39629C;
-    font-weight: 600; */
+
 }
 
 .rate-modal-header {
@@ -1545,7 +1398,7 @@ input[type=checkbox] {
 
 .hidden-input-row {
     height: 38vh;
-    min-height:310px;
+    min-height: 310px;
     overflow-y: auto;
     justify-content: flex-end;
 
@@ -1879,7 +1732,7 @@ fieldset:disabled .btn {
 /* ************************************************************************************************************************************************************************************* */
 
 #referenceDiv {
-    height: 56vh;
+    height: 60vh;
     /* min-height: 450px; */
     display: flex;
     flex-direction: column;
@@ -2393,12 +2246,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #C32222;
 }
 .Avaliable_cars{
-    height: 504px;
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0px 8px;
 }
 
 /*======================= general scroll bar for all pages ======================*/
@@ -2411,11 +2265,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.678);
   background: #fffdfd;
+  border-radius: 7px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #FF9626;
+    border-radius: 7px;
+
 }
 
 /* Handle on hover */
@@ -2435,6 +2292,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .Days-left-badge {
   color: #39629C;
+  font-size: 10px;
 }
 
 .maintenance-info p {

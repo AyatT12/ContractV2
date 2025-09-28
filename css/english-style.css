@@ -23,10 +23,6 @@ body {
     left: 0%;
 }
 
-.cancle-icon {
-
-    margin-right: 25px;
-}
 
 .button-card img {
     transform: rotateY(180deg);
@@ -71,10 +67,13 @@ textarea {
 }
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  version 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  */
-.AR-select {
-    background-position: right .75rem center !important;
-    text-align: end;
+.form-select {
+     background-position: right .75rem center !important;
+     direction: ltr;
+     padding: .2rem 2rem .2rem .75rem;
+     height: 35px;
 }
+
 
 .form-card1 {
     text-align: end;
@@ -154,15 +153,39 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         margin-right: 0rem;
     }
 }
-@media (max-width:540px) {
+@media (max-width:768px) {
     .car-rent-data {
-             right: -150%;
+             right: -200%;
     }
 
     .docs {
         transform: translateX(40%);
     }
 }
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  phone input %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  */
+.tel-input {
+    border-radius: 0px 8px 8px 0px !important
+  }
+  
+  .counterCode {
+    border-radius:8px 0px 0px 8px !important;
+    border-right: none;
+    background-color: white;
+    color: var(--primary-color);
+    direction: ltr;
+  
+  }
+  .input-group{
+    flex-direction: row-reverse;
+  }
+  /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  version 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  */
+.button-row img{
+    transform: rotate(180deg);
+}
+.pagination_Container .btn{
+    transform: rotate(180deg);
+}
+
 /* /////////////////////media for the seacrh icon list on mobiles///////////////////////// */
 @media (max-width:775px) {
 
