@@ -48,8 +48,8 @@
             <header class="header">
                 <div class="navbar-area">
                     <!-- Topbar -->
-                    <nav class="navbar navbar-expand navbar-light topbar mb-1 static-top  justify-content-between"
-                        style="height:90px">
+                    <nav class="navbar navbar-expand navbar-light topbar mb-2 static-top  justify-content-between"
+                        style="height:100px">
 
                     </nav>
                 </div>
@@ -59,9 +59,10 @@
             <div class="container-fluid" id="grad1">
                 <section class="section-mainCard">
                     <div class="row justify-content-center w-100 h-100">
-                        <div class="col-11 col-sm-10 col-md-11 col-lg-11 col-xl-10 text-center p-0 ">
+                        <div class="col-12 col-xl-10 text-center">
                             <div class="card main-card ">
-                                <div class="row pt-2">
+                               <div class="col-md-12">
+                                 <div class="row pt-2">
                                      <div class="col-auto">
                                         <a href="https://ayatt12.github.io/BranchesUI/" style="width: fit-content;">
                                         <img src="img/Close.svg" alt="cancle_icon" class="cancle-icon"></a>
@@ -70,8 +71,9 @@
                                      <span class="card-title"> إنشاء العقد </span>
                                      </div>
                                 </div>
-                            
-                                <div class="row justify-content-center h-100 content-row">
+                               </div>
+                              <div class="col-md-12">
+                                <div class="row justify-content-center ">
 
                                     <div class="col-md-11 mx-0 h-100">
 
@@ -531,9 +533,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="row button-row" style="text-align: left;">
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <img src="img/Group.png" alt="Button Image"
-                                                            class="next action-button" style="vertical-align: middle; ">
+                                                            class="next" style="vertical-align: middle; ">
                                                         <input type="button" name="next" class="next action-button"
                                                             id="driver_fieldset" value="التالي" />
                                                     </div>
@@ -549,7 +551,6 @@
                                                         class="form-select w-auto d-inline-block carFilter">
                                                         <option value="all">الكل</option>
                                                         <option value="سيدان متوسطة">سيدان متوسطة</option>
-                                                        <option value="اقتصادية">اقتصادية</option>
                                                         <option value="عائلية كبيرة">عائلية كبيرة</option>
                                                     </select>
                                                 </div>
@@ -911,15 +912,12 @@
                                                 </div>
                                                  </div>
                                                 </div>
-                                                <div class="row button-row">
-                                                    <div class="button-card">
-
-                                                    </div>
-                                                    <div class="button-card">
+                                                <div class="row button-row justify-content-end">
+                                                    <div class="col-auto">
                                                         <input type="button" name="previous"
                                                             class="previous action-button-previous" value="السابق" />
                                                         <img src="img/Vector.png" alt="Button Image"
-                                                            class="previous action-button-previous"
+                                                            class="previous"
                                                             style="vertical-align: middle; ">
                                                     </div>
                                                 </div>
@@ -1368,17 +1366,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="row button-row">
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <img src="img/Group.png" alt="Button Image"
-                                                            class="next action-button" style="vertical-align: middle; ">
+                                                            class="next" style="vertical-align: middle; ">
                                                         <input type="button" name="next" class="next action-button"
                                                             value="التالي" />
                                                     </div>
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <input type="button" name="previous"
                                                             class="previous action-button-previous" value="السابق" />
                                                         <img src="img/Vector.png" alt="Button Image"
-                                                            class="previous action-button-previous"
+                                                            class="previous"
                                                             style="vertical-align: middle; ">
                                                     </div>
                                                 </div>
@@ -1851,17 +1849,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="row button-row">
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <img src="img/Group.png" alt="Button Image"
-                                                            class="next action-button" style="vertical-align: middle; ">
+                                                            class="next" style="vertical-align: middle; ">
                                                         <input type="button" name="next" class="next action-button"
                                                             value="التالي" />
                                                     </div>
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <input type="button" name="previous"
                                                             class="previous action-button-previous" value="السابق" />
                                                         <img src="img/Vector.png" alt="Button Image"
-                                                            class="previous action-button-previous"
+                                                            class="previous"
                                                             style="vertical-align: middle; ">
                                                     </div>
                                                 </div>
@@ -1928,14 +1926,16 @@
                                                                             <td class="text-center">۳۰:۰۰
 
                                                                             </td>
-                                                                            <td class="options-col">
-                                                                                <label class="child-seat"
+                                                                            <td>
+                                                                              <div class="options-col">
+                                                                                 <label class="child-seat"
                                                                                     for="child-seat">
                                                                                     كرسي أطفال
                                                                                 </label>
                                                                                 <input class="child-seat-input"
                                                                                     type="checkbox" name="Additions"
                                                                                     value="child-seat" id="child-seat">
+                                                                              </div>
 
                                                                             </td>
 
@@ -1945,7 +1945,8 @@
                                                                                 ۳۰:۰۰
 
                                                                             </td>
-                                                                            <td class="options-col">
+                                                                            <td>
+                                                                                <div class="options-col">
                                                                                 <label class="Baby chair"
                                                                                     for="Baby chair">
                                                                                     كرسي رضيع
@@ -1953,7 +1954,7 @@
                                                                                 <input class="Baby chair-input"
                                                                                     type="checkbox" name="Additions"
                                                                                     value="Baby chair" id="Baby chair">
-
+                                                                                </div>
                                                                             </td>
                                                                         </tr>
 
@@ -2163,17 +2164,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="row button-row">
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <img src="img/Group.png" alt="Button Image"
-                                                            class="next action-button" style="vertical-align: middle; ">
+                                                            class="next" style="vertical-align: middle; ">
                                                         <input type="button" name="next" class="next action-button"
                                                             value="التالي" />
                                                     </div>
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <input type="button" name="previous"
                                                             class="previous action-button-previous" value="السابق" />
                                                         <img src="img/Vector.png" alt="Button Image"
-                                                            class="previous action-button-previous"
+                                                            class="previous"
                                                             style="vertical-align: middle; ">
                                                     </div>
                                                 </div>
@@ -2265,7 +2266,7 @@
                                                                                     الفحص</th>
                                                                                 <th scope="col">
                                                                                     <div
-                                                                                        class="d-flex justify-content-center ">
+                                                                                        class="d-flex justify-content-center">
                                                                                         <div class="col"> بنود الفحص
                                                                                         </div>
                                                                                         <div class="col-auto p-0">
@@ -2454,8 +2455,9 @@
                                                                                 </td>
                                                                                 <td></td>
 
-                                                                                <td class="options-col">
-                                                                                    <label class="wiper" for="wiper">
+                                                                                <td>
+                                                                                <div class="options-col">
+                                                                                     <label class="wiper" for="wiper">
                                                                                         المساحات
 
                                                                                     </label>
@@ -2463,6 +2465,7 @@
                                                                                         type="checkbox"
                                                                                         name="Examination-items"
                                                                                         value="wiper" id="wiper">
+                                                                                </div>
                                                                                 </td>
 
                                                                             </tr>
@@ -2475,8 +2478,9 @@
                                                                                 </td>
                                                                                 <td></td>
 
-                                                                                <td class="options-col">
-                                                                                    <label class="signals"
+                                                                                <td>
+                                                                                    <div class="options-col">
+                                                                                         <label class="signals"
                                                                                         for="signals">
                                                                                         الإشارات
 
@@ -2485,6 +2489,7 @@
                                                                                         type="checkbox"
                                                                                         name="Examination-items"
                                                                                         value="signals" id="signals">
+                                                                                    </div>
                                                                                 </td>
 
                                                                             </tr>
@@ -2497,8 +2502,9 @@
                                                                                 </td>
                                                                                 <td></td>
 
-                                                                                <td class="options-col">
-                                                                                    <label class="cleanliness"
+                                                                                <td>
+                                                                                   <div class="options-col">
+                                                                                     <label class="cleanliness"
                                                                                         for="cleanliness">
                                                                                         النظافة
 
@@ -2508,6 +2514,7 @@
                                                                                         name="Examination-items"
                                                                                         value="cleanliness"
                                                                                         id="cleanliness">
+                                                                                   </div>
                                                                                 </td>
 
                                                                             </tr>
@@ -2520,8 +2527,9 @@
                                                                                 </td>
                                                                                 <td></td>
 
-                                                                                <td class="options-col">
-                                                                                    <label class="Front_brake "
+                                                                                <td>
+                                                                                   <div class="options-col">
+                                                                                     <label class="Front_brake "
                                                                                         for="Front_brake">
                                                                                         الفرامل الأمامية
 
@@ -2531,6 +2539,7 @@
                                                                                         name="Examination-items"
                                                                                         value="Front_brake"
                                                                                         id="Front_brake">
+                                                                                   </div>
                                                                                 </td>
 
                                                                             </tr>
@@ -2560,8 +2569,9 @@
                                                                                     </select>
                                                                                 </td>
 
-                                                                                <td class="options-col">
-                                                                                    <label class="Rear_brake"
+                                                                                <td>
+                                                                                  <div class="options-col">
+                                                                                      <label class="Rear_brake"
                                                                                         for="Rear_brake">
                                                                                         الفرامل الخلفية
 
@@ -2571,6 +2581,7 @@
                                                                                         name="Examination-items"
                                                                                         value="Rear_brake"
                                                                                         id="Rear_brake">
+                                                                                  </div>
                                                                                 </td>
 
                                                                             </tr>
@@ -2583,17 +2594,17 @@
                                                     </div>
                                                 </div>
                                                 <div class="row button-row">
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <img src="img/Group.png" alt="Button Image"
-                                                            class="next action-button" style="vertical-align: middle; ">
+                                                            class="next" style="vertical-align: middle; ">
                                                         <input type="button" name="next" class="next action-button"
                                                             value="التالي" />
                                                     </div>
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <input type="button" name="previous"
                                                             class="previous action-button-previous" value="السابق" />
                                                         <img src="img/Vector.png" alt="Button Image"
-                                                            class="previous action-button-previous"
+                                                            class="previous"
                                                             style="vertical-align: middle; ">
                                                     </div>
                                                 </div>
@@ -2974,10 +2985,9 @@
                                                 </div>
 
                                                 <div class="row button-row align-items-center">
-                                                    <div class="payment-button-card button-card   gap-2">
+                                                    <div class="col-auto py-2">
                                                         <button type="button" class="btn check-btn payment-button" id="SubmitFormBtn">حفظ العقد
                                                         </button>
-
                                                         <button type="button"
                                                             class="btn check-btn payment-button signature-button"
                                                             data-bs-toggle="modal" href="#signature-modal">
@@ -2992,16 +3002,13 @@
                                                                 </div>
                                                             </div>
                                                         </button>
-
-                                                      
-
                                                     </div>
-                                                    <div class="button-card">
+                                                    <div class="col-auto">
                                                         <input type="button" name="previous"
                                                             class="previous action-button-previous" value="السابق" />
                                                         <img src="img/Vector.png" alt="Button Image"
-                                                            class="previous action-button-previous"
-                                                            style="vertical-align: middle; margin-right: 10px;">
+                                                            class="previous"
+                                                            style="vertical-align: middle;">
                                                     </div>
                                                 </div>
 
@@ -3009,6 +3016,7 @@
                                         </form>
                                     </div>
                                 </div>
+                               </div>
                             </div>
                             <div class="modal fade" id="checkModalToggle" aria-hidden="true"
                                 aria-labelledby="checkModalToggleLabel" tabindex="-1">
@@ -3698,7 +3706,7 @@
 <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carItems = document.querySelectorAll('.Avaliable_cars .car-item');
-            const itemsPerPage = 3;
+            var itemsPerPage = 3;
             let currentPage = 0;
             let filteredCars = Array.from(carItems);
            
@@ -3762,8 +3770,19 @@
                 showPage(currentPage);
             });
            
-            // Initialize
-            showPage(currentPage);
+           
+             // Update items per page based on screen size
+            updateItemsPerPage();
+            window.addEventListener('resize', () => updateItemsPerPage());
+            function updateItemsPerPage() {
+            if (window.innerWidth <= 1199) {
+                itemsPerPage = 2;
+            } else {
+                itemsPerPage = 3;
+            }
+            currentPage = 0;
+        // Initialize
+            showPage(currentPage);        }
         });
 </script>
 <script>
@@ -4028,7 +4047,7 @@
             documentsContent.innerHTML = `
 
                 <div class="row justify-content-center">
-                    <div class="col-lg-6">
+                     <div class="col-lg-6">
                         <div class="info-item">
                             
                             <div class="info-label d-flex">
@@ -4038,7 +4057,9 @@
                             <span class="status-badge">
                                 ${carData.documents.license.date}
                                  <span class="Days-left-badge ${carData.documents.license.status === 'expired' ? 'expired' : ''}">
+                                  المتبقي
                                 (${carData.documents.license.DaysLeft})
+                                    يوم
                                 </span>
                             </span>
                            
@@ -4051,7 +4072,10 @@
                             <span class="status-badge ">
                                  ${carData.documents.insurance.date}
                                  <span class="Days-left-badge ${carData.documents.insurance.status === 'expired' ? 'expired' : ''}">
+                                 المتبقي
                                 (${carData.documents.insurance.DaysLeft})
+                                  يوم
+
                             </span>
                         </div>
                          <div class="info-item">
@@ -4062,7 +4086,10 @@
                             <span class="status-badge">
                                ${carData.documents.operatingCard.date}
                                  <span class="Days-left-badge ${carData.documents.operatingCard.status === 'expired' ? 'expired' : ''}">
+                                 المتبقي
                                   (${carData.documents.operatingCard.DaysLeft})
+                                يوم
+
                             </span>
                         </div>
                         <div class="info-item">
@@ -4073,7 +4100,9 @@
                             <span class="status-badge">
                                  ${carData.documents.inspection.date}
                                     <span class="Days-left-badge ${carData.documents.inspection.status === 'expired' ? 'expired' : ''}">
+                                    المتبقي
                                     (${carData.documents.inspection.DaysLeft})
+                                     يوم
                             </span>
                         </div>
                     </div>
@@ -4100,10 +4129,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.tires.km} كم</strong> 
                              </p>
-                              <p>
-                                <strong class="${carData.maintenance.tires.Days_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.tires.DaysLeft})</strong> 
+                              <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                <strong class="${carData.maintenance.tires.Days_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.tires.DaysLeft})يوم </strong> 
                                 <span> - </span>
-                                <strong class="${carData.maintenance.tires.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.tires.KilosLeft})</strong> 
+                                <strong class="${carData.maintenance.tires.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.tires.KilosLeft})كم </strong> 
                              </p>
                     </div>
                 </div>
@@ -4120,10 +4150,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.oil.km} كم</strong> 
                              </p>
-                                <p>
-                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})</strong> 
+                                <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})يوم</strong> 
                                     <span> - </span>
-                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})</strong>
+                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})كم</strong>
                                 </p>
                     </div>
                     </div>
@@ -4139,10 +4170,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.service.km} كم</strong> 
                              </p>
-                                <p>
-                                    <strong class="${carData.maintenance.service.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.service.DaysLeft})</strong> 
+                                <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                    <strong class="${carData.maintenance.service.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.service.DaysLeft})يوم</strong> 
                                     <span> - </span>
-                                    <strong class="${carData.maintenance.service.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.service.KilosLeft})</strong>
+                                    <strong class="${carData.maintenance.service.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.service.KilosLeft})كم</strong>
                                  </p>
                     </div>
                     </div>
@@ -4158,10 +4190,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.Rear_brake.km} كم</strong> 
                              </p>
-                                <p>
-                                    <strong class="${carData.maintenance.Rear_brake.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.Rear_brake.DaysLeft})</strong> 
+                                <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                    <strong class="${carData.maintenance.Rear_brake.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.Rear_brake.DaysLeft})يوم</strong> 
                                     <span> - </span>
-                                    <strong class="${carData.maintenance.Rear_brake.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.Rear_brake.KilosLeft})</strong>
+                                    <strong class="${carData.maintenance.Rear_brake.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.Rear_brake.KilosLeft})كم</strong>
                                 </p>
                     </div>
                     </div>
@@ -4177,10 +4210,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.Front_brakes.km} كم</strong> 
                              </p>
-                                 <p>
-                                    <strong class="${carData.maintenance.Front_brakes.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.Front_brakes.DaysLeft})</strong> 
+                                 <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                    <strong class="${carData.maintenance.Front_brakes.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.Front_brakes.DaysLeft})يوم</strong> 
                                     <span> - </span>
-                                    <strong class="${carData.maintenance.Front_brakes.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.Front_brakes.KilosLeft})</strong>
+                                    <strong class="${carData.maintenance.Front_brakes.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.Front_brakes.KilosLeft})كم</strong>
                                 </p>
                     </div>
                     </div>
@@ -4196,10 +4230,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.oil.km} كم</strong> 
                              </p>
-                               <p>
-                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})</strong> 
+                               <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})يوم</strong> 
                                     <span> - </span>
-                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})</strong>
+                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})كم</strong>
                                 </p>
                     </div>
                     </div>
@@ -4216,10 +4251,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.oil.km} كم</strong> 
                              </p>
-                                 <p>
-                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})</strong> 
+                                <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})يوم</strong> 
                                     <span> - </span>
-                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})</strong>
+                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})كم</strong>
                                 </p>
                     </div>
                     </div>
@@ -4235,10 +4271,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.oil.km} كم</strong> 
                              </p>
-                                <p>
-                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})</strong> 
+                                <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})يوم</strong> 
                                     <span> - </span>
-                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})</strong>
+                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})كم</strong>
                                 </p>
                     </div>
                     </div>
@@ -4254,10 +4291,11 @@
                                 <span> - </span>
                                 <strong>${carData.maintenance.oil.km} كم</strong> 
                              </p>
-                                <p>
-                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})</strong> 
+                            <p style="font-size: 10px;">
+                                <strong style="color:#495057"> المتبقي: </strong>
+                                    <strong class="${carData.maintenance.oil.Days_status === 'expired' ? 'expired' : ''}" >(${carData.maintenance.oil.DaysLeft})يوم</strong> 
                                     <span> - </span>
-                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})</strong>
+                                    <strong class="${carData.maintenance.oil.Km_status === 'expired' ? 'expired' : ''}">(${carData.maintenance.oil.KilosLeft})كم</strong>
                                 </p>
                     </div>
                     </div>
