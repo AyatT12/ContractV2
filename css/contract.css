@@ -149,12 +149,7 @@ nav {
     overflow-x: hidden;
     justify-content: space-between;
 }
-@media (max-width:767px) {
-    .form-card{
-        width: 94%;
-    }
-    
-}
+
 fieldset {
     display: flex;
     flex-direction: column;
@@ -602,6 +597,9 @@ textarea {
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 .section-mainCard {
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #content-wrapper {
