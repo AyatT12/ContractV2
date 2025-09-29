@@ -84,7 +84,7 @@ body.no-scroll {
 
 .requird-field-row-last {
     justify-content: flex-end;
-    height: 15px;
+    height: 25px;
 }
 
 .content-row {
@@ -412,16 +412,18 @@ select.list-dt:focus {
     margin-right: 30px;
 }
 
-/* .form-check input{
-  
-   
-} */
 .form-check-input[type=radio] {
-    border-radius: 0%;
+    border-radius: 4px;
     width: 20px;
     height: 20px;
 }
-
+.form-check{
+display: flex;
+align-items: end;
+}
+.Driver-checks{
+flex-direction: row-reverse;
+}
 .otc {
     position: relative;
     margin: 0 auto;
@@ -511,7 +513,7 @@ input[type="number"]:nth-child(n+4) {
 .requird-field {
     font-size: 10px;
     color: red;
-    display: none;
+    display: block;
 }
 
 .requird-field-row {
@@ -1031,6 +1033,7 @@ input[type=checkbox] {
 .payment-col {
     justify-content: flex-start;
     flex-direction: row-reverse;
+    align-items: baseline;
 }
 
 .title-container {
@@ -1341,7 +1344,6 @@ input[type=checkbox] {
     border-radius: 4px !important;
     padding-top: 2px !important;
     padding-bottom: 2px !important;
-    margin-bottom: 6px !important;
 }
 
 .version2-hr {
@@ -1730,7 +1732,7 @@ fieldset:disabled .btn {
 /* ************************************************************************************************************************************************************************************* */
 
 #referenceDiv {
-    height: 60vh;
+    height: 56vh;
     /* min-height: 450px; */
     display: flex;
     flex-direction: column;
@@ -2282,10 +2284,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .btn:focus {
   outline: 0;
   box-shadow: none;
-}
-
-.contract-value {
-  color: #39629C;
 }
 
 .Days-left-badge {
