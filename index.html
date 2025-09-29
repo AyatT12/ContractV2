@@ -62,7 +62,7 @@
                         <div class="col-12 col-xl-10 text-center">
                             <div class="card main-card ">
                                <div class="col-md-12">
-                                 <div class="row py-2">
+                                 <div class="row pt-2">
                                      <div class="col-auto">
                                         <a href="https://ayatt12.github.io/BranchesUI/" style="width: fit-content;">
                                         <img src="img/Close.svg" alt="cancle_icon" class="cancle-icon"></a>
@@ -77,7 +77,7 @@
 
                                     <div class="col-md-11 mx-0 h-100">
 
-                                        <form id="msform">
+                                        <form id="msform" class="needs">
                                             <div class=" ">
                                                 <!-- progressbar -->
                                                 <ul id="progressbar">
@@ -97,17 +97,17 @@
                                                     <div class="row flex-row-reverse">
                                                         <div class="col-lg-9">
                                                             <div class="row flex-row-reverse align-items-center g-2 gap-2">
-                                                                <div class="col-md-4">
+                                                                <div class="col-auto col-md-4">
                                                                     <label for="national-number" class="form-label">رقم
                                                                         الهوية</label>
                                                                     <input type="text" id="national-number"
                                                                         class="form-control inputs-style"
                                                                         name="national-number-tenant ">
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                                    <div class="px-1 requird-field-row">
+                                                                        <span class="requird-field">الحقل مطلوب</span>
                                                                     </div>
                                                                 </div>
-                                                                  <div class="col-auto">
+                                                                <div class="col-auto">
                                                                 <img src="img/seacrh-icon.png"
                                                                     alt="icon button to display more data"
                                                                     id="driver-details">
@@ -207,48 +207,110 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                                <div class="col-md-4">
+                                                                </div>
+                                                                <div class="col-auto col-md-4">
                                                                     <label for="nationality-type" class="form-label">نوع
                                                                         الهوية</label>
                                                                     <select class="form-select select-style AR-select"
                                                                         id="nationality-type"
                                                                         name="nationality-type-tenant">
                                                                         <option selected></option>
-                                                                        <option value="1">النوع الاول </option>
-                                                                        <option value="2">الثاني </option>
-                                                                        <option value="3">الثالث</option>
+                                                                        <option value="1">وطنية</option>
+                                                                        <option value="2">إقامة </option>
+                                                                        <option value="3">جواز سفر</option>
+                                                                        <option value="3">قطاع حكومي</option>
+                                                                        <option value="3">قطاع دبلوماسي</option>
+
                                                                     </select>
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                                    <div class="px-1 requird-field-row">
+                                                                        <span class="requird-field">الحقل مطلوب</span>
                                                                     </div>
                                                                 </div>
                                                             
 
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="row align-items-center g-4 flex-row-reverse">
-                                                                <div class="col-md-6">
-                                                                    <label for="birth-date" class="form-label"> تاريخ
-                                                                        الميلاد</label>
-                                                                    <input type="date" id="birth-date"
-                                                                        class="form-control inputs-style"
-                                                                        name="birth-date-tenant">
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                       <div class="col-lg-12">
+                                                            <div class="row align-items-center  flex-row-reverse g-2">
+                                                                <div class="col-md-auto ">
+                                                                    <label>تاريخ الميلاد</label>
+                                                                    <div class="row flex-row-reverse">
+                                                                        <div class="col-auto d-flex flex-column align-items-end">
+                                                                            <select id="day" class="form-select select-style" name="day"style="min-width: 50px;">
+                                                                            </select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>                                                                  
+                                                                        </div>
+                                                                
+                                                                        <div class="col-auto d-flex flex-column align-items-end p-md-0">
+                                                                            <select id="month" class="form-select select-style" name="month" style="min-width: 70px;"></select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>
+                                                                        </div>
+                                                                
+                                                                        <div class="col-auto d-flex flex-column align-items-end">
+                                                                            <select id="year" class="form-select select-style" name="year" style="min-width: 90px;"></select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>
+                                                                        </div> 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-6">
+                                                                
+                                                                <div class="col-md-auto">
                                                                     <button type="button"
-                                                                        class="btn check-btn check-btn-version2 px-5 Driver-checkModal-open-button"
-                                                                        data-bs-toggle="modal"
-                                                                        href="#checkModalToggle">تحقق</button>
+                                                                        class="btn check-btn check-btn-version2 px-5 Driver-checkModal-open-button ">بحث</button>
                                                                 </div>
+                                                                <div class="col-md-auto">
+                                                                            <div class="row  justify-content-start flex-row-reverse align-items-center">
+                                                                                <div class="col-auto">
+                                                                                   <div class="form-check Driver-checks">
+                                                                                    <input class="form-check-input" type="radio" value="" id="driver1" name="driver">
+                                                                                     <label class="form-check-label" for="driver1">
+                                                                                       المستأجر سائق
+                                                                                    </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-auto">
+                                                                                    <div class="form-check Driver-checks">
+                                                                                        <label class="form-check-label"
+                                                                                            for="driver2">
+                                                                                            سائق خاص
+                                                                                        </label>
+                                                                                        <input class="form-check-input"
+                                                                                            type="radio" name="driver"
+                                                                                            id="driver2"
+                                                                                            value="another-driver">
+                                                                                    </div>
+                                                                                </div>
+                                                                            <div class="col-auto"
+                                                                            id="Private-Driver-select"
+                                                                            style="display: none;">
+                                                                            <label for="Private-Driver-selectt"
+                                                                                class="form-label">اختر سائقك </label>
+                                                                            <select
+                                                                                class="form-select select-style AR-select"
+                                                                                id="Private-Driver-selectt"
+                                                                                name="Private-Driver-select">
+                                                                                <option selected> </option>
+                                                                                <option value="1">عمير منذر عبد الرحيم وائل</option>
+                                                                                <option value="2"> مشاري على سعيد العساف</option>
+                                                                                <option value="3"> سائق 3 </option>
+                                                                            </select>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
+                                                                            </div>
+
+                                                                        </div>
+                                                                            </div>
+                                                                        </div>
+                                                                     
 
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                     <hr class="version2-hr">
                                                     <div class="row  hidden-input-row ms-2">
@@ -256,35 +318,35 @@
                                                             <div class="row justify-content-end">
                                                                 <div class="col-lg-7 inner-hidden-row-div">
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="AR-name-tenant"
                                                                                 class="form-label">
                                                                                 الاسم (عربي)</label>
                                                                             <input type="text" id="AR-name-tenant"
                                                                                 class="form-control text-end inputs-style"
                                                                                 name="AR-name-tenant">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="EN-name-tenant"
                                                                                 class="form-label">
                                                                                 الاسم (انجليزي) </label>
                                                                             <input type="text" id="EN-name-tenant"
                                                                                 class="form-control text-start inputs-style"
                                                                                 name="EN-name-tenant">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
 
                                                                     </div>
                                                                     <div class="row ">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="nationality-tenant"
                                                                                 class="form-label">الجنسية</label>
                                                                             <input type="text" id="nationality-tenant"
@@ -292,13 +354,13 @@
                                                                                 name="nationality-tenant">
                                                                             <div id="autocomplete-Nationalities1"
                                                                                 class="autocomplete-items "></div>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-md-6 ">
+                                                                        <div class="col-auto col-md-6 ">
                                                                             <label class="form-label">الجنس
                                                                             </label>
                                                                             <div class="d-flex">
@@ -330,7 +392,7 @@
 
                                                                     </div>
                                                                     <div class="row align-items-center">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="Profession-tenant"
                                                                                 class="form-label">المهنة </label>
                                                                             <select
@@ -342,16 +404,18 @@
                                                                                 </option>
                                                                                 <option value="إداري/ ة ">إداري/ ة
                                                                                 </option>
+                                                                                <option value="اخري"> اعمال حرة </option>
+
                                                                                 <option value="اخري">اخري </option>
 
                                                                             </select>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="tenant-workplace"
                                                                                 class="form-label">
                                                                                 جهة العمل</label>
@@ -360,30 +424,29 @@
                                                                                 name="tenant-workplace">
                                                                             <div id="autocomplete-workplace1"
                                                                                 class="autocomplete-items"></div>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row align-items-start">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="Region-city-tenant"
-                                                                                class="form-label">المنطقة
-                                                                                / المدينة </label>
+                                                                                class="form-label">المدينة / المنطفة</label>
                                                                             <input type="text" id="Region-city-tenant"
                                                                                 class="form-control  inputs-style"
                                                                                 name="Region-city-tenant">
                                                                             <div id="autocomplete-Cities1"
                                                                                 class="autocomplete-items autocomplete-Cities">
                                                                             </div>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-xl-6">
-                                                                            <label for="phone2" class="form-label"> رقم
+                                                                        <div class="col-auto col-md-6">
+                                                                            <label for="phone2" class="form-label">
                                                                                 الجوال
                                                                             </label>
                                                                             <div class="input-group">
@@ -401,43 +464,36 @@
                                                                                 </select>
 
                                                                             </div>
-                                                                            <div class="row requird-field-row">
-                                                                                <div class="col">
-                                                                                    <p class="requird-field">هذا الحقل
+                                                                            <div class="px-1 requird-field-row">
+                                                                                    <span class="requird-field">الحقل
                                                                                         مطلوب
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="col-auto">
-                                                                                    <p class="requird-field">هذا الحقل
-                                                                                        مطلوب
-                                                                                    </p>
-                                                                                </div>
+                                                                                    </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="AR-adress-tenant"
                                                                                 class="form-label">
                                                                                 العنوان (عربي)</label>
                                                                             <input type="text" id="AR-adress-tenant"
                                                                                 class="form-control text-end inputs-style"
                                                                                 name="AR-adress-tenant">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="EN-adress-tenant"
                                                                                 class="form-label">
                                                                                 العنوان (انجليزي) </label>
                                                                             <input type="text" id="EN-adress-tenant"
                                                                                 class="form-control inputs-style text-start"
                                                                                 name="EN-adress-tenant">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
@@ -447,72 +503,18 @@
                                                                 </div>
                                                                 <div class="col-lg-10  inner-hidden-row-div">
                                                                     <div class="row tenant-last-row-content g-3">
-                                                                        <div class="col-md-6 col-lg-4">
+                                                                        <div class="col-auto col-md-6 col-lg-4">
                                                                             <label for="Email-tenant"
                                                                                 class="form-label"> البريد
                                                                                 الإلكتروني</label>
                                                                             <input type="text" id="Email-tenant"
                                                                                 class="form-control inputs-style"
                                                                                 name="Email-tenant">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-
-                                                                        <div class="col-md-6 col-lg-4">
-                                                                            <div class="row ">
-                                                                                <div class="col-auto">
-                                                                                    <div class="form-check">
-                                                                                        <input class="form-check-input"
-                                                                                            type="radio" name="driver"
-                                                                                            id="driver1"
-                                                                                            value="tenant-is-driver">
-                                                                                        <label class="form-check-label"
-                                                                                            for="driver1">
-                                                                                            المستأجر سائق
-                                                                                        </label>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-auto">
-                                                                                    <div class="form-check form-check2">
-                                                                                        <input class="form-check-input"
-                                                                                            type="radio" name="driver"
-                                                                                            id="driver2"
-                                                                                            value="another-driver">
-                                                                                        <label class="form-check-label"
-                                                                                            for="driver2">
-                                                                                            سائق خاص
-                                                                                        </label>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class=" col-md-6 col-lg-4"
-                                                                            id="Private-Driver-select"
-                                                                            style="display: none;">
-                                                                            <label for="Private-Driver-selectt"
-                                                                                class="form-label">اختر سائقك </label>
-                                                                            <select
-                                                                                class="form-select select-style AR-select"
-                                                                                id="Private-Driver-selectt"
-                                                                                name="Private-Driver-select">
-                                                                                <option selected> </option>
-                                                                                <option value="1"> سائق 1 </option>
-                                                                                <option value="2"> سائق 2 </option>
-                                                                                <option value="3"> سائق 3 </option>
-                                                                            </select>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
-                                                                            </div>
-
-                                                                        </div>
-
-
-
                                                                     </div>
                                                                     <div class="row my-3">
                                                                         <div class="col-lg-12">
@@ -925,159 +927,92 @@
                                             </fieldset>
                                             <fieldset>
                                                 <div class="form-card form-card1 ">
-                                                    <div class="row flex-row-reverse g-3 ">
+                                                    <div class="row flex-row-reverse ">
                                                         <div class="col-lg-9">
                                                             <div
-                                                                class="row flex-row-reverse align-items-center gap-2 g-2">
-                                                                <div class="col-md-4">
+                                                                class="row flex-row-reverse align-items-center">
+                                                                <div class="col-auto col-md-4">
                                                                     <label for="national-number-driver"
                                                                         class="form-label">رقم الهوية</label>
                                                                     <input type="text" id="national-number-driver"
                                                                         name="national-number-driver"
                                                                         class="form-control inputs-style" autofocus>
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                                    <div class="px-1 requird-field-row">
+                                                                        <span class="requird-field">الحقل مطلوب</span>
                                                                     </div>
                                                                 </div>
-                                                                    <div class="col-auto">
-                                                                <img src="img/seacrh-icon.png"
-                                                                    alt="icon button to display more data"
-                                                                    id="add-driver-details">
-                                                                <div class="dropdown-content payment-dropdown-content"
-                                                                    id="add-Driver-dropdown"
-                                                                    style="display: none;">
-                                                                    <div class="data-container pt-2">
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>اول زيارة</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>2024/12/10</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>اخر عقد</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>2025/06/26</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>العقود القائمة</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>1</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>العقود المغلقة</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>3</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>ايام التأجير</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>90</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>الكيلوات المقطوعه</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>7</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                          <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>المبالغ المتداولة</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>15,297.53</p>
-                                                                            </div>
-
-                                                                        </div>  
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p> الرصيد المتاح </p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>36.55</p>
-                                                                            </div>
-
-                                                                        </div>  
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>  التقييم</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>جيد جدا</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row dropdown-content-row">
-                                                                            <div class="col-7 ">
-                                                                                <p>العضويه</p>
-                                                                            </div>
-                                                                            <div class="col personal-data-dropdown">
-                                                                                <p>مشترك</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                                <div class="col-md-4">
+                                                                
+                                                                <div class="col-auto col-md-4">
                                                                     <label for="nationality-type-driver"
                                                                         class="form-label">نوع الهوية</label>
                                                                     <select class="form-select select-style AR-select"
                                                                         id="nationality-type-driver"
                                                                         name="nationality-type-driver">
-                                                                        <option selected></option>
-                                                                        <option value="1">النوع الاول </option>
-                                                                        <option value="2">الثاني </option>
-                                                                        <option value="3">الثالث</option>
+                                                                         <option selected></option>
+                                                                        <option value="1">وطنية</option>
+                                                                        <option value="2">إقامة </option>
+                                                                        <option value="3">جواز سفر</option>
+                                                                        <option value="3">قطاع حكومي</option>
+                                                                        <option value="3">قطاع دبلوماسي</option>
                                                                     </select>
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                                    <div class="px-1 requird-field-row">
+                                                                        <span class="requird-field">الحقل مطلوب</span>
                                                                     </div>
                                                                 </div>
                                                                
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-
-                                                            <div class="row align-items-center g-4 flex-row-reverse">
-
-                                                                <div class="col-md-6">
-                                                                    <label for="birth-date-driver" class="form-label">
-                                                                        تاريخ الميلاد</label>
-                                                                    <input type="date" id="birth-date-driver"
-                                                                        class="form-control inputs-style"
-                                                                        name="birth-date-driver">
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                        <div class="col-lg-12">
+                                                            <div class="row align-items-center flex-row-reverse g-2">
+                                                               <div class="col-md-auto ">
+                                                                    <label>تاريخ الميلاد</label>
+                                                                    <div class="row flex-row-reverse">
+                                                                        <div class="col-auto d-flex flex-column align-items-end">
+                                                                            <select id="day" class="form-select select-style" name="day2"style="min-width: 50px;">
+                                                                                <option>1</option>
+                                                                            </select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>                                                                  
+                                                                        </div>
+                                                                
+                                                                        <div class="col-auto d-flex flex-column align-items-end p-md-0">
+                                                                            <select id="month" class="form-select select-style" name="month2" style="min-width: 70px;">
+                                                                                <option>1</option>
+                                                                            </select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>
+                                                                        </div>
+                                                                
+                                                                        <div class="col-auto d-flex flex-column align-items-end">
+                                                                            <select id="year" class="form-select select-style" name="year2" style="min-width: 90px;">
+                                                                                <option>2025</option>
+                                                                            </select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>
+                                                                        </div> 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-auto">
                                                                     <button type="button"
-                                                                        class="btn check-btn check-btn-version2 px-5 Driver-checkModal-open-button"
-                                                                        data-bs-toggle="modal"
-                                                                        href="#checkModalToggle">تحقق</button>
+                                                                        class="btn check-btn check-btn-version2 px-5 Driver-checkModal-open-button ">بحث</button>
                                                                 </div>
+                                                                 <div class="col-md-auto">
+                                                                            <div class="form-check Driver-checks">
+                                                                                 <label class="form-check-label"
+                                                                                    for="addational-driver">
+                                                                                    سائق إضافي
+                                                                                </label>
+                                                                                <input
+                                                                                    class="addational-driver-input form-check-input"
+                                                                                    type="checkbox"
+                                                                                    name='addtional-driver-add'
+                                                                                    value="checked"
+                                                                                    id="addational-driver">
+                                                                            </div>
+                                                                        </div>
                                                             </div>
                                                         </div>
 
@@ -1088,35 +1023,35 @@
                                                             <div class="row justify-content-end">
                                                                 <div class="col-lg-7  inner-hidden-row-div">
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="AR-name-driver"
                                                                                 class="form-label">
                                                                                 الاسم (عربي)</label>
                                                                             <input type="text" id="AR-name-driver"
                                                                                 class="form-control text-end inputs-style"
                                                                                 name="AR-name-driver">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="EN-name-driver"
                                                                                 class="form-label">
                                                                                 الاسم (انجليزي) </label>
                                                                             <input type="text" id="EN-name-driver"
                                                                                 class="form-control inputs-style text-start"
                                                                                 name="EN-name-driver">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
 
                                                                     </div>
                                                                     <div class="row ">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="nationality-driver"
                                                                                 class="form-label">الجنسية</label>
                                                                             <input type="text" id="nationality-driver"
@@ -1125,13 +1060,13 @@
                                                                             <div id="autocomplete-Nationalities2"
                                                                                 class="autocomplete-items"></div>
 
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-md-6 ">
+                                                                        <div class="col-auto col-md-6 ">
                                                                             <label class="form-label">الجنس
                                                                             </label>
                                                                             <div class="d-flex">
@@ -1164,25 +1099,28 @@
                                                                     </div>
                                                                     <div class="row align-items-center">
 
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="Profession-driver"
                                                                                 class="form-label">المهنة </label>
                                                                             <select
                                                                                 class="form-select select-style AR-select"
                                                                                 id="Profession-driver"
                                                                                 name="Profession-driver">
-                                                                                <option selected></option>
-                                                                                <option value="1"> طبيب/ ة </option>
-                                                                                <option value="2">إداري/ ة </option>
-                                                                                <option value="2">اخري </option>
+                                                                               <option selected></option>
+                                                                                <option value="طبيب/ ة "> طبيب/ ة
+                                                                                </option>
+                                                                                <option value="إداري/ ة ">إداري/ ة
+                                                                                </option>
+                                                                                <option value="اخري"> اعمال حرة </option>
+                                                                                <option value="اخري">اخري </option>
 
                                                                             </select>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="driver-workPlace"
                                                                                 class="form-label">
                                                                                 جهة العمل </label>
@@ -1192,16 +1130,16 @@
                                                                             <div id="autocomplete-workplace2"
                                                                                 class="autocomplete-items"></div>
 
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="Region-city-driver"
-                                                                                class="form-label">المنطقة / المدينة
+                                                                                class="form-label"> المدينة / المنطقة  
                                                                             </label>
                                                                             <input type="text" id="Region-city-driver"
                                                                                 name="Region-city-driver"
@@ -1210,141 +1148,131 @@
                                                                                 class="autocomplete-items autocomplete-Cities">
                                                                             </div>
 
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                         <div class="col-auto col-md-6">
+                                                                            <label for="phone2" class="form-label">
+                                                                                الجوال
+                                                                            </label>
+                                                                            <div class="input-group">
+                                                                                <input type="tel"
+                                                                                    class="form-control inputs-style tel-input"
+                                                                                    id="phone2" name="phone2"
+                                                                                    maxlength="20">
+
+                                                                                <select
+                                                                                    class="input-group-text select-style counterCode"
+                                                                                    name="counterCode-phone2">
+                                                                                    <option value="+966">+966</option>
+                                                                                    <option value="+962">+962</option>
+                                                                                    <option value="+20">+20</option>
+                                                                                </select>
+
+                                                                            </div>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                    <span class="requird-field">الحقل
+                                                                                        مطلوب
+                                                                                    </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="AR-adress-driver"
                                                                                 class="form-label">
                                                                                 العنوان (عربي)</label>
                                                                             <input type="text" id="AR-adress-driver"
                                                                                 name="AR-adress-driver"
                                                                                 class="form-control text-end inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="EN-adress-driver"
                                                                                 class="form-label">
                                                                                 العنوان (انجليزي) </label>
                                                                             <input type="text" id="EN-adress-driver"
                                                                                 name="EN-adress-driver"
                                                                                 class="form-control inputs-style text-start">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
 
                                                                     </div>
-
-
-
                                                                 </div>
                                                                 <div class="col-lg-10  inner-hidden-row-div">
                                                                     <div class="row">
-                                                                        <div class="col-lg-4">
+                                                                        <div class="col-auto col-lg-4">
                                                                             <label for="licence-driver-number"
-                                                                                class="form-label"> رقم رخصة
-                                                                                القيادة </label>
+                                                                                class="form-label"> رقم الرخصة
+                                                                                 </label>
                                                                             <input type="text"
                                                                                 id="licence-driver-number"
                                                                                 name="licence-driver-number"
                                                                                 class="form-control inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-lg-4">
+                                                                        <div class="col-auto col-lg-4">
                                                                             <label for="licence-driver-type"
                                                                                 class="form-label">
-                                                                                نوع رخصة
-                                                                                القيادة </label>
+                                                                                نوع الرخصة
+                                                                                 </label>
                                                                             <select
                                                                                 class="form-select select-style AR-select"
                                                                                 id="licence-driver-type"
                                                                                 name="licence-driver-type">
-                                                                                <option selected></option>
-                                                                                <option value="1"> 1 </option>
-                                                                                <option value="2"> 2 </option>
-                                                                                <option value="2"> 3 </option>
-
+                                                                                 <option selected></option>
+                                                                                <option value="1"> خاصة  </option>
+                                                                                <option value="2"> عامة </option>
+                                                                                <option value="3">مركبات اشغال عامة </option>
+                                                                                <option value="4"> الدراجة الآلية  </option>
                                                                             </select>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-lg-4">
+                                                                        <div class="col-auto col-lg-4">
                                                                             <label for="endDate-driver"
                                                                                 class="form-label">
                                                                                 نهايتها </label>
                                                                             <input type="date" id="endDate-driver"
                                                                                 name="end-licenceDate-driver"
                                                                                 class="form-control inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
 
                                                                     </div>
-                                                                    <div
-                                                                        class="row align-items-center g-3 licence-row-mobile">
-                                                                        <div class="col-lg-4 mt-2">
+                                                                    <div class="row">
+                                                                        <div class="col-auto col-md-6 col-lg-4 mt-2">
                                                                             <label for="Email-driver"
                                                                                 class="form-label"> البريد
                                                                                 الإلكتروني</label>
                                                                             <input type="text" id="Email-driver"
                                                                                 name="Email-driver"
                                                                                 class="form-control inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-lg-4">
-                                                                            <div class="form-check form-check2">
-                                                                                <input
-                                                                                    class="addational-driver-input form-check-input"
-                                                                                    type="checkbox"
-                                                                                    name='addtional-driver-add'
-                                                                                    value="checked"
-                                                                                    id="addational-driver">
-                                                                                <label class="form-check-label"
-                                                                                    for="addational-driver">
-                                                                                    سائق إضافي
-                                                                                </label>
-
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-lg-4 ">
-                                                                            <button type="button"
-                                                                                class="btn check-btn payment-button "
-                                                                                data-bs-toggle="modal"
-                                                                                href="#IDphoto-modal">
-                                                                                <div class="row align-items-center">
-
-                                                                                    <div class="col">
-                                                                                        صورة رخصة القيادة
-                                                                                    </div>
-                                                                                    <div class="col-auto">
-                                                                                        <div class="systems-check"> <i
-                                                                                                class="fa-solid fa-check text-white"></i>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </button>
-                                                                        </div>
+                                                                       
+                                                                     
 
                                                                     </div>
                                                                     <div class="row my-3">
@@ -1383,23 +1311,21 @@
                                             </fieldset>
                                             <fieldset id="addational-driver-fieldset" style="display: none;">
                                                 <div class="form-card form-card1 ">
-                                                    <div class="row flex-row-reverse g-3 ">
+                                                    <div class="row flex-row-reverse  ">
                                                         <div class="col-lg-9">
                                                             <div
-                                                                class="row flex-row-reverse gap-2 g-2 align-items-center">
-
-
-                                                                <div class="col-md-4">
+                                                                class="row flex-row-reverse align-items-center">
+                                                                <div class="col-auto col-md-4">
                                                                     <label for="national-number-AddDriver"
                                                                         class="form-label">رقم الهوية</label>
                                                                     <input type="text" id="national-number-AddDriver"
                                                                         name="national-number-AddDriver"
                                                                         class="form-control inputs-style">
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                                    <div class="px-1 requird-field-row">
+                                                                        <span class="requird-field">الحقل مطلوب</span>
                                                                     </div>
                                                                 </div>
-                                                                <!-- <div class="col-auto seacrh-icon-col">
+                                                                <div class="col-auto seacrh-icon-col">
                                                                     <img src="img/seacrh-icon.png"
                                                                         alt="seacrh-icon Image" id="add-driver-details">
                                                                     <div class="dropdown-content"
@@ -1515,23 +1441,25 @@
                                                                         </div>
 
                                                                     </div>
-                                                                </div> -->
-                                                                <div class="col-md-4">
+                                                                </div>
+                                                                <div class="col-auto col-md-4">
                                                                     <label for="nationality-type-AddDriver"
                                                                         class="form-label">نوع الهوية</label>
                                                                     <select class="form-select select-style AR-select"
                                                                         id="nationality-type-AddDriver"
                                                                         name="nationality-type-AddDriver">
-                                                                        <option selected></option>
-                                                                        <option value="1">النوع الاول </option>
-                                                                        <option value="2">الثاني </option>
-                                                                        <option value="3">الثالث</option>
+                                                                         <option selected></option>
+                                                                        <option value="1">وطنية</option>
+                                                                        <option value="2">إقامة </option>
+                                                                        <option value="3">جواز سفر</option>
+                                                                        <option value="3">قطاع حكومي</option>
+                                                                        <option value="3">قطاع دبلوماسي</option>
                                                                     </select>
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                                    <div class="px-1 requird-field-row">
+                                                                        <span class="requird-field">الحقل مطلوب</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-auto">
+                                                                <!-- <div class="col-auto">
                                                                     <button type="button"
                                                                         class="btn check-btn payment-button "
                                                                         data-bs-toggle="modal" href="#IDphoto-modal">
@@ -1546,28 +1474,40 @@
                                                                             </div>
                                                                         </div>
                                                                     </button>
-                                                                </div>
+                                                                </div> -->
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6">
-
-                                                            <div class="row align-items-center g-4 flex-row-reverse">
-                                                                <div class="col-md-6">
-                                                                    <label for="birth-date-AddDriver"
-                                                                        class="form-label">
-                                                                        تاريخ الميلاد</label>
-                                                                    <input type="date" id="birth-date-AddDriver"
-                                                                        name="birth-date-AddDriver"
-                                                                        class="form-control inputs-style">
-                                                                    <div class="row requird-field-row">
-                                                                        <p class="requird-field">هذا الحقل مطلوب</p>
+                                                            <div class="row align-items-center flex-row-reverse g-2">
+                                                               <div class="col-md-auto ">
+                                                                    <label>تاريخ الميلاد</label>
+                                                                    <div class="row flex-row-reverse">
+                                                                        <div class="col-auto d-flex flex-column align-items-end">
+                                                                            <select id="day" class="form-select select-style" name="day"style="min-width: 50px;">
+                                                                            </select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>                                                                  
+                                                                        </div>
+                                                                
+                                                                        <div class="col-auto d-flex flex-column align-items-end p-md-0">
+                                                                            <select id="month" class="form-select select-style" name="month" style="min-width: 70px;"></select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>
+                                                                        </div>
+                                                                
+                                                                        <div class="col-auto d-flex flex-column align-items-end">
+                                                                            <select id="year" class="form-select select-style" name="year" style="min-width: 90px;"></select>
+                                                                            <div class="row requird-field-row">
+                                                                                <p class="requird-field"> الحقل مطلوب</p>
+                                                                            </div>
+                                                                        </div> 
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <button type="button"
-                                                                        class="btn check-btn check-btn-version2 px-5 Driver-checkModal-open-button"
-                                                                        data-bs-toggle="modal"
-                                                                        href="#checkModalToggle">تحقق</button>
+                                                                        class="btn check-btn check-btn-version2 px-5 Driver-checkModal-open-button">بحث</button>
                                                                 </div>
 
                                                             </div>
@@ -1580,28 +1520,28 @@
                                                             <div class="row justify-content-end">
                                                                 <div class="col-lg-7  inner-hidden-row-div">
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="AR-name-AddDriver"
                                                                                 class="form-label">
                                                                                 الاسم (عربي)</label>
                                                                             <input type="text" id="AR-name-AddDriver"
                                                                                 name="AR-name-AddDriver"
                                                                                 class="form-control text-end inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="EN-name-AddDriver"
                                                                                 class="form-label">
                                                                                 الاسم (انجليزي) </label>
                                                                             <input type="text" id="EN-name-AddDriver"
                                                                                 name="EN-name-AddDriver"
                                                                                 class="form-control inputs-style text-start">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
@@ -1609,7 +1549,7 @@
                                                                     </div>
 
                                                                     <div class="row ">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="nationality-Add-driver"
                                                                                 class="form-label">الجنسية</label>
                                                                             <input type="text"
@@ -1619,13 +1559,13 @@
                                                                             <div id="autocomplete-Nationalities3"
                                                                                 class="autocomplete-items "></div>
 
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
-                                                                        <div class="col-md-6 ">
+                                                                        <div class="col-auto col-md-6 ">
                                                                             <label class="form-label">الجنس
                                                                             </label>
                                                                             <div class="d-flex">
@@ -1659,25 +1599,27 @@
                                                                     </div>
                                                                     <div class="row align-items-center">
 
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="Profession-Add-driver"
                                                                                 class="form-label">المهنة </label>
                                                                             <select
                                                                                 class="form-select select-style AR-select"
                                                                                 id="Profession-Add-driver"
                                                                                 name="Profession-Add-driver">
-                                                                                <option selected></option>
-                                                                                <option value="1"> طبيب/ ة </option>
-                                                                                <option value="2">إداري/ ة </option>
-                                                                                <option value="2">اخري </option>
-
+                                                                               <option selected></option>
+                                                                                <option value="طبيب/ ة "> طبيب/ ة
+                                                                                </option>
+                                                                                <option value="إداري/ ة ">إداري/ ة
+                                                                                </option>
+                                                                                <option value="اخري"> اعمال حرة </option>
+                                                                                <option value="اخري">اخري </option>
                                                                             </select>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="Add-driver-workPlace"
                                                                                 class="form-label"> جهة العمل </label>
                                                                             <input type="text" id="Add-driver-workPlace"
@@ -1686,16 +1628,16 @@
                                                                             <div id="autocomplete-workplace3"
                                                                                 class="autocomplete-items"></div>
 
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="Region-city-Add-driver"
-                                                                                class="form-label">المنطقة / المدينة
+                                                                                class="form-label"> المدينة / المنطقة
                                                                             </label>
                                                                             <input type="text"
                                                                                 id="Region-city-Add-driver"
@@ -1705,76 +1647,99 @@
                                                                                 class="autocomplete-items autocomplete-Cities">
                                                                             </div>
 
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                         <div class="col-auto col-md-6">
+                                                                            <label for="phone2" class="form-label">
+                                                                                الجوال
+                                                                            </label>
+                                                                            <div class="input-group">
+                                                                                <input type="tel"
+                                                                                    class="form-control inputs-style tel-input"
+                                                                                    id="phone2" name="phone2"
+                                                                                    maxlength="20">
+
+                                                                                <select
+                                                                                    class="input-group-text select-style counterCode"
+                                                                                    name="counterCode-phone2">
+                                                                                    <option value="+966">+966</option>
+                                                                                    <option value="+962">+962</option>
+                                                                                    <option value="+20">+20</option>
+                                                                                </select>
+
+                                                                            </div>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                    <span class="requird-field">الحقل
+                                                                                        مطلوب
+                                                                                    </span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="AR-adress-Add-driver"
                                                                                 class="form-label">
                                                                                 العنوان (عربي)</label>
                                                                             <input type="text" id="AR-adress-Add-driver"
                                                                                 name="AR-adress-Add-driver"
                                                                                 class="form-control text-end inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-md-6">
+                                                                        <div class="col-auto col-md-6">
                                                                             <label for="EN-adress-Add-driver"
                                                                                 class="form-label">
                                                                                 العنوان (انجليزي) </label>
                                                                             <input type="text" id="EN-adress-Add-driver"
                                                                                 name="EN-adress-Add-driver"
                                                                                 class="form-control inputs-style text-start">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
 
                                                                     </div>
-
-
-
                                                                 </div>
                                                                 <div class="col-lg-10  inner-hidden-row-div">
                                                                     <div class="row">
                                                                         <div class="col-lg-4">
                                                                             <label for="licence-Add-driver-number"
-                                                                                class="form-label"> رقم رخصة
-                                                                                القيادة </label>
+                                                                                class="form-label"> رقم الرخصة
+                                                                                 </label>
                                                                             <input type="text"
                                                                                 id="licence-Add-driver-number"
                                                                                 name="licence-Add-driver-number"
                                                                                 class="form-control inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-lg-4">
                                                                             <label for="licence-Add-driver-type"
-                                                                                class="form-label"> نوع رخصة
-                                                                                القيادة </label>
+                                                                                class="form-label"> نوع الرخصة
+                                                                                 </label>
                                                                             <select
                                                                                 class="form-select select-style AR-select"
                                                                                 id="licence-Add-driver-type"
                                                                                 name="licence-Add-driver-type">
                                                                                 <option selected></option>
-                                                                                <option value="1"> 1 </option>
-                                                                                <option value="2"> 2 </option>
-                                                                                <option value="2"> 3 </option>
+                                                                                <option value="1"> خاصة  </option>
+                                                                                <option value="2"> عامة </option>
+                                                                                <option value="3">مركبات اشغال عامة </option>
+                                                                                <option value="4"> الدراجة الآلية  </option>
 
                                                                             </select>
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-lg-4">
@@ -1785,17 +1750,17 @@
                                                                                 id="licence-endDate-Add-driver"
                                                                                 name="licence-endDate-Add-driver"
                                                                                 class="form-control inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
 
 
                                                                     </div>
                                                                     <div
-                                                                        class="row align-items-center justify-content-between licence-row-mobile">
-                                                                        <div class="col-lg-4 mt-2">
+                                                                        class="row licence-row-mobile">
+                                                                        <div class="col-auto col-lg-4 mt-2">
                                                                             <label for="Email-Add-driver"
                                                                                 class="form-label">
                                                                                 البريد
@@ -1803,12 +1768,12 @@
                                                                             <input type="text" id="Email-Add-driver"
                                                                                 name="Email-Add-driver"
                                                                                 class="form-control inputs-style">
-                                                                            <div class="row requird-field-row">
-                                                                                <p class="requird-field">هذا الحقل مطلوب
-                                                                                </p>
+                                                                            <div class="px-1 requird-field-row">
+                                                                                <span class="requird-field">الحقل مطلوب
+                                                                                </span>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="col-lg-4 ">
+                                                                        <!-- <div class="col-lg-4 ">
                                                                             <button type="button"
                                                                                 class="btn check-btn payment-button "
                                                                                 data-bs-toggle="modal"
@@ -1826,8 +1791,7 @@
                                                                                 </div>
                                                                             </button>
                                                                         </div>
-
-
+ -->
                                                                     </div>
                                                                     <div class="row my-3">
                                                                         <div class="col-lg-12">
@@ -2183,9 +2147,8 @@
                                                 <div class="form-card">
                                                     <div class="row g-3">
                                                         <div class="col-xl-6">
-                                                            <div
-                                                                class="row flex-row-reverse g-2 mb-2  justify-content-between">
-                                                                <div class="col-md-6">
+                                                            <div class="row flex-row-reverse mb-2 justify-content-between">
+                                                                <div class="col">
                                                                     <div class="row CurrentReadingg_row"
                                                                         style="flex-direction: row-reverse;align-items: baseline;">
                                                                         <div class="col-auto">
@@ -2193,27 +2156,27 @@
                                                                                 for="CurrentReadingg-input">
                                                                                 القراءة الحالية</label>
                                                                         </div>
-                                                                        <div class="col-6">
+                                                                        <div class="col-auto d-flex flex-column align-items-end">
                                                                             <input type="tel"
                                                                                 class="form-control inputs-style"
-                                                                                style="width: 100%;"
+                                                                                style="width: 90%;"
                                                                                 id="CurrentReadingg-input"
                                                                                 name="CurrentReadingg-input"
-                                                                                autocomplete="off">
+                                                                                autocomplete="off"
+                                                                                value="20000">
+                                                                                <div class="row requird-field-row-last">
+                                                                                    <span class="requird-field">لا تكون أقل من العداد عند التسليم 20000</span>
+                                                                                </div>
+                                                                                
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
-                                                                <div class="col-md-5">
+                                                                <div class="col-md-auto">
                                                                     <button type="button"
                                                                         class="btn check-btn d-flex align-items-center gap-2"
                                                                         data-bs-toggle="modal" href="#TechnicalCheckUp">
-
                                                                         <img src="img/icon (2).svg">
-
                                                                         الفحص الفني
-
-
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -2252,7 +2215,6 @@
 
                                                         <div class="col-xl-6">
                                                             <div id="referenceDiv">
-
                                                                 <div id="tableContainer" class="table-scroll">
                                                                     <table
                                                                         class="table table-bordered  table-hover Checkup-table ">
@@ -2260,7 +2222,7 @@
                                                                             <tr>
                                                                                 <th scope="col"
                                                                                     class="value-tabel-header">
-                                                                                    ملاحظات
+                                                                                    الملاحظات
                                                                                 </th>
                                                                                 <th scope="col">
                                                                                     الفحص</th>
@@ -2611,65 +2573,88 @@
 
                                             </fieldset>
                                             <fieldset>
-                                                <div class="form-card form-card7">
+                                                <div class="form-card form-card7 g-2">
                                                     <div class="row flex-row-reverse">
-                                                        <div class="col-md-6 col-lg-4 d-flex payment-col">
+                                                        <div class=" col-md-6 col-lg-4 d-flex payment-col">
                                                             <div class="col-auto">
                                                                 <p id="contract-number">رقم العقد</p>
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p> ٤٥-۱-٦۳٥٤-٥٤-٥٦</p>
+                                                                <p> 25-1401-4001100-000042 </p>
 
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-6 col-lg-4 d-flex  payment-col">
+                                                      <div class="col-md-6 col-lg-4 d-flex  payment-col">
                                                             <div class="col-auto">
-                                                                <p id="start-date">تاريخ البداية</p>
+                                                                <label id="Renting-policy"> سياسة التأجير</label>
 
                                                             </div>
-                                                            <div class="col-auto personal-data">
-                                                                <p>۲۰۲۲/۲/٥
-                                                                </p>
-
+                                                            <div class="col-md-7 personal-data">
+                                                                <div class="offset">
+                                                                    <select class="form-select-last form-select"
+                                                                        id="Renting-policy-dropdown"
+                                                                        name="Renting-policy-dropdown">
+                                                                        <option selected disabled>
+                                                                        </option>
+                                                                        <option value=""> </option>
+                                                                        <option value=""> </option>
+                                                                        <option value=""> </option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="row requird-field-row-last">
+                                                                    <span class="requird-field">الحقل مطلوب</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse ">
+                                                    <div class="row flex-row-reverse  ">
                                                         <div
-                                                            class="col-md-6 col-lg-4 d-flex payment-col align-items-center">
+                                                            class="col-md-6 col-lg-4 d-flex payment-col ">
                                                             <div class="col-auto">
                                                                 <label id="days-number" for="days-number-input">
-                                                                    عدد
-                                                                    الأيام</label>
+                                                                    عدد الأيام</label>
                                                             </div>
                                                             <div class="col-auto DaysNoFixPaddin">
                                                                 <input type="tel" class="form-control1 form-control"
                                                                     id="days-number-input" name="days-number"
                                                                     autocomplete="off">
                                                                 <div class="row requird-field-row-last">
-                                                                    <p class="requird-field">هذا الحقل مطلوب</p>
+                                                                    <span class="requird-field">الحقل مطلوب</span>
                                                                 </div>
                                                             </div>
 
                                                         </div>
                                                         <div class="col-md-6 col-lg-4 d-flex  payment-col">
                                                             <div class="col-auto">
-                                                                <p id="end-date">تاريخ النهاية</p>
+                                                                <p id="start-date">بدايته</p>
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>۲۰۲۲/۲/٥
+                                                                <p>
+                                                                    2025/09/29 13:58
+                                                                </p>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-lg-4 d-flex  payment-col">
+                                                            <div class="col-auto">
+                                                                <p id="end-date">نهايته</p>
+
+                                                            </div>
+                                                            <div class="col-auto personal-data">
+                                                                <p>
+                                                                    2025/10/04 13:58
                                                                 </p>
 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse g-2">
+                                                    <div class="row flex-row-reverse ">
                                                         <div class="col-md-6 col-lg-4 d-flex payment-col  flex-wrap ">
                                                             <div
                                                                 class="col-12 col-md-auto d-flex gap-3 flex-wrap contract-value ">
-                                                                <p class="personal-data">۱٥۰٥.۰۰</p>
+                                                                <p class="personal-data">732.00</p>
                                                                 <p id="renting-price"> قيمة العقد</p>
                                                             </div>
                                                             <div class="col-auto">
@@ -2682,57 +2667,16 @@
                                                                     <div class="data-container">
                                                                         <div class="row car-dropdown-content-row">
                                                                             <div class="col-7">
-                                                                                <p>الايجار اليومي
-                                                                                </p>
+                                                                                <p>قيمة الإيجار </p>
                                                                             </div>
                                                                             <div class="col-auto personal-data-dropdown">
-                                                                                <p>1520.25</p>
+                                                                                <p>700.25</p>
                                                                             </div>
 
                                                                         </div>
                                                                         <div class="row car-dropdown-content-row">
                                                                             <div class="col-7">
-                                                                                <p>
-                                                                                    السائق الاضافي
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="col-auto personal-data-dropdown">
-                                                                                <p>520.45</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                         <div class="row car-dropdown-content-row">
-                                                                            <div class="col-7">
-                                                                                <p>
-                                                                                    السائق الخاص
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="col-auto personal-data-dropdown">
-                                                                                <p>520.45</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row car-dropdown-content-row">
-                                                                            <div class="col-7">
-                                                                                <p>الخيارات</p>
-                                                                            </div>
-                                                                            <div class="col-auto personal-data-dropdown">
-                                                                                <p>560.75</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row car-dropdown-content-row">
-                                                                            <div class="col-7">
-                                                                                <p>الإضافات </p>
-                                                                            </div>
-                                                                            <div class="col-auto personal-data-dropdown">
-                                                                                <p>45.25</p>
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="row car-dropdown-content-row">
-                                                                            <div class="col-7">
-                                                                                <p>رسوم التفويض</p>
+                                                                                <p> قيمة التفويض</p>
                                                                             </div>
                                                                             <div class="col-auto personal-data-dropdown">
                                                                                 <p>490.25</p>
@@ -2780,45 +2724,9 @@
                                                             </div>
 
                                                         </div>
-                                                        <div class="col-md-6 col-lg-4 d-flex  payment-col ">
-                                                            <div class="col-auto personal-data">
-                                                                <input class="Delegate-out-input" type="checkbox"
-                                                                    value="checked" id="Delegate-out">
-
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <label class="Delegate-out-label" for="Delegate-out"
-                                                                    name="Delegate-out">
-                                                                    تفويض خارجي
-                                                                </label>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="col-md-6 col-lg-4 d-flex  payment-col">
-                                                            <div class="col-auto">
-                                                                <p id="Receiving-branch"> فرع التسليم </p>
-
-                                                            </div>
-                                                            <div class="col-md-7 personal-data">
-                                                                <div class="offset">
-                                                                    <select class="form-select-last form-select"
-                                                                        id="Receiving-branch-dropdown"
-                                                                        name="Receiving-branch-dropdown">
-                                                                        <option selected disabled>
-                                                                        </option>
-                                                                        <option value=""> </option>
-                                                                        <option value=""> </option>
-                                                                        <option value=""> </option>
-                                                                    </select>
-                                                                </div>
-
-
-                                                            </div>
-                                                        </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse align-items-baseline g-2 my-2">
-                                                        <div
-                                                            class="col-md-6 col-lg-4 d-flex payment-col align-items-center">
+                                                    <div class="row flex-row-reverse align-items-baseline g-2">
+                                                        <div class="col-md-6 col-lg-4 d-flex payment-col ">
 
                                                             <div class="col-auto " id="discount-percentage">
                                                                 <label for="discount-percentage-input"> نسبة
@@ -2832,10 +2740,10 @@
 
                                                         </div>
                                                         <div
-                                                            class="col-md-6 col-lg-4 d-flex  payment-col align-items-center">
+                                                            class="col-md-6 col-lg-4 d-flex  payment-col ">
                                                             <div class="col-auto" id="addational-hours">
                                                                 <label for="addational-hours-input">
-                                                                    ساعات إضافيه </label>
+                                                                    ساعات مجانية</label>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <input type="tel" class="form-control1 form-control"
@@ -2845,10 +2753,10 @@
                                                             </div>
                                                         </div>
                                                         <div
-                                                            class="col-md-6 col-lg-4 d-flex  payment-col align-items-center">
+                                                            class="col-md-6 col-lg-4 d-flex  payment-col ">
                                                             <div class="col-auto" id="addational-kilos">
                                                                 <label for="addational-kilos-input">
-                                                                    كيلوات إضافيه</label>
+                                                                   الكيلوات الاضافية</label>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <input type="tel" class="form-control1 form-control"
@@ -2858,14 +2766,14 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse">
+                                                    <div class="row flex-row-reverse ">
                                                         <div class="col-md-6 col-lg-4 d-flex payment-col">
                                                             <div class="col-auto">
-                                                                <p id="Total contract">إجمالي العقد</p>
+                                                                <p id="Total contract"> اجمالي العقد</p>
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>۱٥۰٥.۰۰</p>
+                                                                <p>732.00</p>
 
                                                             </div>
                                                         </div>
@@ -2875,31 +2783,29 @@
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>۲۲٥.۷٥</p>
+                                                                <p>109.80</p>
 
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse">
+                                                    <div class="row flex-row-reverse ">
                                                         <div class="col-md-6 col-lg-4 d-flex payment-col">
                                                             <div class="col-auto">
                                                                 <p id="Total contract"> صافي العقد</p>
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>۱۷۳۰.۷٥
-                                                                </p>
+                                                                <p>841.80</p>
 
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6 col-lg-4 d-flex  payment-col">
                                                             <div class="col-auto">
-                                                                <p id="previous-balance"> رصيد سابق</p>
+                                                                <p id="previous-balance"> الرصيد المتاح</p>
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>۰۰.۹٦</p>
-
+                                                                <p>0.00</p>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6 col-lg-4 d-flex  payment-col">
@@ -2908,12 +2814,11 @@
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p> ۱۷۲۹.۷۹ </p>
-
+                                                                <p>841.80 </p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row flex-row-reverse g-2">
+                                                    <div class="row flex-row-reverse g-2 ">
                                                         <div class="col-md-6 col-lg-4 d-flex payment-col">
                                                             <div class="col-auto">
                                                                 <label id="amount-paid" for="amount-paid-input">
@@ -2924,14 +2829,14 @@
                                                                     id="amount-paid-input" name="amount-paid"
                                                                     autocomplete="off">
                                                                 <div class="row requird-field-row-last">
-                                                                    <p class="requird-field invisible">هذا الحقل مطلوب
-                                                                    </p>
+                                                                    <span class="requird-field invisible">الحقل مطلوب
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6 col-lg-4 d-flex  payment-col">
                                                             <div class="col-auto">
-                                                                <p id="payment-method">طريقة الدفع</p>
+                                                                <label id="payment-method">طريقة الدفع</label>
 
                                                             </div>
                                                             <div class="col-md-7 personal-data">
@@ -2951,7 +2856,7 @@
                                                         </div>
                                                         <div class="col-md-6 col-lg-4 d-flex  payment-col">
                                                             <div class="col-auto">
-                                                                <p id="selling-point"> نقطة البيع </p>
+                                                                <label id="selling-point"> نقطة البيع </label>
 
                                                             </div>
                                                             <div class="col-md-9 personal-data">
@@ -2985,7 +2890,7 @@
                                                 </div>
 
                                                 <div class="row button-row align-items-center">
-                                                    <div class="col-auto py-2 d-flex gap-2 flex-wrap">
+                                                    <div class="col-auto py-2">
                                                         <button type="button" class="btn check-btn payment-button" id="SubmitFormBtn">حفظ العقد
                                                         </button>
                                                         <button type="button"
@@ -3018,6 +2923,7 @@
                                 </div>
                                </div>
                             </div>
+                            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
                             <div class="modal fade" id="checkModalToggle" aria-hidden="true"
                                 aria-labelledby="checkModalToggleLabel" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -3047,8 +2953,8 @@
                                                             <input type="tel" id="CheckModal-PhoneInput"
                                                                 name="phone_Number" class="form-control version2-select"
                                                                 autocomplete="off" autofocus="true">
-                                                            <div class="row requird-field-row">
-                                                                <p class="requird-field"> الرقم المدخل غير صحيح </p>
+                                                            <div class="px-1 requird-field-row">
+                                                                <span class="requird-field"> الرقم المدخل غير صحيح </span>
                                                             </div>
                                                             <div class="col-12">
                                                                 <p>سيتم إرسال رمز التحقق إلى الجوال المدخل</p>
@@ -3118,9 +3024,9 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="row requird-field-row">
+                                                <div class="px-1 requird-field-row">
 
-                                                    <p class="requird-field">الرمز المدخل غير صحيح </p>
+                                                    <span class="requird-field">الرمز المدخل غير صحيح </span>
                                                 </div>
                                                 <div class="row  justify-content-center g-2">
                                                     <div class="col-auto">
@@ -3344,7 +3250,7 @@
                                     <button class="custom-img-button"><img src="img/Frame 2608797.svg"> موافق</button>
                                 </div>
                                 <div class="col-md-12 requird-field-row">
-                                    <p class="requird-field text-center">الرمز المدخل غير صحيح </p>
+                                    <span class="requird-field text-center">الرمز المدخل غير صحيح </span>
                                 </div>
                                 <div class="col-md-12 text-center" style="color: #525252;">
                                     <p>عند الموافقة سيتم إرسال رمز التحقق إلى جوال المستأجر</p>
@@ -3382,8 +3288,8 @@
                                         </div>
 
                                     </div>
-                                    <div class="row requird-field-row">
-                                        <p class="requird-field text-center">الرمز المدخل غير صحيح </p>
+                                    <div class="px-1 requird-field-row">
+                                        <span class="requird-field text-center">الرمز المدخل غير صحيح </span>
                                     </div>
                                     <p class="modal-title w-100 my-2" style="font-size: .7rem;">
                                         رمز التحقق تنتهي صلاحيته بعد<span id="UnifiedContractTimer">05:00</span>
@@ -3430,70 +3336,70 @@
             </div>
             </div>
             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Car Details modal  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-    <div class="modal fade" id="carDetailsModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalCarTitle">
-                        <i class="bi bi-car-front mx-2"></i>
-                        تفاصيل السيارة
-                    </h1>
-                    <button type="button" class="btn-close m-0" data-bs-dismiss="modal"></button>
-                </div>
+            <div class="modal fade" id="carDetailsModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modalCarTitle">
+                                <i class="bi bi-car-front mx-2"></i>
+                                تفاصيل السيارة
+                            </h1>
+                            <button type="button" class="btn-close m-0" data-bs-dismiss="modal"></button>
+                        </div>
 
-                <div class="modal-body">
-                    <!-- Navigation Pills -->
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <div class="modal-body">
+                            <!-- Navigation Pills -->
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-rental-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-rental" type="button" role="tab">
-                                <i class="mx-1 bi bi-clipboard-check"></i> بنود التأجير
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-documents-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-documents" type="button" role="tab">
-                                <i class="mx-1 bi bi-file-earmark-text"></i> الوثائق
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-maintenance-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-maintenance" type="button" role="tab">
-                                <i class=" mx-1 bi bi-tools"></i> الصيانة
-                            </button>
-                        </li>
-                    </ul>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-rental-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-rental" type="button" role="tab">
+                                        <i class="mx-1 bi bi-clipboard-check"></i> بنود التأجير
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-documents-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-documents" type="button" role="tab">
+                                        <i class="mx-1 bi bi-file-earmark-text"></i> الوثائق
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-maintenance-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-maintenance" type="button" role="tab">
+                                        <i class=" mx-1 bi bi-tools"></i> الصيانة
+                                    </button>
+                                </li>
+                            </ul>
 
-                    <!-- Tab Content -->
-                    <div class="tab-content" id="pills-tabContent">
-                        <!-- Rental Terms Tab -->
-                        <div class="tab-pane fade active show" id="pills-rental" role="tabpanel">
-                            <div class="row justify-content-center" id="rentalContent">
-                                <!-- سيتم ملئ المحتوى ديناميكياً -->
+                            <!-- Tab Content -->
+                            <div class="tab-content" id="pills-tabContent">
+                                <!-- Rental Terms Tab -->
+                                <div class="tab-pane fade active show" id="pills-rental" role="tabpanel">
+                                    <div class="row justify-content-center" id="rentalContent">
+                                        <!-- سيتم ملئ المحتوى ديناميكياً -->
+                                    </div>
+                                </div>
+
+                                <!-- Documents Tab -->
+                                <div class="tab-pane fade" id="pills-documents" role="tabpanel">
+                                    <div class="info-card" id="documentsContent">
+                                        <!-- سيتم ملئ المحتوى ديناميكياً -->
+                                    </div>
+                                </div>
+
+                                <!-- Maintenance Tab -->
+                                <div class="tab-pane fade" id="pills-maintenance" role="tabpanel">
+                                    <div class="info-card" id="maintenanceContent">
+                                        <!-- سيتم ملئ المحتوى ديناميكياً -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Documents Tab -->
-                        <div class="tab-pane fade" id="pills-documents" role="tabpanel">
-                            <div class="info-card" id="documentsContent">
-                                <!-- سيتم ملئ المحتوى ديناميكياً -->
-                            </div>
-                        </div>
 
-                        <!-- Maintenance Tab -->
-                        <div class="tab-pane fade" id="pills-maintenance" role="tabpanel">
-                            <div class="info-card" id="maintenanceContent">
-                                <!-- سيتم ملئ المحتوى ديناميكياً -->
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-
             </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -3542,7 +3448,7 @@
         const dataLists = {
             Cities: ["مكة- الشرائع ", "مكة - اجياد ", "مكة - العدل ", "مكة - العزيزية ", "مكة - التيسير ", "مكة - الخنساء", "مكة - الخالدية"],
             Nationalities: ["سعودي", "قطري", "كويتي", "اماراتي", "بحريني", "اردني", "فلسطيني"],
-            workPlace: ["جهة 1", "جهة 2 ", "جهة 3 ", "جهة 4", "جهة 5", "جهة 6", "جهة 7"]
+            workPlace: ["وزارة الاتصالات وتقنية المعلومات", "وزارة الاقتصاد والتخطيط", "وزارة الإسكان", "وزارة البيئة والمياه والزراعة", "وزارة التجارة والاستثمار"]
 
         };
 
@@ -4304,7 +4210,33 @@
             `;
         }  
 </script>
+<script>
 
+const daySelect = document.getElementById('day');
+for (let i = 1; i <= 31; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    daySelect.appendChild(option);
+}
+
+const monthSelect = document.getElementById('month');
+for (let i = 1; i <= 12; i++) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    monthSelect.appendChild(option);
+}
+
+const yearSelect = document.getElementById('year');
+const currentYear = new Date().getFullYear();
+for (let i = currentYear; i >= currentYear - 100; i--) {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = i;
+    yearSelect.appendChild(option);
+}
+</script>
 </body>
 
 </html>
