@@ -2805,10 +2805,10 @@
 
                                                 </fieldset>
                                                 <fieldset>
-                                                    <div class="form-card form-card7 g-2">
-                                                       <div class="col-12 d-flex flex-column h-100 justify-content-between">
-                                                         <div class="row flex-row-reverse">
-                                                            <div class=" col-md-6 col-lg-4 d-flex payment-col">
+                                                    <div class="form-card form-card7 ">
+                                                       <div class="col-12 d-flex flex-column h-100 justify-content-between g-2 p-0">
+                                                         <div class="row flex-row-reverse g-2 align-items-baseline">
+                                                            <div class=" col-md-6 col-lg-4 d-flex payment-col flex-wrap">
                                                                 <div class="col-auto">
                                                                     <p id="contract-number">رقم العقد</p>
 
@@ -2842,7 +2842,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row flex-row-reverse  ">
+                                                        <div class="row flex-row-reverse  g-2 align-items-baseline ">
                                                             <div class="col-md-6 col-lg-4 d-flex payment-col ">
                                                                 <div class="col-auto">
                                                                     <label id="days-number" for="days-number-input">
@@ -2883,7 +2883,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row flex-row-reverse ">
+                                                        <div class="row flex-row-reverse  g-2 align-items-baseline">
                                                             <div class="col-md-6 col-lg-4 d-flex payment-col  flex-wrap ">
                                                                 <div
                                                                     class="col-12 col-md-auto d-flex gap-3 flex-wrap contract-value ">
@@ -2983,7 +2983,7 @@
                                                                 </div>
                                                             </div>
                                                                 <div class="col-auto d-flex payment-col align-items-start">
-                                                                     <div class="col-auto">
+                                                                     <div class="col-auto mb-3">
                                                                         <div class="form-check Driver-checks">
                                                                             <label class="form-check-label"
                                                                                 for="External-delegation">
@@ -3016,9 +3016,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="row flex-row-reverse align-items-baseline g-2">
-                                                            <div class="col-md-6 col-lg-4 d-flex payment-col ">
+                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap payment-col ">
 
-                                                                <div class="col-4 col-sm-auto" id="discount-percentage">
+                                                                <div class="col-sm-auto" id="discount-percentage">
                                                                     <label for="discount-percentage-input"> نسبة
                                                                         الخصم</label>
                                                                 </div>
@@ -3029,8 +3029,8 @@
                                                                 </div>
 
                                                             </div>
-                                                            <div class="col-md-6 col-lg-4 d-flex  payment-col ">
-                                                                <div class="col-4 col-sm-auto" id="addational-hours">
+                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col ">
+                                                                <div class="col-sm-auto" id="addational-hours">
                                                                     <label for="addational-hours-input">
                                                                         ساعات مجانية</label>
                                                                 </div>
@@ -3041,8 +3041,8 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 col-lg-4 d-flex  payment-col ">
-                                                                <div class="col-4 col-sm-auto" id="addational-kilos">
+                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col ">
+                                                                <div class="col-sm-auto" id="addational-kilos">
                                                                     <label for="addational-kilos-input">
                                                                         الكيلوات الاضافية</label>
                                                                 </div>
@@ -3054,7 +3054,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row flex-row-reverse ">
+                                                        <div class="row flex-row-reverse  g-2 align-items-baseline">
                                                             <div class="col-md-6 col-lg-4 d-flex payment-col">
                                                                 <div class="col-auto">
                                                                     <p id="Total contract"> اجمالي العقد</p>
@@ -3076,7 +3076,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row flex-row-reverse ">
+                                                        <div class="row flex-row-reverse  g-2 align-items-baseline">
                                                             <div class="col-md-6 col-lg-4 d-flex payment-col">
                                                                 <div class="col-auto">
                                                                     <p id="Total contract"> صافي العقد</p>
@@ -3116,11 +3116,7 @@
                                                                     <input type="tel" class="form-control2 form-control"
                                                                         id="amount-paid-input" name="amount-paid"
                                                                         autocomplete="off">
-                                                                    <div class="row requird-field-row-last">
-                                                                        <span class="requird-field invisible">الحقل
-                                                                            مطلوب
-                                                                        </span>
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-lg-4 d-flex  payment-col">
@@ -3168,15 +3164,17 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row p-2 row-step1 ">
-                                                            <div class="col-auto">
-                                                                <p id="notes">ملاحظات</p>
+                                                        <div class="row my-2 row-step1 g-2">
+                                                           <div class="col-lg-6 d-flex  payment-col">
+                                                             <div class="col-auto">
+                                                                <p id="notes">الملاحظات</p>
                                                             </div>
-                                                            <div class="col-lg-6">
+                                                            <div class="col-lg-12">
                                                                 <textarea class="form-control  textarea-inputs"
                                                                     id="FormControl-last-Textarea" rows="1"
                                                                     maxlength="100"></textarea>
                                                             </div>
+                                                           </div>
 
                                                         </div>
                                                         </div>
