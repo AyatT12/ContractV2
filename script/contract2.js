@@ -15,7 +15,7 @@ function ImgUpload() {
   $('.upload__inputfile').each(function () {
     $(this).on('change', function (e) {
       imgWrap = $(this).closest('.upload__box').find('.upload_img-wrap_inner');
-      var maxLength = 12;
+      var maxLength = 16;
       var files = e.target.files;
       var filesArr = Array.prototype.slice.call(files);
       var uploadBtnBox = document.getElementById('checking-img');
@@ -24,7 +24,7 @@ function ImgUpload() {
 
       if (imgArray.length + filesArr.length > maxLength) {
         uploadBtnBox.disabled = true;
-        errorMessageDiv.textContent = 'بحد أدنى صورة واحدة (۱) وحدأقصى اثني عشرة صورة (۱۲) ';
+        errorMessageDiv.textContent = 'الرجاء ... التحقق من جميع البنود و بحد اقصى 16 صورة';
         errorMessageDiv.style.display = 'block';
         uploadBtnBox1.style.display = 'none';
       } else {
@@ -105,14 +105,14 @@ function ImgUpload() {
     $(this).parent().parent().remove();
     console.log(imgArray);
 
-    var maxLength = 12;
+    var maxLength = 16;
     var uploadBtnBox = document.getElementById('checking-img');
     var errorMessageDiv = document.getElementById('error-message');
     var uploadBtnBox1 = document.getElementById('upload__btn-box');
 
     if (imgArray.length >= maxLength) {
       uploadBtnBox.disabled = true;
-      errorMessageDiv.textContent = 'بحد أدنى صورة واحدة (۱) وحدأقصى اثني عشرة صورة (۱۲) ';
+      errorMessageDiv.textContent = 'الرجاء ... التحقق من جميع البنود و بحد اقصى 16 صورة';
       errorMessageDiv.style.display = 'block';
       uploadBtnBox1.style.display = 'none';
     } else {
@@ -122,15 +122,23 @@ function ImgUpload() {
     }
   });
 
-  $('body').on('click', '.img-bg', function (e) {
-    var imageUrl = $(this).css('background-image');
-    imageUrl = imageUrl.replace(/url\(["']?/, '').replace(/["']?\)/, '');
-    $('#preview-image').attr('src', imageUrl);
-    $('#image-preview').modal('show');
-  });
+ 
+
 }
 
+$('body').on('click', '.img-bg', function (e) {
+  var imageUrl = $(this).css('background-image');
+  imageUrl = imageUrl.replace(/^url\(['"](.+)['"]\)/, '$1');
+  var newTab = window.open();
+  newTab.document.body.innerHTML = '<img src="' + imageUrl + '">';
 
+  $(newTab.document.body).css({
+    'background-color': 'black',
+    display: 'flex',
+    'align-items': 'center',
+    'justify-content': 'center',
+  });
+});
 
 // // //////////////////////////////////////////////// رفع صورة التوقيع ////////////////////////////////////////////////////////////////////////
 
@@ -160,26 +168,52 @@ UploadSigntaurePic.addEventListener("click", function () {
   imageUpload.click();
 });
 
-imageUpload.addEventListener("change", function () {
+imageUpload.addEventListener("change", async function () {
   const file = imageUpload.files[0];
-  if (file) {
+  if (!file) return;
+
+  const isHEIC = file.type === "image/heic" || file.type === "image/heif" || file.name.toLowerCase().endsWith(".heic") || file.name.toLowerCase().endsWith(".heif");
+
+  const handleSignaturePreview = (dataURL) => {
+    const previewImage = document.createElement("img");
+    previewImage.classList.add("preview-image");
+    previewImage.src = dataURL;
+    previewImage.id = "signatureImage";
+    imgeURL = dataURL;
+
+    mainContainer.innerHTML = '<i class="fa-regular fa-circle-xmark xmark-icon"></i>';
+    uploadContainer.innerHTML = "";
+    uploadContainer.appendChild(previewImage);
+    uploadContainer.classList.add("previewing");
+  };
+
+  if (isHEIC) {
+    try {
+      const convertedBlob = await heic2any({
+        blob: file,
+        toType: "image/jpeg",
+        quality: 0.9,
+      });
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        handleSignaturePreview(e.target.result);
+      };
+      reader.readAsDataURL(convertedBlob);
+
+    } catch (err) {
+      console.error("HEIC conversion failed", err);
+      alert("فشل تحويل صورة HEIC، يرجى اختيار صورة بصيغة أخرى.");
+    }
+  } else {
     const reader = new FileReader();
     reader.onload = function (e) {
-      const imageURL = e.target.result;
-      const previewImage = document.createElement("img");
-      previewImage.classList.add("preview-image");
-      previewImage.src = imageURL;
-      previewImage.id = "signatureImage";
-      imgeURL = imageURL;
-      mainContainer.innerHTML =
-        '<i class="fa-regular fa-circle-xmark"  style="cursor: pointer;"></i>';
-      uploadContainer.innerHTML = "";
-      uploadContainer.appendChild(previewImage);
-      uploadContainer.classList.add("previewing");
+      handleSignaturePreview(e.target.result);
     };
     reader.readAsDataURL(file);
   }
 });
+
 
 removeSignatureImg.addEventListener("click", function (event) {
   event.preventDefault();
