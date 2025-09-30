@@ -7,7 +7,8 @@ body {
 }
 
 .form-check label {
-    margin-left: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .radio-style {
