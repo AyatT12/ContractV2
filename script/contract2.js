@@ -24,7 +24,7 @@ function ImgUpload() {
 
       if (imgArray.length + filesArr.length > maxLength) {
         uploadBtnBox.disabled = true;
-        errorMessageDiv.textContent = 'الرجاء ... التحقق من جميع البنود و بحد اقصى 16 صورة';
+        errorMessageDiv.textContent = 'الرجاء ... التحقق من جميع البنود و بحد اقصى 22 صورة';
         errorMessageDiv.style.display = 'block';
         uploadBtnBox1.style.display = 'none';
       } else {
@@ -112,7 +112,7 @@ function ImgUpload() {
 
     if (imgArray.length >= maxLength) {
       uploadBtnBox.disabled = true;
-      errorMessageDiv.textContent = 'الرجاء ... التحقق من جميع البنود و بحد اقصى 16 صورة';
+      errorMessageDiv.textContent = 'الرجاء ... التحقق من جميع البنود و بحد اقصى 22 صورة';
       errorMessageDiv.style.display = 'block';
       uploadBtnBox1.style.display = 'none';
     } else {
