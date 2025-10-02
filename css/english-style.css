@@ -247,3 +247,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 
 }
+/* Technical CheckUp Btn */
+#CurrentReadingg{
+    padding-left:auto ;
+    padding-right: 0px;
+}
+/*  */
+#msform {
+    text-align: left;
+}

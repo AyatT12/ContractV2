@@ -3,13 +3,11 @@
     padding: 0;
 }
 
-html {
-    height: 100%;
-}
+
 
 /*Background color*/
 body {
-    font-family: cairo;
+    font-family: 'Cairo';
     font-weight: 400;
     height: 100vh;
     font-size: .875rem;
@@ -1146,9 +1144,6 @@ input[type=checkbox] {
 
 /***************************************************cards-media**************************************************/
 @media (max-height:600px) {
-    .form-card {
-        height:400px;
-    }
     .table-scroll{
         min-height: 350px;
     }
@@ -2336,4 +2331,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .valid {
   color: green;
+}
+/* Technical CheckUp Btn */
+#CurrentReadingg{
+    padding-left:0px ;
+}
+@media (max-width:520px) {
+    .TechnicalCheckUp_Btn{
+        padding: 8px;
+    }
+    .TechnicalCheckUp_Btn_Title{
+        display: none;
+    }
+}
+/* Virtual Inspection Error */
+
+@media (max-width:1199px) {
+   #error-message{
+    display: none;
+   }
+}
+
+@media (max-height:786px) {
+ .form-card{
+    height: 55vh;
+ }
 }
