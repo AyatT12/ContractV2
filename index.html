@@ -254,7 +254,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col">
-                                                                                    صورة الهوية
+                                                                                   <span class="ID-Photo"> صورة الهوية </span>
                                                                                 </div>
                                                                             </div>
                                                                         </button>
@@ -309,7 +309,7 @@
                                                                             <div class="col-auto">
                                                                                 <div class="form-check Driver-checks">
                                                                                     <input class="form-check-input"
-                                                                                        type="radio" value=""
+                                                                                        type="checkbox" value=""
                                                                                         id="driver1" name="driver">
                                                                                     <label class="form-check-label"
                                                                                         for="driver1">
@@ -324,7 +324,7 @@
                                                                                         سائق خاص
                                                                                     </label>
                                                                                     <input class="form-check-input"
-                                                                                        type="radio" name="driver"
+                                                                                        type="checkbox" name="driver"
                                                                                         id="driver2"
                                                                                         value="another-driver">
                                                                                 </div>
@@ -1360,7 +1360,7 @@
                                                                     </div>
                                                                     <div class="col-lg-12  inner-hidden-row-div">
                                                                         <div class="row align-items-center">
-                                                                            <div class="col-auto col-lg-7">
+                                                                            <div class="col-lg-7">
                                                                                 <div class="row">
                                                                                     <div class="col-auto col-lg-6">
                                                                                         <label
@@ -1380,7 +1380,7 @@
                                                                                             </span>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-auto col-lg-6">
+                                                                                    <div class="col-md-6">
                                                                                         <label for="licence-driver-type"
                                                                                             class="form-label">
                                                                                             نوع الرخصة
@@ -1409,7 +1409,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="col-auto">
+                                                                            <div class="col">
                                                                                 <label for="endDate-driver"
                                                                                     class="form-label">
                                                                                     نهايتها </label>
@@ -1932,7 +1932,7 @@
                                                                     </div>
                                                                     <div class="col-lg-12  inner-hidden-row-div">
                                                                         <div class="row align-items-center">
-                                                                            <div class="col-auto col-lg-7">
+                                                                            <div class="col-lg-7">
                                                                                 <div class="row">
                                                                                     <div class="col-auto col-lg-6">
                                                                                         <label
@@ -1952,7 +1952,7 @@
                                                                                             </span>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-auto col-lg-6">
+                                                                                    <div class="col-md-6">
                                                                                         <label
                                                                                             for="licence-Add-driver-type"
                                                                                             class="form-label"> نوع
@@ -2863,10 +2863,9 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 col-lg-4 d-flex  payment-col">
-                                                                <div class="col-auto">
+                                                            <div class="col-md-6 col-lg-4 d-flex  payment-col align-items-end">
+                                                                <div class="col-auto payment-inputs_label">
                                                                     <label id="Renting-policy"> سياسة التأجير</label>
-
                                                                 </div>
                                                                 <div class="col-md-7 personal-data">
                                                                     <div class="offset">
@@ -2887,9 +2886,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row flex-row-reverse  g-2 align-items-center ">
-                                                            <div class="col-md-6 col-lg-4 d-flex payment-col ">
-                                                                <div class="col-auto">
+                                                        <div class="row flex-row-reverse  g-2 align-items-center">
+                                                            <div class="col-md-6 col-lg-4 d-flex payment-col align-items-end ">
+                                                                <div class="col-auto payment-inputs_label days-count">
                                                                     <label id="days-number" for="days-number-input">
                                                                         عدد الأيام</label>
                                                                 </div>
@@ -3007,9 +3006,9 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 col-lg-4 d-flex  payment-col">
-                                                                <div class="col-auto">
-                                                                    <label for="Receiving-branch-dropdown"> فرع التسليم
+                                                            <div class="col-md-6 col-lg-4 d-flex  payment-col align-items-end">
+                                                                <div class="col-auto payment-inputs_label">
+                                                                    <label for="Receiving-branch"> فرع التسليم
                                                                     </label>
                                                                 </div>
                                                                 <div class="col-md-7 personal-data">
@@ -3061,10 +3060,9 @@
                                                             </div>
                                                         </div>
                                                         <div class="row flex-row-reverse align-items-center g-2 mb-2">
-                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap payment-col ">
-
-                                                                <div class="col-auto" id="discount-percentage">
-                                                                    <label for="discount-percentage-input"> نسبة
+                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap payment-col align-items-center ">
+                                                                <div class="col-auto d-flex align-items-center" id="discount-percentage">
+                                                                    <label for="discount-percentage-input" class="mb-md-0"> نسبة
                                                                         الخصم</label>
                                                                 </div>
                                                                 <div class="col-auto">
@@ -3072,11 +3070,10 @@
                                                                         id="discount-percentage-input"
                                                                         name="discount-percentage" autocomplete="off">
                                                                 </div>
-
                                                             </div>
-                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col ">
-                                                                <div class="col-auto" id="addational-hours">
-                                                                    <label for="addational-hours-input">
+                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col align-items-center">
+                                                                <div class="col-auto d-flex align-items-center" id="addational-hours">
+                                                                    <label for="addational-hours-input" class="mb-md-0">
                                                                         ساعات مجانية</label>
                                                                 </div>
                                                                 <div class="col-auto">
@@ -3086,9 +3083,9 @@
 
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col ">
-                                                                <div class="col-auto" id="addational-kilos">
-                                                                    <label for="addational-kilos-input">
+                                                            <div class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col align-items-center">
+                                                                <div class="col-auto d-flex align-items-center" id="addational-kilos">
+                                                                    <label for="addational-kilos-input" class="mb-md-0">
                                                                         الكيلوات الاضافية</label>
                                                                 </div>
                                                                 <div class="col-auto">
@@ -3151,7 +3148,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row flex-row-reverse g-2 ">
+                                                        <div class="row flex-row-reverse g-2 mb-2">
                                                             <div class="col-md-6 col-lg-4 d-flex align-items-center justify-content-end">
                                                                 <div class="col-auto personal-data">
                                                                     <input type="tel" class="form-control2 form-control"
@@ -3159,8 +3156,8 @@
                                                                         autocomplete="off">
                                                                     
                                                                 </div>
-                                                                <div class="col-auto">
-                                                                    <label id="amount-paid" for="amount-paid-input">
+                                                                <div class="col-auto d-flex align-items-center">
+                                                                    <label id="amount-paid" for="amount-paid-input" class="mb-md-0">
                                                                         المبلغ المدفوع</label>
                                                                 </div>
                                                                 
@@ -3180,8 +3177,8 @@
                                                                     </div>
 
                                                                 </div>
-                                                                <div class="col-auto">
-                                                                    <label id="payment-method">طريقة الدفع</label>
+                                                                <div class="col-auto d-flex align-items-center">
+                                                                    <label id="payment-method" class="mb-md-0">طريقة الدفع</label>
 
                                                                 </div>
                                                                 
@@ -3203,17 +3200,17 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-auto">
-                                                                    <label id="selling-point"> نقطة البيع </label>
+                                                                <div class="col-auto d-flex align-items-center">
+                                                                    <label id="selling-point" class="mb-md-0"> نقطة البيع </label>
 
                                                                 </div>
                                                                
                                                             </div>
                                                         </div>
                                                         <div class="row p-1 row-step1 g-2">
-                                                           <div class="col-lg-6 d-flex  payment-col">
-                                                             <div class="col-md-auto">
-                                                                <label id="notes" for="FormControl-last-Textarea">الملاحظات</label>
+                                                           <div class="col-lg-6 d-flex payment-col align-items-center">
+                                                             <div class="col-auto d-flex align-items-center">
+                                                                <label id="notes" for="FormControl-last-Textarea" class="mb-md-0">الملاحظات</label>
                                                             </div>
                                                             <div class="col">
                                                                 <textarea class="form-control  textarea-inputs"
@@ -4592,6 +4589,45 @@
             yearSelect.appendChild(option);
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[name="driver"]');
+            const optionDivs = document.querySelectorAll('.driver-option');
+            const selectedOptionSpan = document.getElementById('selected-option');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function(e) {
+                    if (this.checked) {
+                        checkboxes.forEach(cb => {
+                            if (cb !== this) {
+                                cb.checked = false;
+                                const otherOption = cb.closest('.driver-option');
+                                otherOption.classList.remove('selected');
+                            }
+                        });
+                        
+                        this.closest('.driver-option').classList.add('selected');
+                        
+                        selectedOptionSpan.textContent = this.nextElementSibling.textContent.trim();
+                    } else {
+                        this.closest('.driver-option').classList.remove('selected');
+                        selectedOptionSpan.textContent = 'None';
+                    }
+                });
+            });
+            
+            optionDivs.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    if (e.target.type !== 'checkbox') {
+                        const checkbox = this.querySelector('input[type="checkbox"]');
+                        checkbox.checked = !checkbox.checked;
+                        checkbox.dispatchEvent(new Event('click'));
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
