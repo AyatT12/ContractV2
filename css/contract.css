@@ -1040,7 +1040,6 @@ input[type=checkbox] {
 .payment-col {
     justify-content: flex-start;
     flex-direction: row-reverse;
-    align-items: baseline;
     padding: 0;
 }
 
@@ -2357,3 +2356,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 55vh;
  }
 }
+/* payment screen */
+.payment-inputs_label{
+height: 53px;
+display: flex;
+}
+@media (max-width:425px) {
+.payment-inputs_label{
+    height: auto;
+}
+}
+@media (min-width:311px) {
+.days-count{
+height: 53px;
+}
+}
+
