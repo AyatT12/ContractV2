@@ -162,7 +162,7 @@ fieldset {
 .main-card {
     box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important;
     height: 100%;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 #progressbar {
@@ -1689,25 +1689,21 @@ fieldset:disabled .btn {
     }
 }
 
-@media (max-width:767px) {
+@media (max-width:768px) {
     .otc-row {
         margin-left: 0rem;
     }
 
     .dropdown-content {
-
         width: 245px;
         left: auto;
-        right: 0%;
+        right: auto;
         transform: translateX(0%);
-    }
-
-    #payment-extra-details {
-        margin-bottom: 15px;
     }
 
     .payment-dropdown-content {
         width: 245px;
+        left: -80%;
     }
 }
 
@@ -2372,3 +2368,8 @@ height: 53px;
 }
 }
 
+
+/* centered icon */
+.centered-icon{
+height: 57px;
+}

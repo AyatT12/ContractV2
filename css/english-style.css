@@ -186,25 +186,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* /////////////////////media for the seacrh icon list on mobiles///////////////////////// */
-@media (max-width:775px) {
+@media (max-width:767px) {
 
     .dropdown-content {
-        left: 50%;
-        right: 0%;
-        transform: translateX(90%);
+        left: 0%;
+        right: 50%;
     }
 
     .payment-dropdown-content {
-        top: 22px;
+       left: 0%;
+       right: -50%;
     }
 }
 
-@media (max-width: 320px) {
+/* @media (max-width: 320px) {
     .payment-dropdown-content {
         right: 220px;
         transform: translateX(90%);
     }
-}
+} */
 
 /* ****************media****************** */
 @media (max-width: 320px) {
