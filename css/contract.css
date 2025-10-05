@@ -1068,7 +1068,7 @@ input[type=checkbox] {
     border-radius: 8px;
 }
 
-#tenant-details {
+ {
     cursor: pointer;
 }
 
@@ -1090,11 +1090,7 @@ input[type=checkbox] {
         transform: translateX(-90%);
     }
 
-    #tenant-details {
-        padding: 5px;
-    }
-
-
+   
 }
 
 /* ****************media****************** */
