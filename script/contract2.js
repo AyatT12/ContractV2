@@ -397,13 +397,14 @@ removeIDImg.addEventListener("click", function (event) {
   }
 });
 
-// // //////////////////////////////////////////////// التقاط صورة الهوية ////////////////////////////////////////////////////////////////////////
+// Global variable to track which button was clicked
+let currentUploadButton = null;
+
+// // ////////////////////////////////////////////////  التقاط صورة الهوية او الرخصة////////////////////////////////////////////////////////////////////////
 const openCameraButton = document.getElementById('openCamera');
-document
-.getElementById("openCamera")
-.addEventListener("click", function () {
-  saveIDBtn = "CameraID";
-  console.log(saveIDBtn)
+document.getElementById("openCamera").addEventListener("click", function () {
+    saveIDBtn = "CameraID";
+    console.log(saveIDBtn);
 });
 
 openCameraButton.addEventListener('click', async () => {
@@ -449,36 +450,66 @@ openCameraButton.addEventListener('click', async () => {
     }
 });
 
-// Save the uploded IDphoto image
+// Save the uploaded IDphoto image
 function SaveUplodedIDphoto() {
-  const img = document.getElementById("IDImage");
-  const canvas = document.createElement("canvas");
-  canvas.width = img.width;
-  canvas.height = img.height;
-  const context = canvas.getContext("2d");
-  context.drawImage(img, 0, 0, canvas.width, canvas.height);
-  const base64 = canvas.toDataURL("image/jpeg");
-  console.log(base64);
-  $("#IDphoto-modal").modal("hide");
-
+    const img = document.getElementById("IDImage");
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const context = canvas.getContext("2d");
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    const base64 = canvas.toDataURL("image/jpeg");
+    console.log(base64);
+    $("#IDphoto-modal").modal("hide");
 }
+
 // Save the camera IDphoto image
 function SaveCameraIDphoto() {
-  const img = document.getElementById("photo");
-  const canvas = document.createElement("canvas");
-  canvas.width = img.width;
-  canvas.height = img.height;
-  const context = canvas.getContext("2d");
-  context.drawImage(img, 0, 0, canvas.width, canvas.height);
-  const base64 = canvas.toDataURL("image/jpeg");
-  console.log(base64);
-  $("#IDphoto-modal").modal("hide");
-
+    const img = document.getElementById("photo");
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const context = canvas.getContext("2d");
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    const base64 = canvas.toDataURL("image/jpeg");
+    console.log(base64);
+    $("#IDphoto-modal").modal("hide");
 }
+
+function updateButtonImage() {
+    if (currentUploadButton) {
+        const img = currentUploadButton.querySelector('img');
+        const activeIcon = currentUploadButton.getAttribute('data-active-icon');
+        
+        if (img && activeIcon) {
+            img.src = activeIcon;
+        }
+    }
+    currentUploadButton = null;
+}
+document.querySelectorAll('.Upload-Photo-Button').forEach(button => {
+    button.addEventListener('click', function() {
+
+      currentUploadButton = this;
+        
+        this.style.opacity = '0.8';
+        setTimeout(() => {
+            this.style.opacity = '1';
+        }, 200);
+    });
+});
+
 document.getElementById("ID-photo-save").addEventListener("click", function () {
-  if (saveIDBtn === "UploadIDPic") {
-    SaveUplodedIDphoto();
-  } else if (saveIDBtn === "CameraID"){
-    SaveCameraIDphoto();
-  }
+    if (saveIDBtn === "UploadIDPic") {
+        SaveUplodedIDphoto();
+            updateButtonImage();
+    } else if (saveIDBtn === "CameraID") {
+        SaveCameraIDphoto();
+            updateButtonImage();
+
+    }
+});
+
+document.getElementById('IDphoto-modal').addEventListener('hidden.bs.modal', function () {
+    currentUploadButton = null;
 });
