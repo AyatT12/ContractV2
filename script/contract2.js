@@ -343,6 +343,7 @@ WriteSignature.addEventListener("click", function () {
 
 // // //////////////////////////////////////////////// رفع صورة الهوية ////////////////////////////////////////////////////////////////////////
 let saveIDBtn = null;
+let hasValidImage = false; // Track if there's a valid image
 
 document
   .getElementById("UploadIDPic")
@@ -361,6 +362,7 @@ const IDuploadedImg = null;
 
 UploadIDPic.addEventListener("click", function () {
   IDimageUpload.click();
+  removeIDImg.style.display='Block'
 });
 
 IDimageUpload.addEventListener("change", function () {
@@ -387,6 +389,8 @@ IDimageUpload.addEventListener("change", function () {
       IDuploadContainer.innerHTML = "";
       IDuploadContainer.appendChild(IDpreviewImage);
       IDuploadContainer.classList.add("previewing");
+      
+      hasValidImage = true; // Set to true when image is uploaded
     };
     reader.readAsDataURL(file);
   }
@@ -400,6 +404,9 @@ removeIDImg.addEventListener("click", function (event) {
     IDuploadContainer.classList.remove("previewing");
     IDuploadContainer.innerHTML =
       ' <img class="upload-icon" src="img/Rectangle 144.png" alt="Upload Icon"><p>ارفق صورة الهوية </p>';
+    
+    hasValidImage = false; // Reset to false when image is deleted
+    resetButtonImage(); // Reset button to initial state
   }
 });
 
@@ -460,6 +467,7 @@ openCameraButton.addEventListener('click', async () => {
             openImageInNewTab(dataUrl);
         });
         
+        hasValidImage = true; 
         videoElement.remove();
     }
 });
@@ -501,28 +509,57 @@ function openImageInNewTab(imageDataUrl) {
 // Save the uploaded IDphoto image
 function SaveUplodedIDphoto() {
     const img = document.getElementById("IDImage");
+    if (!img) {
+        console.log("No image found for uploaded ID photo");
+        $("#IDphoto-modal").modal("hide");
+        return false;
+    }
+    
     const canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
+    
+    // Check if canvas width is 0
+    if (canvas.width === 0) {
+        $("#IDphoto-modal").modal("hide");
+        return false;
+    }
+    
     const context = canvas.getContext("2d");
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
     const base64 = canvas.toDataURL("image/jpeg");
     console.log(base64);
     $("#IDphoto-modal").modal("hide");
+    return true;
 }
 
 // Save the camera IDphoto image
 function SaveCameraIDphoto() {
     const img = document.getElementById("photo");
+    if (!img) {
+        console.log("No image found for camera ID photo");
+        $("#IDphoto-modal").modal("hide");
+        return false;
+    }
+    
     const canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
+    
+    // Check if canvas width is 0
+    if (canvas.width === 0) {
+        $("#IDphoto-modal").modal("hide");
+        return false;
+    }
+    
     const context = canvas.getContext("2d");
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
     const base64 = canvas.toDataURL("image/jpeg");
     console.log(base64);
     $("#IDphoto-modal").modal("hide");
+    return true;
 }
+
 // تحديث زر فتح مودال الهوية في حالة تم رفع صورة 
 function updateButtonImage() {
     if (currentUploadButton) {
@@ -535,9 +572,25 @@ function updateButtonImage() {
     }
     currentUploadButton = null;
 }
+
+function resetButtonImage() {
+    if (currentUploadButton) {
+        const img = currentUploadButton.querySelector('img');
+        const initialIcon = currentUploadButton.getAttribute('data-initial-icon')
+        
+        if (img && initialIcon) {
+            img.src = initialIcon;
+        } else if (img) {
+
+          img.style.filter = 'none';
+            img.style.opacity = '1';
+        }
+    }
+    currentUploadButton = null;
+}
+
 document.querySelectorAll('.Upload-Photo-Button').forEach(button => {
     button.addEventListener('click', function() {
-
       currentUploadButton = this;
         
         this.style.opacity = '0.8';
@@ -548,16 +601,32 @@ document.querySelectorAll('.Upload-Photo-Button').forEach(button => {
 });
 
 document.getElementById("ID-photo-save").addEventListener("click", function () {
+    let saveSuccessful = false;
+    
     if (saveIDBtn === "UploadIDPic") {
-        SaveUplodedIDphoto();
-        updateButtonImage();
+        saveSuccessful = SaveUplodedIDphoto();
     } else if (saveIDBtn === "CameraID") {
-        SaveCameraIDphoto();
+        saveSuccessful = SaveCameraIDphoto();
+    }
+    
+    if (saveSuccessful && hasValidImage) {
         updateButtonImage();
-
+    } else {
+        resetButtonImage();
     }
 });
 
 document.getElementById('IDphoto-modal').addEventListener('hidden.bs.modal', function () {
+    if (!hasValidImage) {
+        resetButtonImage();
+    }
     currentUploadButton = null;
+});
+
+document.getElementById('IDphoto-modal').addEventListener('show.bs.modal', function () {
+
+  const hasImage = IDuploadContainer.querySelector('img.preview-image') || 
+                    IDuploadContainer.querySelector('img#photo') || 
+                    IDuploadContainer.querySelector('img#IDImage');
+    hasValidImage = !!hasImage;
 });
