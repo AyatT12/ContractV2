@@ -314,14 +314,24 @@ ResendButton.addEventListener('click', function() {
 //////////////////////////// tenant details ///////////////////////////////////////////////////////
 const image = document.getElementById("tenant-details");
 const dropdown = document.getElementById("dropdown-content");
-dropdown.style.display == "block"
-image.addEventListener("click", function(event) {
-if ( dropdown.style.display == "none"){
-  dropdown.style.display = "block";
-}else{
-  dropdown.style.display = "none";
 
-}
+image.addEventListener("click", function(event) {
+  event.stopPropagation(); 
+  if (dropdown.style.display === "none" || dropdown.style.display === "") {
+    dropdown.style.display = "block";
+  } else {
+    dropdown.style.display = "none";
+  }
+});
+
+document.addEventListener("click", function(event) {
+  if (!image.contains(event.target) && !dropdown.contains(event.target)) {
+    dropdown.style.display = "none";
+  }
+});
+
+dropdown.addEventListener("click", function(event) {
+  event.stopPropagation();
 });
 // // //////////////////////choose-adriver-display////////////////
 document.addEventListener("DOMContentLoaded", function () {
@@ -347,37 +357,65 @@ const image2 = document.getElementById("driver-details");
 const dropdown2 = document.getElementById("driver-details-dropdown");
 
 image2.addEventListener("click", function(event) {
-  if ( dropdown2.style.display == "block"){
-    dropdown2.style.display = "none";
-  }else{
+  event.stopPropagation(); 
+  if (dropdown2.style.display === "none" || dropdown2.style.display === "") {
     dropdown2.style.display = "block";
-  
+  } else {
+    dropdown2.style.display = "none";
   }
 });
 
+document.addEventListener("click", function(event) {
+  if (!image2.contains(event.target) && !dropdown2.contains(event.target)) {
+    dropdown2.style.display = "none";
+  }
+});
+
+dropdown2.addEventListener("click", function(event) {
+  event.stopPropagation();
+});
 
 //////////////////////////// aad driver details ///////////////////////////////////////////////////////
 const image3 = document.getElementById("add-driver-details");
 const dropdown3 = document.getElementById("add-Driver-dropdown");
 
 image3.addEventListener("click", function(event) {
-  if ( dropdown3.style.display == "none"){
+  event.stopPropagation(); 
+  if (dropdown3.style.display === "none" || dropdown3.style.display === "") {
     dropdown3.style.display = "block";
-  }else{
+  } else {
     dropdown3.style.display = "none";
-  
   }
+});
+
+document.addEventListener("click", function(event) {
+  if (!image3.contains(event.target) && !dropdown3.contains(event.target)) {
+    dropdown3.style.display = "none";
+  }
+});
+
+dropdown3.addEventListener("click", function(event) {
+  event.stopPropagation();
 });
 /////////////////////////////////////////////////////////////////////////search-icon-payment///////////////////////////////////////////////////////////////////
 const imagePay = document.getElementById('payment-extra-details');
 const dropdownPay = document.getElementById('dropdown-content-payment');
 
-imagePay.addEventListener('click', function () {
-    if (dropdownPay.style.display === 'block') {
-        dropdownPay.style.display = 'none';
-    } else {
-        dropdownPay.style.display = 'block';
-    }
+imagePay.addEventListener("click", function(event) {
+  event.stopPropagation(); 
+  if (dropdownPay.style.display === "none" || dropdownPay.style.display === "") {
+    dropdownPay.style.display = "block";
+  } else {
+    dropdownPay.style.display = "none";
+  }
 });
 
+document.addEventListener("click", function(event) {
+  if (!imagePay.contains(event.target) && !dropdownPay.contains(event.target)) {
+    dropdownPay.style.display = "none";
+  }
+});
 
+dropdownPay.addEventListener("click", function(event) {
+  event.stopPropagation();
+});

@@ -342,8 +342,6 @@ WriteSignature.addEventListener("click", function () {
 
 
 // // //////////////////////////////////////////////// رفع صورة الهوية ////////////////////////////////////////////////////////////////////////
-
-//variables//
 let saveIDBtn = null;
 
 document
@@ -375,6 +373,14 @@ IDimageUpload.addEventListener("change", function () {
       IDpreviewImage.classList.add("preview-image");
       IDpreviewImage.src = IDimageURL;
       IDpreviewImage.id = "IDImage";
+      
+      // Add click event to open image in new tab
+      IDpreviewImage.style.cursor = 'pointer';
+      IDpreviewImage.title = 'Click to open image in new tab';
+      IDpreviewImage.addEventListener('click', function() {
+        openImageInNewTab(IDimageURL);
+      });
+      
       imgeURL = IDimageURL;
       IDmainContainer.innerHTML =
         '<i class="fa-regular fa-circle-xmark"  style="cursor: pointer;"></i>';
@@ -410,7 +416,7 @@ document.getElementById("openCamera").addEventListener("click", function () {
 openCameraButton.addEventListener('click', async () => {
     let videoElement = document.getElementById('videoElement');
     let photo = document.getElementById('photo');
-
+    removeIDImg.style.display='none'
     if (!videoElement) {
         IDuploadContainer.innerHTML = `
             <video id="videoElement" autoplay></video>
@@ -446,9 +452,51 @@ openCameraButton.addEventListener('click', async () => {
         const dataUrl = canvasElement.toDataURL('image/png');
         photo.src = dataUrl;
         photo.style.display = 'block';
+        
+        // عند الضغط يتم فتح الصورة في تاب مستقلة
+        photo.style.cursor = 'pointer';
+        photo.title = 'Click to open image in new tab';
+        photo.addEventListener('click', function() {
+            openImageInNewTab(dataUrl);
+        });
+        
         videoElement.remove();
     }
 });
+
+//الفانكشن المسؤلة عن فتح الصورة 
+function openImageInNewTab(imageDataUrl) {
+    const newWindow = window.open();
+    newWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Image Preview</title>
+            <style>
+                body { 
+                    margin: 0; 
+                    padding: 20px; 
+                    display: flex; 
+                    justify-content: center; 
+                    align-items: center; 
+                    min-height: 100vh;
+                    background-color: #000000ff;
+                }
+                img { 
+                    max-width: 100%; 
+                    max-height: 90vh; 
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+                    border-radius: 8px;
+                }
+            </style>
+        </head>
+        <body>
+            <img src="${imageDataUrl}" alt="Preview">
+        </body>
+        </html>
+    `);
+    newWindow.document.close();
+}
 
 // Save the uploaded IDphoto image
 function SaveUplodedIDphoto() {
@@ -475,7 +523,7 @@ function SaveCameraIDphoto() {
     console.log(base64);
     $("#IDphoto-modal").modal("hide");
 }
-
+// تحديث زر فتح مودال الهوية في حالة تم رفع صورة 
 function updateButtonImage() {
     if (currentUploadButton) {
         const img = currentUploadButton.querySelector('img');
@@ -502,10 +550,10 @@ document.querySelectorAll('.Upload-Photo-Button').forEach(button => {
 document.getElementById("ID-photo-save").addEventListener("click", function () {
     if (saveIDBtn === "UploadIDPic") {
         SaveUplodedIDphoto();
-            updateButtonImage();
+        updateButtonImage();
     } else if (saveIDBtn === "CameraID") {
         SaveCameraIDphoto();
-            updateButtonImage();
+        updateButtonImage();
 
     }
 });
