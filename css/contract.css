@@ -1068,7 +1068,7 @@ input[type=checkbox] {
     border-radius: 8px;
 }
 
- {
+#tenant-details {
     cursor: pointer;
 }
 
@@ -1084,13 +1084,11 @@ input[type=checkbox] {
 /* /////////////////////media for the seacrh icon list on mobiles///////////////////////// */
 @media (max-width:575px) {
 
-
     .payment-dropdown-content {
         left: 180px;
         transform: translateX(-90%);
     }
 
-   
 }
 
 /* ****************media****************** */
@@ -1259,6 +1257,14 @@ input[type=checkbox] {
 }
 
 /* ////////////////////////////////////////Signature///////////////////////////////////////////////// */
+#IDphoto-modal .modal-header .btn-close{
+    background: url(../img/cancel-2.svg) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    opacity: 1;
+    width: .5em;
+    border-radius: 0;
+}
 .signature-modal-content,
 .IDphoto-modal-content {
     width: 300px;
