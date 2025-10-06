@@ -64,7 +64,7 @@
                                 <div class="col-md-12">
                                     <div class="row pt-2">
                                         <div class="col-auto">
-                                            <a href="https://ayatt12.github.io/BranchesUI/" style="width: fit-content;">
+                                            <a href="https://ayatt12.github.io/Suggested_Branches_Ui/" style="width: fit-content;">
                                                 <img src="img/Close.svg" alt="cancle_icon" class="cancle-icon"></a>
                                         </div>
                                         <div class="col">
@@ -3210,7 +3210,7 @@
                                                                         <div class="form-check Driver-checks">
                                                                             <label class="form-check-label"
                                                                                 for="External-delegation">
-                                                                                التفويض الخارجي
+                                                                                تفويض الخارجي
                                                                             </label>
                                                                             <input
                                                                                 class="External-delegation-input form-check-input"
@@ -3239,10 +3239,9 @@
                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div
-                                                                class="row flex-row-reverse align-items-center g-2 mb-2">
+                                                            <div class="row flex-row-reverse align-items-center g-2 gy-3">
                                                                 <div
-                                                                    class="col-md-6 col-lg-4 d-flex flex-wrap payment-col align-items-center ">
+                                                                    class="col-md-6 col-lg-4 d-flex flex-wrap payment-col align-items-center mb-3">
                                                                     <div class="col-auto d-flex align-items-center"
                                                                         id="discount-percentage">
                                                                         <label for="discount-percentage-input"
@@ -3258,7 +3257,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col align-items-center">
+                                                                    class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col align-items-center mb-3">
                                                                     <div class="col-auto d-flex align-items-center"
                                                                         id="addational-hours">
                                                                         <label for="addational-hours-input"
@@ -3274,7 +3273,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col align-items-center">
+                                                                    class="col-md-6 col-lg-4 d-flex flex-wrap  payment-col align-items-center mb-3">
                                                                     <div class="col-auto d-flex align-items-center"
                                                                         id="addational-kilos">
                                                                         <label for="addational-kilos-input"
@@ -3289,9 +3288,7 @@
 
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row flex-row-reverse  g-2 align-items-center">
-                                                                <div class="col-md-6 col-lg-4 d-flex payment-col">
+                                                                  <div class="col-md-6 col-lg-4 d-flex payment-col">
                                                                     <div class="col-auto">
                                                                         <p id="Total contract"> اجمالي العقد</p>
 
@@ -3311,8 +3308,6 @@
 
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row flex-row-reverse  g-2 align-items-center">
                                                                 <div class="col-md-6 col-lg-4 d-flex payment-col">
                                                                     <div class="col-auto">
                                                                         <p id="Total contract"> صافي العقد</p>
@@ -3342,6 +3337,12 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <!-- <div class="row flex-row-reverse  g-2 align-items-center">
+                                                              
+                                                            </div> -->
+                                                            <!-- <div class="row flex-row-reverse  g-2 align-items-center">
+                                                                
+                                                            </div> -->
                                                             <div class="row flex-row-reverse g-2 mb-2">
                                                                 <div
                                                                     class="col-md-6 col-lg-4 d-flex align-items-center justify-content-end">
@@ -3430,15 +3431,15 @@
                                                     </div>
 
                                                     <div class="row button-row align-items-center">
-                                                        <div class="col-auto py-2  d-flex flex-wrap gap-2">
+                                                        <div class="col-auto py-2 px-0  d-flex flex-wrap gap-1">
                                                             <button type="button" class="btn check-btn payment-button"
-                                                                id="SubmitFormBtn">حفظ العقد
+                                                                id="SubmitFormBtn">حفظ
                                                             </button>
                                                             <button type="button"
                                                                 class="btn check-btn payment-button signature-button"
                                                                 data-bs-toggle="modal" href="#signature-modal"
                                                                 id="signature-Modal-button">
-                                                                <div class="row align-items-center">
+                                                                <div class="row align-items-center g-1">
                                                                     <div class="col-auto">
                                                                         <div class="systems-check"> <i
                                                                                 class="fa-solid fa-check text-white"></i>
@@ -3450,7 +3451,7 @@
                                                                 </div>
                                                             </button>
                                                         </div>
-                                                        <div class="col-sm-auto">
+                                                        <div class="col-auto">
                                                             <input type="button" name="previous"
                                                                 class="previous action-button-previous"
                                                                 value="السابق" />
@@ -3718,9 +3719,12 @@
                             </div>
                             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
                             <div class="modal fade" id="IDphoto-modal" tabindex="-1"
-                                aria-labelledby="PicignaturPopupModalLabel" aria-hidden="true">
+                                aria-labelledby="PicignaturPopupModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" >
                                 <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
                                     <div class="modal-content IDphoto-modal-content p-3">
+                                        <div class="modal-header p-1 border-0">
+                                            <button type="button" class="btn-close m-0 p-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
                                         <div class="modal-body IDphoto-modal-body">
                                             <div class="ID-Card">
                                                 <div class="ID-main-container" id="removeIDImg"></div>
