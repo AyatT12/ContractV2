@@ -420,56 +420,68 @@ document.getElementById("openCamera").addEventListener("click", function () {
     console.log(saveIDBtn);
 });
 
-openCameraButton.addEventListener('click', async () => {
-    let videoElement = document.getElementById('videoElement');
-    let photo = document.getElementById('photo');
-    removeIDImg.style.display='none'
-    if (!videoElement) {
-        IDuploadContainer.innerHTML = `
+openCameraButton.addEventListener("click", async () => {
+  let videoElement = document.getElementById("videoElement");
+  let photo = document.getElementById("photo");
+  removeIDImg.style.display = "none";
+  if (!videoElement) {
+    IDuploadContainer.innerHTML = `
             <video id="videoElement" autoplay></video>
             <img id="photo" alt="The screen capture will appear in this box." style="display:none;">
         `;
-        videoElement = document.getElementById('videoElement');
-        photo = document.getElementById('photo');
-
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-            videoElement.srcObject = stream;
-
-            await new Promise(resolve => {
-                videoElement.onloadedmetadata = () => {
-                    resolve();
-                };
-            });
-
-        } catch (error) {
-            console.error('Error accessing the camera:', error);
-        }
-    } else {
-        const canvasElement = document.createElement('canvas');
-        canvasElement.width = videoElement.videoWidth;
-        canvasElement.height = videoElement.videoHeight;
-        const context = canvasElement.getContext('2d');
-        context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
-
-        const stream = videoElement.srcObject;
-        const tracks = stream.getTracks();
-        tracks.forEach(track => track.stop());
-
-        const dataUrl = canvasElement.toDataURL('image/png');
-        photo.src = dataUrl;
-        photo.style.display = 'block';
-        
-        // عند الضغط يتم فتح الصورة في تاب مستقلة
-        photo.style.cursor = 'pointer';
-        photo.title = 'Click to open image in new tab';
-        photo.addEventListener('click', function() {
-            openImageInNewTab(dataUrl);
+    videoElement = document.getElementById("videoElement");
+    photo = document.getElementById("photo");
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: { exact: "environment" },
+        },
+      });
+      videoElement.srcObject = stream;
+    } catch (error) {
+      console.log("Back camera not available, using default camera");
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: "environment",
+          },
         });
-        
-        hasValidImage = true; 
-        videoElement.remove();
+        videoElement.srcObject = stream;
+      } catch (fallbackError) {
+        console.error("Error accessing any camera:", fallbackError);
+      }
     }
+  } else {
+    const canvasElement = document.createElement("canvas");
+    canvasElement.width = videoElement.videoWidth;
+    canvasElement.height = videoElement.videoHeight;
+    const context = canvasElement.getContext("2d");
+    context.drawImage(
+      videoElement,
+      0,
+      0,
+      canvasElement.width,
+      canvasElement.height
+    );
+
+    const stream = videoElement.srcObject;
+    const tracks = stream.getTracks();
+    tracks.forEach((track) => track.stop());
+
+    const dataUrl = canvasElement.toDataURL("image/png");
+    photo.src = dataUrl;
+    photo.style.display = "block";
+
+    // عند الضغط يتم فتح الصورة في تاب مستقلة
+    photo.style.cursor = "pointer";
+    photo.title = "Click to open image in new tab";
+    photo.addEventListener("click", function () {
+      openImageInNewTab(dataUrl);
+    });
+
+    hasValidImage = true;
+    videoElement.remove();
+  }
 });
 
 //الفانكشن المسؤلة عن فتح الصورة 
