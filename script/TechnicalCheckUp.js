@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
 
     // إضافة صورة الفحص الفني كخلفية لل كانفاس
     const carBackground = new Image();
-    carBackground.src = 'img/car shape.svg';
+    carBackground.src = 'img/car shape2.svg';
     carBackground.onload = function () {
         ctx.drawImage(carBackground, 0, 0, shapeCanvas.width, shapeCanvas.height);
     };
@@ -79,7 +79,6 @@ shapeCanvas.addEventListener('click', (event) => {
         addShape(event);
     }
 });
-
 function addShape(event) {
     const ctx = shapeCanvas.getContext('2d');
 
@@ -97,22 +96,33 @@ function addShape(event) {
     const x = clickX * scaleX;
     const y = clickY * scaleY;
 
-    // رسم الخدش بعد اعادة حساب احداثياته
-    ctx.drawImage(selectedShape, x - 10, y - 10, 20, 20);
+    try {
+        const pixel = ctx.getImageData(x, y, 1, 1).data;
 
-    currentIndex++;
-    drawnShapes[currentIndex] = {
-        shape: selectedShape,
-        x: x - 10,
-        y: y - 10,
-        type: selectedShapeType
-    };
-    drawnShapes = drawnShapes.slice(0, currentIndex + 1);
-    updateSketchRepresentation();
-    console.log(SketchRepresentation)
-    console.log(drawnShapes)
+        // pixel[3] هوا الرقم الذي يدل على الشفافية
+        if (pixel[3] === 0) {
+        // إذا ضغط المستخدم على منطقة شفافة من الصورة  يتم تجاهل النقر ولا يتم رسم أيقونة الخدش أو الشكل
+            console.log("Click was on transparent area. Ignored.");
+            return;
+        }
 
+       //  رسم الخدش بعد اعادة حساب احداثياته و التأكد من انه داخل حدود السيارة 
+        ctx.drawImage(selectedShape, x - selectedShape.width / 2, y - selectedShape.height / 2, 20, 20);
+
+        currentIndex++;
+        drawnShapes[currentIndex] = {
+            shape: selectedShape,
+            x: x - selectedShape.width / 2,
+            y: y - selectedShape.height / 2,
+            type: selectedShapeType
+        };
+        drawnShapes = drawnShapes.slice(0, currentIndex + 1);
+        updateSketchRepresentation();
+    } catch (err) {
+        console.error("Canvas security error: ", err);
+    }
 }
+
 function undo() {
     if (currentIndex >= 0) {
         currentIndex--;
@@ -133,7 +143,7 @@ function redrawShapes() {
     ctx.clearRect(0, 0, shapeCanvas.width, shapeCanvas.height);
 
     const carBackground = new Image();
-    carBackground.src = 'img/car shape.svg';
+    carBackground.src = 'img/car shape2.svg';
     carBackground.onload = function () {
         ctx.drawImage(carBackground, 0, 0, shapeCanvas.width, shapeCanvas.height);
 
