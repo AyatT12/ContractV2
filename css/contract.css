@@ -2345,7 +2345,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media (max-width:1199px) {
    #error-message{
-    display: none;
+    display: none !important;
    }
 }
 
