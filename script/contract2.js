@@ -3,69 +3,87 @@ jQuery(document).ready(function () {
 });
 
 function HideFirstImg() {
-  var firstImg = document.getElementById('upload-img1');
-  firstImg.style.display = 'none';
+  var firstImg = document.getElementById("upload-img1");
+  firstImg.style.display = "none";
 }
 
 var imgArray = [];
 
 function ImgUpload() {
-  var imgWrap = '';
+  var imgWrap = "";
 
-  $('.upload__inputfile').each(function () {
-    $(this).on('change', function (e) {
-      imgWrap = $(this).closest('.upload__box').find('.upload_img-wrap_inner');
+  $(".upload__inputfile").each(function () {
+    $(this).on("change", function (e) {
+      imgWrap = $(this).closest(".upload__box").find(".upload_img-wrap_inner");
       var maxLength = 16;
       var files = e.target.files;
       var filesArr = Array.prototype.slice.call(files);
-      var uploadBtnBox = document.getElementById('checking-img');
-      var uploadBtnBox1 = document.getElementById('upload__btn-box');
-      var errorMessageDiv = document.getElementById('error-message');
+      var uploadBtnBox = document.getElementById("checking-img");
+      var uploadBtnBox1 = document.getElementById("upload__btn-box");
+      var errorMessageDivs = document.getElementsByClassName("Examination-error-message"); 
 
       if (imgArray.length + filesArr.length > maxLength) {
         uploadBtnBox.disabled = true;
-        errorMessageDiv.textContent = 'الرجاء ... التحقق من جميع البنود و بحد اقصى 22 صورة';
-        errorMessageDiv.style.display = 'block';
-        uploadBtnBox1.style.display = 'none';
+        // Loop 
+        for (var j = 0; j < errorMessageDivs.length; j++) {
+          errorMessageDivs[j].textContent =
+            "الرجاء ... التحقق من جميع البنود و بحد اقصى 22 صورة";
+          errorMessageDivs[j].style.display = "block";
+        }
+        uploadBtnBox1.style.display = "none";
       } else {
         uploadBtnBox.disabled = false;
-        errorMessageDiv.style.display = 'none';
-        uploadBtnBox1.style.display = 'block';
+        // Loop 
+        for (var j = 0; j < errorMessageDivs.length; j++) {
+          errorMessageDivs[j].style.display = "none";
+        }
+        uploadBtnBox1.style.display = "block";
       }
 
-      for (var i = 0; i < Math.min(filesArr.length, maxLength - imgArray.length); i++) {
+      for (
+        var i = 0;
+        i < Math.min(filesArr.length, maxLength - imgArray.length);
+        i++
+      ) {
         (function (f) {
           console.log("Selected file type:", f.type);
 
-          if (f.type === 'image/heic' || f.type === 'image/heif' || f.name.endsWith('.heic') || f.name.endsWith('.heif')) {
-            console.log("Processing HEIC/HEIF file:", f.name); 
+          if (
+            f.type === "image/heic" ||
+            f.type === "image/heif" ||
+            f.name.endsWith(".heic") ||
+            f.name.endsWith(".heif")
+          ) {
+            console.log("Processing HEIC/HEIF file:", f.name);
 
             heic2any({
               blob: f,
-              toType: "image/jpeg"
-            }).then(function (convertedBlob) {
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                var html =
-                  "<div class='upload__img-box'><div style='background-image: url(" +
-                  e.target.result +
-                  ")' data-number='" +
-                  $('.upload__img-close').length +
-                  "' data-file='" +
-                  f.name +
-                  "' class='img-bg'><div class='upload__img-close'><img src='img/delete.png'></div></div></div>";
+              toType: "image/jpeg",
+            })
+              .then(function (convertedBlob) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                  var html =
+                    "<div class='upload__img-box'><div style='background-image: url(" +
+                    e.target.result +
+                    ")' data-number='" +
+                    $(".upload__img-close").length +
+                    "' data-file='" +
+                    f.name +
+                    "' class='img-bg'><div class='upload__img-close'><img src='img/delete.png'></div></div></div>";
 
-                imgWrap.append(html);
-                imgArray.push({
-                  f: f,
-                  url: e.target.result
-                });
-                console.log(imgArray);
-              };
-              reader.readAsDataURL(convertedBlob); 
-            }).catch(function (err) {
-              console.error("Error converting HEIC/HEIF image:", err);
-            });
+                  imgWrap.append(html);
+                  imgArray.push({
+                    f: f,
+                    url: e.target.result,
+                  });
+                  console.log(imgArray);
+                };
+                reader.readAsDataURL(convertedBlob);
+              })
+              .catch(function (err) {
+                console.error("Error converting HEIC/HEIF image:", err);
+              });
           } else {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -73,27 +91,27 @@ function ImgUpload() {
                 "<div class='upload__img-box'><div style='background-image: url(" +
                 e.target.result +
                 ")' data-number='" +
-                $('.upload__img-close').length +
+                $(".upload__img-close").length +
                 "' data-file='" +
                 f.name +
                 "' class='img-bg'><div class='upload__img-close'><img src='img/delete.png'></div></div></div>";
               imgWrap.append(html);
               imgArray.push({
                 f: f,
-                url: e.target.result
+                url: e.target.result,
               });
               console.log(imgArray);
             };
-            reader.readAsDataURL(f); 
+            reader.readAsDataURL(f);
           }
         })(filesArr[i]);
       }
     });
   });
 
-  $('body').on('click', '.upload__img-close', function (e) {
+  $("body").on("click", ".upload__img-close", function (e) {
     e.stopPropagation();
-    var file = $(this).parent().data('file');
+    var file = $(this).parent().data("file");
 
     for (var i = 0; i < imgArray.length; i++) {
       if (imgArray[i].f.name === file) {
@@ -106,37 +124,41 @@ function ImgUpload() {
     console.log(imgArray);
 
     var maxLength = 16;
-    var uploadBtnBox = document.getElementById('checking-img');
-    var errorMessageDiv = document.getElementById('error-message');
-    var uploadBtnBox1 = document.getElementById('upload__btn-box');
+    var uploadBtnBox = document.getElementById("checking-img");
+    var errorMessageDivs = document.getElementsByClassName("Examination-error-message"); // Fixed: removed the dot
+    var uploadBtnBox1 = document.getElementById("upload__btn-box");
 
     if (imgArray.length >= maxLength) {
       uploadBtnBox.disabled = true;
-      errorMessageDiv.textContent = 'الرجاء ... التحقق من جميع البنود و بحد اقصى 22 صورة';
-      errorMessageDiv.style.display = 'block';
-      uploadBtnBox1.style.display = 'none';
+      // Loop
+      for (var j = 0; j < errorMessageDivs.length; j++) {
+        errorMessageDivs[j].textContent =
+          "الرجاء ... التحقق من جميع البنود و بحد اقصى 22 صورة";
+        errorMessageDivs[j].style.display = "block";
+      }
+      uploadBtnBox1.style.display = "none";
     } else {
       uploadBtnBox.disabled = false;
-      errorMessageDiv.style.display = 'none';
-      uploadBtnBox1.style.display = 'block';
+      // Loop
+      for (var j = 0; j < errorMessageDivs.length; j++) {
+        errorMessageDivs[j].style.display = "none";
+      }
+      uploadBtnBox1.style.display = "block";
     }
   });
-
- 
-
 }
 
-$('body').on('click', '.img-bg', function (e) {
-  var imageUrl = $(this).css('background-image');
-  imageUrl = imageUrl.replace(/^url\(['"](.+)['"]\)/, '$1');
+$("body").on("click", ".img-bg", function (e) {
+  var imageUrl = $(this).css("background-image");
+  imageUrl = imageUrl.replace(/^url\(['"](.+)['"]\)/, "$1");
   var newTab = window.open();
   newTab.document.body.innerHTML = '<img src="' + imageUrl + '">';
 
   $(newTab.document.body).css({
-    'background-color': 'black',
-    display: 'flex',
-    'align-items': 'center',
-    'justify-content': 'center',
+    "background-color": "black",
+    display: "flex",
+    "align-items": "center",
+    "justify-content": "center",
   });
 });
 
@@ -172,7 +194,11 @@ imageUpload.addEventListener("change", async function () {
   const file = imageUpload.files[0];
   if (!file) return;
 
-  const isHEIC = file.type === "image/heic" || file.type === "image/heif" || file.name.toLowerCase().endsWith(".heic") || file.name.toLowerCase().endsWith(".heif");
+  const isHEIC =
+    file.type === "image/heic" ||
+    file.type === "image/heif" ||
+    file.name.toLowerCase().endsWith(".heic") ||
+    file.name.toLowerCase().endsWith(".heif");
 
   const handleSignaturePreview = (dataURL) => {
     const previewImage = document.createElement("img");
@@ -181,7 +207,8 @@ imageUpload.addEventListener("change", async function () {
     previewImage.id = "signatureImage";
     imgeURL = dataURL;
 
-    mainContainer.innerHTML = '<i class="fa-regular fa-circle-xmark xmark-icon"></i>';
+    mainContainer.innerHTML =
+      '<i class="fa-regular fa-circle-xmark xmark-icon"></i>';
     uploadContainer.innerHTML = "";
     uploadContainer.appendChild(previewImage);
     uploadContainer.classList.add("previewing");
@@ -200,7 +227,6 @@ imageUpload.addEventListener("change", async function () {
         handleSignaturePreview(e.target.result);
       };
       reader.readAsDataURL(convertedBlob);
-
     } catch (err) {
       console.error("HEIC conversion failed", err);
       alert("فشل تحويل صورة HEIC، يرجى اختيار صورة بصيغة أخرى.");
@@ -213,7 +239,6 @@ imageUpload.addEventListener("change", async function () {
     reader.readAsDataURL(file);
   }
 });
-
 
 removeSignatureImg.addEventListener("click", function (event) {
   event.preventDefault();
@@ -228,7 +253,7 @@ removeSignatureImg.addEventListener("click", function (event) {
 // // //////////////////////////////////////////////// كتابة التوقيع ////////////////////////////////////////////////////////////////////////
 const WriteSignature = document.getElementById("WriteSignature");
 WriteSignature.addEventListener("click", function () {
-  document.body.classList.add('no-scroll');
+  document.body.classList.add("no-scroll");
   uploadContainer.innerHTML = "";
   mainContainer.innerHTML = "";
   uploadContainer.innerHTML =
@@ -305,53 +330,47 @@ WriteSignature.addEventListener("click", function () {
   document.getElementById("clear").addEventListener("click", function () {
     clearCanvas();
   });
- 
 });
- function SaveWrittenSignature() {
-  document.body.classList.remove('no-scroll');
-	var canvas = document.getElementById("canvas");
-    var dataURL = canvas.toDataURL();
-    var link = document.createElement("a");
-    link.href = dataURL;
-    console.log(link.href);
-    $("#signature-modal").modal("hide");
-
+function SaveWrittenSignature() {
+  document.body.classList.remove("no-scroll");
+  var canvas = document.getElementById("canvas");
+  var dataURL = canvas.toDataURL();
+  var link = document.createElement("a");
+  link.href = dataURL;
+  console.log(link.href);
+  $("#signature-modal").modal("hide");
+}
+// Save the uploded signature image
+function SaveUplodedSignature() {
+  const img = document.getElementById("signatureImage");
+  const canvas = document.createElement("canvas");
+  canvas.width = img.width;
+  canvas.height = img.height;
+  const context = canvas.getContext("2d");
+  context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  const base64 = canvas.toDataURL("image/png");
+  console.log(base64);
+  $("#signature-modal").modal("hide");
+}
+document.getElementById("save").addEventListener("click", function () {
+  if (saveSignatureBtn === "UploadSigntaurePic") {
+    SaveUplodedSignature();
+  } else if (saveSignatureBtn === "WriteSignature") {
+    SaveWrittenSignature();
+  } else {
+    console.log("No button has been clicked yet");
   }
- // Save the uploded signature image
- function SaveUplodedSignature() {
-    const img = document.getElementById("signatureImage");
-    const canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    const context = canvas.getContext("2d");
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
-    const base64 = canvas.toDataURL("image/png");
-    console.log(base64);
-    $("#signature-modal").modal("hide");
-
-  }
-  document.getElementById("save").addEventListener("click", function () {
-    if (saveSignatureBtn === "UploadSigntaurePic") {
-      SaveUplodedSignature();
-    } else if (saveSignatureBtn === "WriteSignature") {
-      SaveWrittenSignature();
-    } else {
-      console.log("No button has been clicked yet");
-    }
-  });
-
+});
 
 // // //////////////////////////////////////////////// رفع صورة الهوية ////////////////////////////////////////////////////////////////////////
 let saveIDBtn = null;
 let hasValidImage = false; // Track if there's a valid image
 
-document
-  .getElementById("UploadIDPic")
-  .addEventListener("click", function () {
-    saveIDBtn = "UploadIDPic";
-    console.log(saveIDBtn)
-  });
- 
+document.getElementById("UploadIDPic").addEventListener("click", function () {
+  saveIDBtn = "UploadIDPic";
+  console.log(saveIDBtn);
+});
+
 const IDuploadContainer = document.querySelector(".ID-upload-container");
 const IDmainContainer = document.querySelector(".ID-main-container");
 const UploadIDPic = document.getElementById("UploadIDPic");
@@ -362,7 +381,7 @@ const IDuploadedImg = null;
 
 UploadIDPic.addEventListener("click", function () {
   IDimageUpload.click();
-  removeIDImg.style.display='Block'
+  removeIDImg.style.display = "Block";
 });
 
 IDimageUpload.addEventListener("change", function () {
@@ -375,21 +394,21 @@ IDimageUpload.addEventListener("change", function () {
       IDpreviewImage.classList.add("preview-image");
       IDpreviewImage.src = IDimageURL;
       IDpreviewImage.id = "IDImage";
-      
+
       // Add click event to open image in new tab
-      IDpreviewImage.style.cursor = 'pointer';
-      IDpreviewImage.title = 'Click to open image in new tab';
-      IDpreviewImage.addEventListener('click', function() {
+      IDpreviewImage.style.cursor = "pointer";
+      IDpreviewImage.title = "Click to open image in new tab";
+      IDpreviewImage.addEventListener("click", function () {
         openImageInNewTab(IDimageURL);
       });
-      
+
       imgeURL = IDimageURL;
       IDmainContainer.innerHTML =
         '<i class="fa-regular fa-circle-xmark"  style="cursor: pointer;"></i>';
       IDuploadContainer.innerHTML = "";
       IDuploadContainer.appendChild(IDpreviewImage);
       IDuploadContainer.classList.add("previewing");
-      
+
       hasValidImage = true; // Set to true when image is uploaded
     };
     reader.readAsDataURL(file);
@@ -404,7 +423,7 @@ removeIDImg.addEventListener("click", function (event) {
     IDuploadContainer.classList.remove("previewing");
     IDuploadContainer.innerHTML =
       ' <img class="upload-icon" src="img/Rectangle 144.png" alt="Upload Icon"><p>ارفق صورة الهوية </p>';
-    
+
     hasValidImage = false; // Reset to false when image is deleted
     resetButtonImage(); // Reset button to initial state
   }
@@ -414,10 +433,10 @@ removeIDImg.addEventListener("click", function (event) {
 let currentUploadButton = null;
 
 // // ////////////////////////////////////////////////  التقاط صورة الهوية او الرخصة////////////////////////////////////////////////////////////////////////
-const openCameraButton = document.getElementById('openCamera');
+const openCameraButton = document.getElementById("openCamera");
 document.getElementById("openCamera").addEventListener("click", function () {
-    saveIDBtn = "CameraID";
-    console.log(saveIDBtn);
+  saveIDBtn = "CameraID";
+  console.log(saveIDBtn);
 });
 
 openCameraButton.addEventListener("click", async () => {
@@ -484,10 +503,10 @@ openCameraButton.addEventListener("click", async () => {
   }
 });
 
-//الفانكشن المسؤلة عن فتح الصورة 
+//الفانكشن المسؤلة عن فتح الصورة
 function openImageInNewTab(imageDataUrl) {
-    const newWindow = window.open();
-    newWindow.document.write(`
+  const newWindow = window.open();
+  newWindow.document.write(`
         <!DOCTYPE html>
         <html>
         <head>
@@ -515,130 +534,133 @@ function openImageInNewTab(imageDataUrl) {
         </body>
         </html>
     `);
-    newWindow.document.close();
+  newWindow.document.close();
 }
 
 // Save the uploaded IDphoto image
 function SaveUplodedIDphoto() {
-    const img = document.getElementById("IDImage");
-    if (!img) {
-        console.log("No image found for uploaded ID photo");
-        $("#IDphoto-modal").modal("hide");
-        return false;
-    }
-    
-    const canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    
-    // Check if canvas width is 0
-    if (canvas.width === 0) {
-        $("#IDphoto-modal").modal("hide");
-        return false;
-    }
-    
-    const context = canvas.getContext("2d");
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
-    const base64 = canvas.toDataURL("image/jpeg");
-    console.log(base64);
+  const img = document.getElementById("IDImage");
+  if (!img) {
+    console.log("No image found for uploaded ID photo");
     $("#IDphoto-modal").modal("hide");
-    return true;
+    return false;
+  }
+
+  const canvas = document.createElement("canvas");
+  canvas.width = img.width;
+  canvas.height = img.height;
+
+  // Check if canvas width is 0
+  if (canvas.width === 0) {
+    $("#IDphoto-modal").modal("hide");
+    return false;
+  }
+
+  const context = canvas.getContext("2d");
+  context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  const base64 = canvas.toDataURL("image/jpeg");
+  console.log(base64);
+  $("#IDphoto-modal").modal("hide");
+  return true;
 }
 
 // Save the camera IDphoto image
 function SaveCameraIDphoto() {
-    const img = document.getElementById("photo");
-    if (!img) {
-        console.log("No image found for camera ID photo");
-        $("#IDphoto-modal").modal("hide");
-        return false;
-    }
-    
-    const canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    
-    // Check if canvas width is 0
-    if (canvas.width === 0) {
-        $("#IDphoto-modal").modal("hide");
-        return false;
-    }
-    
-    const context = canvas.getContext("2d");
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
-    const base64 = canvas.toDataURL("image/jpeg");
-    console.log(base64);
+  const img = document.getElementById("photo");
+  if (!img) {
+    console.log("No image found for camera ID photo");
     $("#IDphoto-modal").modal("hide");
-    return true;
+    return false;
+  }
+
+  const canvas = document.createElement("canvas");
+  canvas.width = img.width;
+  canvas.height = img.height;
+
+  // Check if canvas width is 0
+  if (canvas.width === 0) {
+    $("#IDphoto-modal").modal("hide");
+    return false;
+  }
+
+  const context = canvas.getContext("2d");
+  context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  const base64 = canvas.toDataURL("image/jpeg");
+  console.log(base64);
+  $("#IDphoto-modal").modal("hide");
+  return true;
 }
 
-// تحديث زر فتح مودال الهوية في حالة تم رفع صورة 
+// تحديث زر فتح مودال الهوية في حالة تم رفع صورة
 function updateButtonImage() {
-    if (currentUploadButton) {
-        const img = currentUploadButton.querySelector('img');
-        const activeIcon = currentUploadButton.getAttribute('data-active-icon');
-        
-        if (img && activeIcon) {
-            img.src = activeIcon;
-        }
+  if (currentUploadButton) {
+    const img = currentUploadButton.querySelector("img");
+    const activeIcon = currentUploadButton.getAttribute("data-active-icon");
+
+    if (img && activeIcon) {
+      img.src = activeIcon;
     }
-    currentUploadButton = null;
+  }
+  currentUploadButton = null;
 }
 
 function resetButtonImage() {
-    if (currentUploadButton) {
-        const img = currentUploadButton.querySelector('img');
-        const initialIcon = currentUploadButton.getAttribute('data-initial-icon')
-        
-        if (img && initialIcon) {
-            img.src = initialIcon;
-        } else if (img) {
+  if (currentUploadButton) {
+    const img = currentUploadButton.querySelector("img");
+    const initialIcon = currentUploadButton.getAttribute("data-initial-icon");
 
-          img.style.filter = 'none';
-            img.style.opacity = '1';
-        }
+    if (img && initialIcon) {
+      img.src = initialIcon;
+    } else if (img) {
+      img.style.filter = "none";
+      img.style.opacity = "1";
     }
-    currentUploadButton = null;
+  }
+  currentUploadButton = null;
 }
 
-document.querySelectorAll('.Upload-Photo-Button').forEach(button => {
-    button.addEventListener('click', function() {
-      currentUploadButton = this;
-        
-        this.style.opacity = '0.8';
-        setTimeout(() => {
-            this.style.opacity = '1';
-        }, 200);
-    });
+document.querySelectorAll(".Upload-Photo-Button").forEach((button) => {
+  button.addEventListener("click", function () {
+    currentUploadButton = this;
+
+    this.style.opacity = "0.8";
+    setTimeout(() => {
+      this.style.opacity = "1";
+    }, 200);
+  });
 });
 
 document.getElementById("ID-photo-save").addEventListener("click", function () {
-    let saveSuccessful = false;
-    
-    if (saveIDBtn === "UploadIDPic") {
-        saveSuccessful = SaveUplodedIDphoto();
-    } else if (saveIDBtn === "CameraID") {
-        saveSuccessful = SaveCameraIDphoto();
-    }
-    
-    if (saveSuccessful && hasValidImage) {
-        updateButtonImage();
-    } else {
-        resetButtonImage();
-    }
+  let saveSuccessful = false;
+
+  if (saveIDBtn === "UploadIDPic") {
+    saveSuccessful = SaveUplodedIDphoto();
+  } else if (saveIDBtn === "CameraID") {
+    saveSuccessful = SaveCameraIDphoto();
+  }
+
+  if (saveSuccessful && hasValidImage) {
+    updateButtonImage();
+  } else {
+    resetButtonImage();
+  }
 });
 
-document.getElementById('IDphoto-modal').addEventListener('hidden.bs.modal', function () {
+document
+  .getElementById("IDphoto-modal")
+  .addEventListener("hidden.bs.modal", function () {
     if (!hasValidImage) {
-        resetButtonImage();
+      resetButtonImage();
     }
     currentUploadButton = null;
-});
+  });
 
-document.getElementById('IDphoto-modal').addEventListener('show.bs.modal', function () {
-
-  const hasImage = IDuploadContainer.querySelector('img.preview-image') || 
-                    IDuploadContainer.querySelector('img#photo') || 
-                    IDuploadContainer.querySelector('img#IDImage');
+document
+  .getElementById("IDphoto-modal")
+  .addEventListener("show.bs.modal", function () {
+    const hasImage =
+      IDuploadContainer.querySelector("img.preview-image") ||
+      IDuploadContainer.querySelector("img#photo") ||
+      IDuploadContainer.querySelector("img#IDImage");
     hasValidImage = !!hasImage;
-});
+  });
