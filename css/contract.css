@@ -1677,7 +1677,8 @@ fieldset:disabled .btn {
 }
 
 #photo {
-    width: 100%;
+   max-width: 100%;
+   max-height: 100%;
 }
 
 /* **************************************** */
