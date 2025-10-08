@@ -2177,7 +2177,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-auto centered-icon">
-                                                                                        <button type="button"
+                                                                                    <button type="button"
                                                                                     class="border-0 bg-transparent Upload-Photo-Button"
                                                                                     data-bs-toggle="modal"
                                                                                     href="#IDphoto-modal"
@@ -3024,7 +3024,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-md-6 col-lg-4 d-flex  payment-col align-items-end">
+                                                                    class="col-md-6 col-lg-4 d-flex  payment-col align-items-start">
                                                                     <div class="col-auto payment-inputs_label">
                                                                         <label id="Renting-policy"> سياسة
                                                                             التأجير</label>
@@ -3053,10 +3053,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row flex-row-reverse  g-2 align-items-center">
-                                                                <div
-                                                                    class="col-md-6 col-lg-4 d-flex payment-col align-items-end ">
-                                                                    <div
-                                                                        class="col-auto payment-inputs_label days-count">
+                                                                <div class="col-md-6 col-lg-4 d-flex payment-col align-items-start ">
+                                                                    <div class="col-auto payment-inputs_label">
                                                                         <label id="days-number" for="days-number-input">
                                                                             عدد الأيام</label>
                                                                     </div>
@@ -3070,7 +3068,6 @@
                                                                                 مطلوب</span>
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
                                                                 <div class="col-md-6 col-lg-4 d-flex  payment-col">
                                                                     <div class="col-auto">
@@ -3184,7 +3181,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="col-md-6 col-lg-4 d-flex  payment-col align-items-end">
+                                                                    class="col-md-6 col-lg-4 d-flex  payment-col align-items-start">
                                                                     <div class="col-auto payment-inputs_label">
                                                                         <label for="Receiving-branch"> فرع التسليم
                                                                         </label>
@@ -3345,16 +3342,18 @@
                                                                 
                                                             </div> -->
                                                             <div class="row flex-row-reverse g-2 mb-2">
-                                                                <div
-                                                                    class="col-md-6 col-lg-4 d-flex align-items-center justify-content-end">
+                                                                <div class="col-md-6 col-lg-4 d-flex align-items-start justify-content-end">
                                                                     <div class="col-auto personal-data">
                                                                         <input type="tel"
                                                                             class="form-control2 form-control"
                                                                             id="amount-paid-input" name="amount-paid"
                                                                             autocomplete="off">
+                                                                             <div class="row requird-field-row-last">
+                                                                            <span class="requird-field"> </span>
+                                                                        </div>
 
                                                                     </div>
-                                                                    <div class="col-auto d-flex align-items-center">
+                                                                    <div class="col-auto payment-inputs_label">
                                                                         <label id="amount-paid" for="amount-paid-input"
                                                                             class="mb-md-0">
                                                                             المبلغ المدفوع</label>
@@ -3362,7 +3361,7 @@
 
                                                                 </div>
                                                                 <div
-                                                                    class="col-md-6 col-lg-4 d-flex align-items-center justify-content-end">
+                                                                    class="col-md-6 col-lg-4 d-flex align-items-start justify-content-end">
                                                                     <div class="col-md-7 personal-data">
                                                                         <div class="offset">
                                                                             <select class="form-select select-style"
@@ -3375,9 +3374,12 @@
                                                                                 <option value="mdai"> مدي</option>
                                                                             </select>
                                                                         </div>
-
+                                                                         <div class="row requird-field-row-last">
+                                                                            <span class="requird-field">الحقل
+                                                                                مطلوب</span>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-auto d-flex align-items-center">
+                                                                    <div class="col-auto payment-inputs_label">
                                                                         <label id="payment-method" class="mb-md-0">طريقة
                                                                             الدفع</label>
 
@@ -3385,7 +3387,7 @@
 
                                                                 </div>
                                                                 <div
-                                                                    class="col-md-6 col-lg-4 d-flex align-items-center justify-content-end">
+                                                                    class="col-md-6 col-lg-4 d-flex align-items-start justify-content-end">
                                                                     <div class="col-md-9 personal-data">
                                                                         <div class="offset">
                                                                             <select class="form-select select-style"
@@ -3404,8 +3406,12 @@
                                                                                     الراجحي</option>
                                                                             </select>
                                                                         </div>
+                                                                         <div class="row requird-field-row-last">
+                                                                            <span class="requird-field">الحقل
+                                                                                مطلوب</span>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-auto d-flex align-items-center">
+                                                                    <div class="col-auto payment-inputs_label">
                                                                         <label id="selling-point" class="mb-md-0"> نقطة
                                                                             البيع </label>
 
@@ -3601,14 +3607,12 @@
 
                             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
                             <div class="modal fade" id="TechnicalCheckUp" aria-hidden="true"
-                                aria-labelledby="TechnicalCheckUpLabel" tabindex="-1">
+                                aria-labelledby="TechnicalCheckUpLabel" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable  modal-xl">
                                     <div class="modal-content">
-                                        <div class="modal-header text-center">
-                                            <p class="modal-title w-100"></p>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-
+                                        <div class="modal-header text-center border-0">
+                                            <button type="button" class="btn-close m-0 p-1" data-bs-dismiss="modal"
+                                                aria-label="Close"></button> 
                                         </div>
                                         <div class="modal-body">
                                             <div class="container">
