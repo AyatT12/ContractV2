@@ -256,3 +256,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 #msform {
     text-align: left;
 }
+#carDetailsModal .modal-content{
+    direction: ltr;
+}
