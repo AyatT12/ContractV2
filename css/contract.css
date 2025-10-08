@@ -2356,21 +2356,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 /* payment screen */
 .payment-inputs_label{
-height: 53px;
-display: flex;
+padding-top: calc((35px - 1.5em) / 2);
 }
-@media (max-width:425px) {
-.payment-inputs_label{
-    height: auto;
-}
-}
-@media (min-width:311px) {
-.days-count{
-height: 53px;
-}
-}
-
-
 /* centered icon */
 .centered-icon{
 height: 57px;
