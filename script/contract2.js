@@ -40,13 +40,12 @@ function ImgUpload() {
         uploadBtnBox1.style.display = "block";
       }
 
-      for (
-        var i = 0;
-        i < Math.min(filesArr.length, maxLength - imgArray.length);
-        i++
-      ) {
+      var processedCount = 0;
+      var totalToProcess = Math.min(filesArr.length, maxLength - imgArray.length);
+
+      for (var i = 0; i < totalToProcess; i++) {
         (function (f) {
-          console.log("Selected file type:", f.type);
+          // console.log("Selected file type:", f.type);
 
           if (
             f.type === "image/heic" ||
@@ -78,11 +77,20 @@ function ImgUpload() {
                     url: e.target.result,
                   });
                   console.log(imgArray);
+                  
+                  processedCount++;
+                  if (processedCount === totalToProcess) {
+                    setTimeout(setImageRowHeight, 100);
+                  }
                 };
                 reader.readAsDataURL(convertedBlob);
               })
               .catch(function (err) {
                 console.error("Error converting HEIC/HEIF image:", err);
+                processedCount++;
+                if (processedCount === totalToProcess) {
+                  setTimeout(setImageRowHeight, 100);
+                }
               });
           } else {
             var reader = new FileReader();
@@ -100,7 +108,12 @@ function ImgUpload() {
                 f: f,
                 url: e.target.result,
               });
-              console.log(imgArray);
+              // console.log(imgArray);
+              
+              processedCount++;
+              if (processedCount === totalToProcess) {
+                setTimeout(setImageRowHeight, 100);
+              }
             };
             reader.readAsDataURL(f);
           }
@@ -125,7 +138,7 @@ function ImgUpload() {
 
     var maxLength = 22;
     var uploadBtnBox = document.getElementById("checking-img");
-    var errorMessageDivs = document.getElementsByClassName("Examination-error-message"); // Fixed: removed the dot
+    var errorMessageDivs = document.getElementsByClassName("Examination-error-message");
     var uploadBtnBox1 = document.getElementById("upload__btn-box");
 
     if (imgArray.length >= maxLength) {
@@ -145,8 +158,76 @@ function ImgUpload() {
       }
       uploadBtnBox1.style.display = "block";
     }
+    
+    setTimeout(setImageRowHeight, 50);
   });
 }
+
+function setImageRowHeight() {
+
+     if (window.innerWidth <= 1199) {
+        const imagesRow = document.querySelector('.virtual-check-images-row');
+        if (imagesRow) {
+            imagesRow.style.height = '';
+        }
+        return;
+    }
+    const virtualCheckData = document.querySelector('.virtual-check-data');
+    const imagesRow = document.querySelector('.virtual-check-images-row');
+    
+    if (!virtualCheckData || !imagesRow) return;
+    
+    let attempts = 0;
+    const maxAttempts = 5;
+    
+    function measureHeight() {
+        const parentHeight = virtualCheckData.offsetHeight;
+        const currentReadingRows = document.querySelectorAll('.CurrentReadingg_row');
+        const errorMessage = document.querySelector('.virtual-check-data > .row.mt-auto');
+        
+        let otherElementsHeight = 0;
+        
+        currentReadingRows.forEach(row => {
+            otherElementsHeight += row.offsetHeight;
+        });
+        
+         if (errorMessage) {
+            otherElementsHeight += errorMessage.offsetHeight;
+        }
+        const buffer = 20;
+        const availableHeight = parentHeight - otherElementsHeight - buffer - 50;
+        console.log(availableHeight)
+        console.log(parentHeight)
+        if (availableHeight > 50 || attempts >= maxAttempts) {
+            imagesRow.style.height = `${Math.max(availableHeight, 200)}px`;
+            return true;
+        }
+        return false;
+    }
+    
+    function tryMeasure() {
+        attempts++;
+        const success = measureHeight();
+        
+        if (!success && attempts < maxAttempts) {
+            setTimeout(tryMeasure, 100);
+        }
+    }
+    
+    tryMeasure();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(setImageRowHeight, 100);
+    setTimeout(setImageRowHeight, 500);
+    setTimeout(setImageRowHeight, 1000);
+});
+
+window.addEventListener('resize', function() {
+    setTimeout(setImageRowHeight, 50);
+    setTimeout(setImageRowHeight, 100);
+    setTimeout(setImageRowHeight, 200);
+});
 
 $("body").on("click", ".img-bg", function (e) {
   var imageUrl = $(this).css("background-image");
