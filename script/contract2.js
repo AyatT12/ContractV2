@@ -15,7 +15,7 @@ function ImgUpload() {
   $(".upload__inputfile").each(function () {
     $(this).on("change", function (e) {
       imgWrap = $(this).closest(".upload__box").find(".upload_img-wrap_inner");
-      var maxLength = 16;
+      var maxLength = 22;
       var files = e.target.files;
       var filesArr = Array.prototype.slice.call(files);
       var uploadBtnBox = document.getElementById("checking-img");
@@ -123,7 +123,7 @@ function ImgUpload() {
     $(this).parent().parent().remove();
     console.log(imgArray);
 
-    var maxLength = 16;
+    var maxLength = 22;
     var uploadBtnBox = document.getElementById("checking-img");
     var errorMessageDivs = document.getElementsByClassName("Examination-error-message"); // Fixed: removed the dot
     var uploadBtnBox1 = document.getElementById("upload__btn-box");
