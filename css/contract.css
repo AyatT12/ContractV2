@@ -58,6 +58,7 @@ body.no-scroll {
 
 .textarea-inputs {
     resize: none;
+    width: 690px;
 }
 
 
@@ -585,7 +586,6 @@ input[type="number"]:nth-child(n+4) {
 /* options fieldset table style */
 .table-bordered thead th {
     border-bottom-width: 1px;
-    border-bottom: 1px solid #FF9626;
     text-align: center;
 
 }
@@ -598,6 +598,14 @@ input[type="number"]:nth-child(n+4) {
 
 .table {
     color: #000000f7;
+}
+
+.table th {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 
@@ -783,10 +791,7 @@ input[type=checkbox] {
 }
 
 .car-catogeries {
-    /* padding-right: 0px;
-    padding-left: 30px; */
     height: 55vh;
-    /* min-height: 450px; */
     overflow-y: hidden;
 }
 
@@ -925,6 +930,7 @@ input[type=checkbox] {
     top: 5px;
     left: 10px;
     font-size: 20px;
+    color: #39629C;
 }
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
