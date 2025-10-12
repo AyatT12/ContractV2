@@ -92,12 +92,21 @@ body.no-scroll {
 
 .check-table-notes {
     border: none;
-    height: 30px;
+    height: 30px !important;
     resize: none;
     width: 100%;
     padding: 0 0.75rem;
 
 }
+.check-table-notes{
+    background: transparent !important;
+}
+.check-table-notes:focus{
+ border: none;
+ background: transparent !important;
+ box-shadow: none;
+}
+
 .Checkup-table td{
     vertical-align: middle;
 }
@@ -662,7 +671,7 @@ footer {
 
 .table {
 
-    --bs-table-hover-bg: #bdbbbb1c;
+  --bs-table-hover-bg: #fff7de;
     width: 100%;
 }
 
@@ -737,7 +746,9 @@ input[type=checkbox] {
     background: rgba(255, 150, 38, 0.40);
     border-radius: 5px;
 }
-
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 150, 38, 0.40) !important;
+}
 .tabel-data-checkbox-td {
     padding: 5px
 }
@@ -761,15 +772,14 @@ input[type=checkbox] {
 }
 
 .scrollable-content::-webkit-scrollbar-track {
-    background-color: hsl(250 15% 93%);
+    background-color: hsl(0, 0%, 100%);
 }
 
 .scrollable-content::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 150, 38, 0.16);
+  background: rgba(255, 150, 38, 0.40);
 }
-
-.scrollable-content::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 150, 38, 0.493);
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #ff9626af;
 }
 
 .car-catogeries {
@@ -2269,14 +2279,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #FF9626;
+    background: #FF9626;
     border-radius: 7px;
 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #ff9626af;
 }
 /* state */
 .btn.focus,
