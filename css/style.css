@@ -591,6 +591,13 @@ input[type="number"]:nth-child(n+4) {
     color: #000000f7;
 }
 
+.table th {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
 
 /* /////////////global////////////// */
