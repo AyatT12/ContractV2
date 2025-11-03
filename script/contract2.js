@@ -165,7 +165,7 @@ function ImgUpload() {
 
 function setImageRowHeight() {
 
-     if (window.innerWidth <= 1199) {
+     if (window.innerWidth <= 991) {
         const imagesRow = document.querySelector('.virtual-check-images-row');
         if (imagesRow) {
             imagesRow.style.height = '';
@@ -194,12 +194,11 @@ function setImageRowHeight() {
          if (errorMessage) {
             otherElementsHeight += errorMessage.offsetHeight;
         }
-        const buffer = 20;
+        const buffer = 30;
         const availableHeight = parentHeight - otherElementsHeight - buffer - 50;
-        console.log(availableHeight)
         console.log(parentHeight)
         if (availableHeight > 50 || attempts >= maxAttempts) {
-            imagesRow.style.height = `${Math.max(availableHeight, 200)}px`;
+            imagesRow.style.height = `${Math.max(availableHeight, 250)}px`;
             return true;
         }
         return false;
@@ -260,7 +259,7 @@ document
     saveSignatureBtn = "WriteSignature";
   });
 const uploadContainer = document.querySelector(".upload-container");
-const mainContainer = document.querySelector(".main-container");
+const mainContainer = document.querySelector(".Signature-main-container");
 const UploadSigntaurePic = document.getElementById("UploadSigntaurePic");
 const imageUpload = document.getElementById("imageUpload");
 var imgeURL;
@@ -338,7 +337,7 @@ WriteSignature.addEventListener("click", function () {
   uploadContainer.innerHTML = "";
   mainContainer.innerHTML = "";
   uploadContainer.innerHTML =
-    '<canvas id="canvas" width="200" height="200" class="mb-2"></canvas>';
+    '<canvas id="canvas" width="200" height="200" class="mb-2 bg-white"></canvas>';
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
   ctx.lineWidth = 4;
