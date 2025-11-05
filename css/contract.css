@@ -2564,3 +2564,8 @@ fieldset {
         height: fit-content;
     }
 }
+@media (max-width:767px) {
+.form-card {
+    min-height: calc(100% - 110px);
+}
+}
