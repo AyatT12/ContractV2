@@ -2933,7 +2933,7 @@
                                                                قيمة العقد
                                                             </div>
                                                              <div class="col-auto">
-                                                             999,999.99
+                                                              732.00
                                                             </div>
                                                             <div class="col-auto">
                                                                 <img src="img/Search_Icon.svg"
@@ -3116,7 +3116,7 @@
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>999,999.99</p>
+                                                                <p>732.00</p>
 
                                                             </div>
                                                            </div>
@@ -3124,7 +3124,7 @@
                                                         <div class="col-md-6 col-lg-4">
                                                           <div class="row flex-row-reverse align-items-center gx-2">
                                                             <div class="col-auto">
-                                                                <p id="Tax-value">القيمة المضافة </p>
+                                                                <p id="Tax-value"> قيمة الضريبة </p>
 
                                                             </div>
                                                             <div class="col-auto personal-data">
@@ -3141,7 +3141,7 @@
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>999,999.99</p>
+                                                                <p>841.80</p>
 
                                                             </div>
                                                             </div>
@@ -3154,7 +3154,7 @@
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>999,999.99</p>
+                                                                <p>0.00</p>
                                                             </div>
                                                             </div>
                                                         </div>
@@ -3165,7 +3165,7 @@
 
                                                             </div>
                                                             <div class="col-auto personal-data">
-                                                                <p>999,999.99</p>
+                                                                <p>841.80 </p>
                                                             </div>
                                                         </div>
                                                         </div>
@@ -3714,7 +3714,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header gap-2">
-                    <h1 class="modal-title fs-5" id="modalCarTitle" style="font-size: 1.2rem;color: black;" >
+                    <h1 class="modal-title" id="modalCarTitle" style="font-size: 1.2rem;color: black;">
                         <i class="bi bi-car-front mx-2"></i>
                         تفاصيل السيارة
                     </h1>
@@ -3998,89 +3998,110 @@
 
     <script src="script/Loader.js"></script>
     <!-- فلتر السيارات -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const carItems = document.querySelectorAll('.Avaliable_cars .car-item');
-            var itemsPerPage = 3;
-            let currentPage = 0;
-            let filteredCars = Array.from(carItems);
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const carItems = document.querySelectorAll('.Avaliable_cars .car-item');
+    let itemsPerPage = 3;
+    let currentPage = 0;
+    let filteredCars = Array.from(carItems);
+    let previousWidth = window.innerWidth;
 
-            function showPage(page) {
-                const startIndex = page * itemsPerPage;
-                const endIndex = startIndex + itemsPerPage;
+    function debounce(func, wait) {
+        let timeout;
+        return function (...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func(...args), wait);
+        };
+    }
 
-                carItems.forEach(car => {
-                    car.style.display = 'none';
-                });
+    function showPage(page) {
+        const startIndex = page * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
 
-                filteredCars.forEach((car, index) => {
-                    if (index >= startIndex && index < endIndex) {
-                        car.style.display = 'block';
-                    }
-                });
+        carItems.forEach(car => {
+            car.style.display = 'none';
+        });
 
-                document.getElementById('Cars_PrevBtn').disabled = page === 0;
-                document.getElementById('Cars_nextBtn').disabled = endIndex >= filteredCars.length;
-
-                const noCarsMessage = document.getElementById('noCarsMessage');
-                if (filteredCars.length === 0) {
-                    if (!noCarsMessage) {
-                        const messageDiv = document.createElement('div');
-                        messageDiv.id = 'noCarsMessage';
-                        messageDiv.className = 'no-cars';
-                        messageDiv.innerHTML = '<p>لا توجد سيارات تطابق معايير التصفية</p>';
-                        document.getElementById('carsContainer').appendChild(messageDiv);
-                    }
-                } else if (noCarsMessage) {
-                    noCarsMessage.remove();
-                }
-            }
-
-            document.getElementById('Cars_PrevBtn').addEventListener('click', function () {
-                if (currentPage > 0) {
-                    currentPage--;
-                    showPage(currentPage);
-                }
-            });
-
-            document.getElementById('Cars_nextBtn').addEventListener('click', function () {
-                if ((currentPage + 1) * itemsPerPage < filteredCars.length) {
-                    currentPage++;
-                    showPage(currentPage);
-                }
-            });
-
-            document.getElementById('carFilter').addEventListener('change', function (e) {
-                const selectedType = e.target.value;
-
-                if (selectedType === 'all') {
-                    filteredCars = Array.from(carItems);
-                } else {
-                    filteredCars = Array.from(carItems).filter(car =>
-                        car.getAttribute('data-type') === selectedType
-                    );
-                }
-
-                currentPage = 0;
-                showPage(currentPage);
-            });
-
-
-            // Update items per page based on screen size
-            updateItemsPerPage();
-            window.addEventListener('resize', () => updateItemsPerPage());
-            function updateItemsPerPage() {
-                if (window.innerWidth <= 1199) {
-                    itemsPerPage = 2;
-                } else {
-                    itemsPerPage = 3;
-                }
-                currentPage = 0;
-                // Initialize
-                showPage(currentPage);
+        filteredCars.forEach((car, index) => {
+            if (index >= startIndex && index < endIndex) {
+                car.style.display = 'block';
             }
         });
-    </script>
+
+        document.getElementById('Cars_PrevBtn').disabled = page === 0;
+        document.getElementById('Cars_nextBtn').disabled = endIndex >= filteredCars.length;
+
+        const noCarsMessage = document.getElementById('noCarsMessage');
+        if (filteredCars.length === 0) {
+            if (!noCarsMessage) {
+                const messageDiv = document.createElement('div');
+                messageDiv.id = 'noCarsMessage';
+                messageDiv.className = 'no-cars';
+                messageDiv.innerHTML = '<p>لا توجد سيارات تطابق معايير التصفية</p>';
+                document.getElementById('carsContainer').appendChild(messageDiv);
+            }
+        } else if (noCarsMessage) {
+            noCarsMessage.remove();
+        }
+    }
+
+    document.getElementById('Cars_PrevBtn').addEventListener('click', function () {
+        if (currentPage > 0) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    document.getElementById('Cars_nextBtn').addEventListener('click', function () {
+        if ((currentPage + 1) * itemsPerPage < filteredCars.length) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    document.getElementById('carFilter').addEventListener('change', function (e) {
+        const selectedType = e.target.value;
+
+        if (selectedType === 'all') {
+            filteredCars = Array.from(carItems);
+        } else {
+            filteredCars = Array.from(carItems).filter(car =>
+                car.getAttribute('data-type') === selectedType
+            );
+        }
+
+        currentPage = 0;
+        showPage(currentPage);
+    });
+
+    function updateItemsPerPage() {
+        const previousItemsPerPage = itemsPerPage;
+
+        if (window.innerWidth <= 1199) {
+            itemsPerPage = 2;
+        } else {
+            itemsPerPage = 3;
+        }
+
+        if (itemsPerPage !== previousItemsPerPage) {
+            currentPage = 0;
+            showPage(currentPage);
+        }
+    }
+
+    updateItemsPerPage();
+    showPage(currentPage);
+
+    window.addEventListener('resize', debounce(() => {
+        const currentWidth = window.innerWidth;
+        if (currentWidth !== previousWidth) {
+            previousWidth = currentWidth;
+            updateItemsPerPage();
+        }
+    }, 50));
+});
+</script>
+
     <!-- عرض البيانات التفصيلية للسيارات المتاحة -->
     <script>
         // بيانات السيارات
