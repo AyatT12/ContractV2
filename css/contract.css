@@ -1423,15 +1423,7 @@ input[type=checkbox] {
     border-radius: 5px;
 }
 
-.btn.disabled,
-.btn:disabled,
-fieldset:disabled .btn {
-    color: white;
-    pointer-events: none;
-    background-color: #4A4A4A;
-    border-color: #4A4A4A;
-    opacity: var(--bs-btn-disabled-opacity);
-}
+
 
 .send-check {
     background-color: white !important;
