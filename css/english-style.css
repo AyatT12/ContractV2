@@ -79,7 +79,6 @@ textarea {
 }
 
 .hidden-input-row {
-    height: 20vh;
     overflow-y: auto;
     direction: rtl;
     text-align: start;
@@ -100,6 +99,7 @@ textarea {
 
 .inputs-style {
     direction: ltr;
+    text-align: start;
 }
 
 .car-catogeries {
@@ -258,4 +258,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 #carDetailsModal .modal-content{
     direction: ltr;
+}
+.Undo-Redo-Container{
+    direction: ltr;
+}
+.js-error{
+    text-align: left;
+}
+#carsContainer {
+    direction: ltr;
+}
+.Available_Car_Card{
+    direction: rtl;
+}
+.moreBtnDiv{
+    text-align: right;
 }
